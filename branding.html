@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="google-site-verification" content="google22feaed34476a4f1" />
+<title>Brend & Identitet Vizual — Logo dhe Dizajn Profesional | VELOX Pogradec</title>
+<meta name="description" content="Krijojmë identitete vizuale që dallohen — logo, ngjyra, tipografi, brand guidelines. Dizajn profesional në Pogradec me dorëzim të shpejtë nga 149€.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://veloxstudio.al/branding">
+<link rel="stylesheet" href="velox-site.css">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VELOX Studio">
+<meta property="og:title" content="Brend & Identitet Vizual — Logo dhe Dizajn Profesional | VELOX">
+<meta property="og:description" content="Logo, ngjyra, tipografi dhe brand guidelines. Dizajn profesional nga 149€.">
+<meta property="og:url" content="https://veloxstudio.al/branding">
+<meta property="og:image" content="https://veloxstudio.al/uploads/og-image.jpg">
+
+<!-- Service Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Brend & Identitet Vizual",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "VELOX Studio",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Pogradec",
+      "addressCountry": "AL"
+    }
+  },
+  "areaServed": "Albania",
+  "description": "Krijim identitetesh vizuale profesionale — logo, ngjyra, tipografi dhe brand guidelines.",
+  "offers": {
+    "@type": "AggregateOffer",
+    "lowPrice": "149",
+    "highPrice": "549",
+    "priceCurrency": "EUR"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..800,100;1,9..144,400..800,100&display=swap" rel="stylesheet">
+
+<style>
+/* ── Nav dropdown ── */
+.nav-dropdown { position: relative; display: inline-flex; align-items: center; }
+.nav-dropdown-toggle {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 8px 14px 8px 18px;
+  border-radius: 999px;
+  font-size: 14px; font-weight: 400;
+  font-family: var(--sans);
+  color: var(--ink-2);
+  text-decoration: none;
+  transition: color .2s, background .2s;
+  cursor: pointer;
+  border: none; background: none;
+  white-space: nowrap;
+}
+.nav-dropdown-toggle:hover,
+.nav-dropdown.open .nav-dropdown-toggle { color: var(--ink); background: rgba(13,26,58,0.05); }
+.nav-dropdown-toggle.active { color: var(--inv); background: var(--navy); }
+.nav-dropdown-toggle .chev {
+  transition: transform .22s var(--ease-out);
+  flex-shrink: 0;
+  color: var(--ink-3);
+}
+.nav-dropdown.open .nav-dropdown-toggle .chev { transform: rotate(180deg); }
+.nav-dropdown-toggle.active .chev { color: rgba(244,247,251,.6); }
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%; transform: translateX(-50%) translateY(-4px);
+  background: rgba(244,247,251,0.97);
+  backdrop-filter: saturate(180%) blur(16px);
+  -webkit-backdrop-filter: saturate(180%) blur(16px);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 0 20px 40px -12px rgba(13,26,58,0.18), 0 2px 8px rgba(13,26,58,0.06);
+  padding: 6px;
+  min-width: 210px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s var(--ease-out), transform .2s var(--ease-out);
+  z-index: 200;
+}
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown.open .nav-dropdown-menu {
+  opacity: 1; pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+.nav-dropdown-item {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 13.5px; font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+  transition: background .15s;
+}
+.nav-dropdown-item:hover { background: rgba(13,26,58,.05); }
+.nav-dropdown-item.active { background: rgba(13,26,58,.06); color: var(--navy); }
+.nav-dropdown-item.disabled {
+  color: var(--ink-3); cursor: default; pointer-events: none;
+}
+.ndi-soon {
+  font-family: var(--mono);
+  font-size: 9px; text-transform: uppercase; letter-spacing: .06em;
+  color: var(--ink-3);
+  background: rgba(13,26,58,.06);
+  padding: 3px 8px; border-radius: 999px;
+  flex-shrink: 0;
+}
+
+/* ── Page header ── */
+.br-header {
+  padding-top: 140px;
+  padding-bottom: 72px;
+  border-bottom: 1px solid var(--line);
+}
+.br-header-inner { max-width: 760px; }
+.br-header .section-h { margin-top: 20px; font-size: clamp(40px, 5vw, 72px); }
+.br-lede {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  max-width: 640px;
+  margin-top: 28px;
+  margin-bottom: 0;
+}
+
+/* ── Why Branding section ── */
+.br-why { padding: 88px 0 72px; border-bottom: 1px solid var(--line); }
+.br-section-head { margin-bottom: 52px; }
+.br-reason-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  overflow: hidden;
+}
+.br-reason {
+  background: var(--bg);
+  padding: 40px 36px 36px;
+  transition: background .2s;
+}
+.br-reason:hover { background: rgba(255,255,255,.8); }
+.br-reason-title {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 14px;
+  font-variation-settings: "SOFT" 100, "opsz" 144;
+}
+.br-reason-title em { font-style: italic; color: var(--peach); font-weight: 400; }
+.br-reason-text {
+  font-size: 15px;
+  color: var(--ink-2);
+  line-height: 1.65;
+}
+
+/* ── Features section ── */
+.br-features { padding: 88px 0 72px; }
+.br-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  overflow: hidden;
+}
+.br-feature {
+  background: var(--bg);
+  padding: 40px 40px 36px;
+  transition: background .2s;
+}
+.br-feature:hover { background: rgba(255,255,255,.8); }
+.br-num {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .1em;
+  color: var(--peach-2);
+  font-weight: 500;
+  margin-bottom: 18px;
+  display: block;
+}
+.br-feature-title {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  color: var(--ink);
+  margin-bottom: 12px;
+  font-variation-settings: "SOFT" 100, "opsz" 144;
+}
+.br-feature-text {
+  font-size: 14.5px;
+  color: var(--ink-2);
+  line-height: 1.65;
+}
+
+/* ── Process section ── */
+.br-process { padding: 88px 0 80px; border-top: 1px solid var(--line); }
+.br-process-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+  margin-top: 52px;
+}
+
+/* ── Pricing preview ── */
+.br-pricing { padding: 88px 0 72px; border-top: 1px solid var(--line); }
+.br-price-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  overflow: hidden;
+  margin-top: 44px;
+  max-width: 720px;
+}
+.br-price-col {
+  background: var(--bg);
+  padding: 40px 40px 36px;
+  display: flex; flex-direction: column; gap: 8px;
+  transition: background .2s;
+}
+.br-price-col:hover { background: rgba(255,255,255,.85); }
+.br-price-col.featured { background: var(--navy); }
+.br-price-col.featured:hover { background: var(--navy-2); }
+.br-price-label {
+  font-family: var(--mono);
+  font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--ink-3);
+}
+.br-price-col.featured .br-price-label { color: rgba(244,247,251,.42); }
+.br-price-name {
+  font-family: var(--serif);
+  font-size: 22px; font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  font-variation-settings: "SOFT" 100, "opsz" 144;
+}
+.br-price-col.featured .br-price-name { color: var(--inv); }
+.br-price-amount {
+  font-family: var(--display);
+  font-size: 42px; font-weight: 700; line-height: 1;
+  color: var(--ink);
+  letter-spacing: -0.03em;
+  font-variation-settings: "SOFT" 100, "opsz" 144;
+  margin-top: 6px;
+}
+.br-price-col.featured .br-price-amount { color: var(--peach); }
+.br-price-includes {
+  font-size: 14px;
+  color: var(--ink-2);
+  line-height: 1.55;
+  margin-top: 6px;
+}
+.br-price-col.featured .br-price-includes { color: rgba(244,247,251,.65); }
+.br-price-footer {
+  text-align: left;
+  margin-top: 28px;
+  font-size: 14px;
+  color: var(--ink-2);
+}
+.br-price-footer a {
+  color: var(--navy);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity .18s;
+}
+.br-price-footer a:hover { opacity: .75; }
+
+/* ── Portfolio section ── */
+.br-portfolio { padding: 88px 0 72px; border-top: 1px solid var(--line); }
+.br-work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 44px;
+}
+.br-work-card {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  text-decoration: none;
+  color: var(--ink);
+  display: flex; flex-direction: column;
+  transition: transform .3s var(--ease-out), box-shadow .3s var(--ease-out);
+  background: #fff;
+  cursor: default;
+}
+.br-work-card.linked { cursor: pointer; }
+.br-work-card.linked:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+.br-work-thumb {
+  height: 200px;
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.br-work-card.a .br-work-thumb { background: linear-gradient(135deg, var(--bg-warm) 0%, #F7D4B8 100%); }
+.br-work-card.b .br-work-thumb { background: var(--navy); color: var(--inv); }
+.br-thumb-label {
+  display: flex; align-items: center; justify-content: space-between;
+  width: 100%; padding: 0 28px;
+}
+.br-thumb-name {
+  font-family: var(--serif);
+  font-size: 24px; font-weight: 500;
+  letter-spacing: -0.02em;
+  font-variation-settings: "SOFT" 100, "opsz" 144;
+}
+.br-work-meta {
+  padding: 22px 28px 26px;
+  display: flex; flex-direction: column; gap: 6px;
+  border-top: 1px solid var(--line);
+}
+.br-work-tag {
+  font-family: var(--mono);
+  font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--ink-3);
+}
+.br-work-title {
+  font-family: var(--serif);
+  font-size: 18px; font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  font-variation-settings: "SOFT" 100, "opsz" 144;
+}
+.br-work-desc {
+  font-size: 14px;
+  color: var(--ink-2);
+  line-height: 1.55;
+  margin-top: 4px;
+}
+
+/* ── Bottom CTA ── */
+.br-cta-section {
+  padding: 88px 0 100px;
+  text-align: center;
+  border-top: 1px solid var(--line);
+}
+.br-cta-inner { max-width: 580px; margin: 0 auto; }
+.br-cta-btns {
+  display: flex; justify-content: center; gap: 12px;
+  flex-wrap: wrap; margin-top: 36px;
+}
+.br-cta-link {
+  display: block; margin-top: 20px;
+  font-size: 14px; color: var(--ink-2);
+  transition: color .18s;
+}
+.br-cta-link:hover { color: var(--navy); }
+.br-cta-link a {
+  color: var(--navy); font-weight: 500;
+  text-decoration: underline; text-underline-offset: 3px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .br-reason-grid { grid-template-columns: 1fr; }
+  .br-grid { grid-template-columns: 1fr; }
+  .br-process-grid { grid-template-columns: 1fr; gap: 40px; }
+  .br-work-grid { grid-template-columns: 1fr; }
+  .br-price-row { grid-template-columns: 1fr; max-width: 100%; }
+}
+@media (max-width: 600px) {
+  .br-header { padding-top: 110px; padding-bottom: 48px; }
+  .br-feature { padding: 28px 24px 24px; }
+  .br-reason { padding: 28px 24px 24px; }
+}
+</style>
+</head>
+<body>
+
+  <!-- ====== Background ====== -->
+  <div class="bg-layer" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-glow"></div>
+    <div class="bg-glow b"></div>
+  </div>
+
+  <!-- ====== Intro loader (~1.4s) ====== -->
+  <div class="intro" id="intro" aria-hidden="true">
+    <div class="intro-meta">VELOX · STUDIO · 2026</div>
+    <div class="intro-meta r">POGRADEC, SHQIPËRI</div>
+    <div class="intro-inner">
+      <div class="intro-streak"></div>
+      <div class="intro-letters">VEL<em>O</em>X</div>
+    </div>
+  </div>
+
+  <!-- ====== Nav ====== -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="logo" aria-label="VELOX">
+      <img src="logos/velox-stamp-blue.png" alt="VELOX Studio logo — web design profesional Pogradec" class="logo-img" />
+    </a>
+    <div class="nav-links" role="navigation">
+      <a href="index.html#work">Puna</a>
+      <!-- Services dropdown -->
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-toggle active" aria-expanded="false" aria-haspopup="true">
+          Shërbimet
+          <svg class="chev" width="10" height="6" viewBox="0 0 10 6" fill="none">
+            <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="nav-dropdown-menu" role="menu">
+          <a href="web-design.html" class="nav-dropdown-item" role="menuitem">Web Design</a>
+          <a href="branding.html" class="nav-dropdown-item active" role="menuitem">Brend &amp; Identitet</a>
+          <a href="ui-ux.html" class="nav-dropdown-item" role="menuitem">UI/UX Design</a>
+          <span class="nav-dropdown-item disabled" role="menuitem" aria-disabled="true">
+            SEO &amp; Performancë <span class="ndi-soon">së shpejti</span>
+          </span>
+        </div>
+      </div>
+      <a href="cmime.html">Çmimet</a>
+      <a href="faq.html">FAQ</a>
+      <a href="index.html#process">Procesi</a>
+      <a href="index.html#contact">Kontakt</a>
+    </div>
+    <div class="nav-right">
+      <span class="nav-time" id="local-time">Pogradec · 00:00</span>
+      <a href="https://wa.me/355692081322" class="nav-cta">
+        Të flasim
+        <span class="nav-cta-arrow" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M2 10 L10 2 M4 2 H10 V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+      <button class="nav-burger" id="nav-burger" aria-label="Hap menunë" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ====== Mobile menu drawer ====== -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-inner">
+      <a href="index.html#work" class="mm-link"><span class="mm-num">01</span> Puna <span class="mm-arrow">→</span></a>
+      <a href="branding.html" class="mm-link active"><span class="mm-num">02</span> Brend &amp; Identitet <span class="mm-arrow">→</span></a>
+      <a href="cmime.html" class="mm-link"><span class="mm-num">03</span> Çmimet <span class="mm-arrow">→</span></a>
+      <a href="faq.html" class="mm-link"><span class="mm-num">04</span> FAQ <span class="mm-arrow">→</span></a>
+      <a href="index.html#process" class="mm-link"><span class="mm-num">05</span> Procesi <span class="mm-arrow">→</span></a>
+      <a href="index.html#contact" class="mm-link"><span class="mm-num">06</span> Kontakt <span class="mm-arrow">→</span></a>
+      <div class="mm-foot">
+        <a href="https://wa.me/355692081322" class="btn btn-primary mm-cta">
+          Bisedo në WhatsApp <span class="arrow">→</span>
+        </a>
+        <div class="mm-meta">
+          <span>Pogradec, Shqipëri</span>
+          <span id="mm-time">00:00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ====== PAGE HEADER ====== -->
+    <section class="shell br-header">
+      <div class="br-header-inner reveal">
+        <div class="section-tag">Shërbimi ynë i identitetit</div>
+        <h1 class="section-h" style="margin-top:20px">Brend &amp; Identitet — <em>Dizajni që të Ndihet i Ndryshëm</em></h1>
+        <p class="br-lede">
+          Një logo e mirë nuk është vetëm e bukur — është e paharrueshme.
+          Ne krijojmë identitete vizuale që komunikojnë vlerën e biznesit
+          tuaj në çastin e parë që dikush ju sheh.
+        </p>
+        <div class="cta-row" style="margin-top:36px; margin-bottom:0">
+          <a href="https://wa.me/355692081322" class="btn btn-primary">
+            Fillo identitetin tënd <span class="arrow">→</span>
+          </a>
+          <a href="cmime.html" class="btn btn-ghost">Shiko çmimet</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== WHY BRANDING MATTERS ====== -->
+    <section class="shell br-why" id="why">
+      <div class="br-section-head reveal">
+        <div class="section-tag">Pse ka rëndësi</div>
+        <h2 class="section-h" style="margin-top:20px; font-size:clamp(36px,4.5vw,64px)">Pse ka rëndësi <em>brendi juaj</em></h2>
+      </div>
+
+      <div class="br-reason-grid stagger">
+
+        <div class="br-reason">
+          <h3 class="br-reason-title">Besueshmëria</h3>
+          <p class="br-reason-text">
+            Bizneset me identitet profesional fitojnë besimin e
+            klientëve 3× më shpejt se ato pa brend të qartë.
+          </p>
+        </div>
+
+        <div class="br-reason">
+          <h3 class="br-reason-title">Dallueshmëria</h3>
+          <p class="br-reason-text">
+            Në një treg të mbushur me konkurrentë — brendi juaj
+            është arsyeja pse dikush zgjedh ju dhe jo tjetrin.
+          </p>
+        </div>
+
+        <div class="br-reason">
+          <h3 class="br-reason-title">Konsistenca</h3>
+          <p class="br-reason-text">
+            Nga karta e biznesit tek Instagram — një identitet
+            i unifikuar ndërton njohje dhe besim me kalimin e kohës.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====== WHAT'S INCLUDED ====== -->
+    <section class="shell br-features" id="features">
+      <div class="br-section-head reveal">
+        <div class="section-tag">Çfarë ofrojmë</div>
+        <h2 class="section-h" style="margin-top:20px; font-size:clamp(36px,4.5vw,64px)">Çfarë përfshin shërbimi <em>ynë i brandingut</em></h2>
+      </div>
+
+      <div class="br-grid stagger">
+
+        <div class="br-feature">
+          <span class="br-num">01</span>
+          <h3 class="br-feature-title">Dizajn Logo</h3>
+          <p class="br-feature-text">
+            Sistem logo me variacione — horizontal, vertikal,
+            ikonë — për çdo kontekst dhe madhësi.
+          </p>
+        </div>
+
+        <div class="br-feature">
+          <span class="br-num">02</span>
+          <h3 class="br-feature-title">Paleta e Ngjyrave</h3>
+          <p class="br-feature-text">
+            Ngjyra primare dhe sekondare të zgjedhura me
+            psikologji — për të komunikuar emocionin e duhur.
+          </p>
+        </div>
+
+        <div class="br-feature">
+          <span class="br-num">03</span>
+          <h3 class="br-feature-title">Tipografia</h3>
+          <p class="br-feature-text">
+            Zgjedhja e fonteve që reflektojnë personalitetin
+            e brendit tuaj — tituj, tekst, aksente.
+          </p>
+        </div>
+
+        <div class="br-feature">
+          <span class="br-num">04</span>
+          <h3 class="br-feature-title">Brand Guidelines</h3>
+          <p class="br-feature-text">
+            Udhëzues i plotë PDF — si të përdorni brendin tuaj
+            në çdo material marketingu.
+          </p>
+        </div>
+
+        <div class="br-feature">
+          <span class="br-num">05</span>
+          <h3 class="br-feature-title">Kartat e Biznesit</h3>
+          <p class="br-feature-text">
+            Dizajn profesional për karta biznesi dhe materiale
+            shtypshkronjë — gati për printim.
+          </p>
+        </div>
+
+        <div class="br-feature">
+          <span class="br-num">06</span>
+          <h3 class="br-feature-title">Dorëzim i Plotë</h3>
+          <p class="br-feature-text">
+            Skedarë SVG, PNG, PDF — çdo format që ju nevojitet
+            për web dhe printim.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====== PROCESS ====== -->
+    <section class="shell br-process" id="process">
+      <div class="reveal">
+        <div class="section-tag">Procesi</div>
+        <h2 class="section-h" style="margin-top:20px; font-size:clamp(36px,4.5vw,64px)">Si <em>punojmë</em></h2>
+      </div>
+
+      <div class="br-process-grid">
+        <div class="process" id="process-list">
+          <div class="process-line"></div>
+
+          <div class="step">
+            <div class="step-num">01</div>
+            <h4 class="step-h">Discovery</h4>
+            <p class="step-p">Kuptojmë biznesin, vlerat dhe audiencën tuaj.</p>
+            <span class="step-when">Dita 1</span>
+          </div>
+
+          <div class="step">
+            <div class="step-num">02</div>
+            <h4 class="step-h">Konceptet</h4>
+            <p class="step-p">Prezantojmë 2–3 drejtime kreative të ndryshme.</p>
+            <span class="step-when">Dita 2–3</span>
+          </div>
+
+          <div class="step">
+            <div class="step-num">03</div>
+            <h4 class="step-h">Rafinimi</h4>
+            <p class="step-p">Zgjedhim dhe perfeksionojmë drejtimin final bashkë me ju.</p>
+            <span class="step-when">Dita 4–5</span>
+          </div>
+
+          <div class="step">
+            <div class="step-num">04</div>
+            <h4 class="step-h">Dorëzimi</h4>
+            <p class="step-p">Skedarë të plotë + brand guidelines PDF — gati për çdo platformë.</p>
+            <span class="step-when">Dita 6–7</span>
+          </div>
+
+        </div>
+
+        <div class="reveal" style="padding-top:4px">
+          <div style="background:var(--bg-warm); border-radius:20px; padding:36px; display:flex; flex-direction:column; gap:18px;">
+            <div class="section-tag">Pse VELOX?</div>
+            <p style="font-size:15px; color:var(--ink-2); line-height:1.65">
+              Dizajni i brendit nuk është vetëm estetikë — është strategji.
+              Çdo vendim vizual ka një arsye dhe një qëllim të qartë.
+            </p>
+            <div style="display:flex; flex-direction:column; gap:10px">
+              <div style="display:flex; gap:10px; align-items:center; font-size:14px; color:var(--ink)">
+                <span style="width:20px;height:20px;border-radius:50%;background:var(--peach);display:grid;place-items:center;flex-shrink:0">
+                  <svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1.5 4.5l2 2 4-4" stroke="#0D1A3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                Dorëzim brenda 7 ditëve
+              </div>
+              <div style="display:flex; gap:10px; align-items:center; font-size:14px; color:var(--ink)">
+                <span style="width:20px;height:20px;border-radius:50%;background:var(--peach);display:grid;place-items:center;flex-shrink:0">
+                  <svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1.5 4.5l2 2 4-4" stroke="#0D1A3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                Skedarë në çdo format
+              </div>
+              <div style="display:flex; gap:10px; align-items:center; font-size:14px; color:var(--ink)">
+                <span style="width:20px;height:20px;border-radius:50%;background:var(--peach);display:grid;place-items:center;flex-shrink:0">
+                  <svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1.5 4.5l2 2 4-4" stroke="#0D1A3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                3 raunde revizioni të përfshira
+              </div>
+              <div style="display:flex; gap:10px; align-items:center; font-size:14px; color:var(--ink)">
+                <span style="width:20px;height:20px;border-radius:50%;background:var(--peach);display:grid;place-items:center;flex-shrink:0">
+                  <svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1.5 4.5l2 2 4-4" stroke="#0D1A3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                Brand guidelines PDF profesional
+              </div>
+            </div>
+            <div style="margin-top:4px">
+              <span class="stars" style="color:var(--peach-2); font-size:18px; letter-spacing:2px">★★★★★</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== PRICING PREVIEW ====== -->
+    <section class="shell br-pricing" id="pricing">
+      <div class="reveal">
+        <div class="section-tag">Çmimet</div>
+        <h2 class="section-h" style="margin-top:20px; font-size:clamp(36px,4.5vw,64px)">Çmimet — <em>të qarta, pa surpriza</em></h2>
+      </div>
+
+      <div class="br-price-row stagger">
+
+        <div class="br-price-col">
+          <div class="br-price-label">01 — Bazë</div>
+          <div class="br-price-name">Logo &amp; Identitet Bazë</div>
+          <div class="br-price-amount">Nga 149€</div>
+          <p class="br-price-includes">Logo sistem, paleta ngjyrash, tipografia</p>
+        </div>
+
+        <div class="br-price-col featured">
+          <div class="br-price-label">02 — I plotë</div>
+          <div class="br-price-name">Identitet i Plotë</div>
+          <div class="br-price-amount">Nga 349€</div>
+          <p class="br-price-includes">Gjithçka nga baza + brand guidelines, kartat e biznesit, 3 raunde revizioni</p>
+        </div>
+
+      </div>
+
+      <p class="br-price-footer" style="margin-top:20px">
+        <a href="cmime.html">Shiko të gjitha çmimet →</a>
+      </p>
+    </section>
+
+    <!-- ====== PORTFOLIO ====== -->
+    <section class="shell br-portfolio" id="portfolio">
+      <div class="reveal">
+        <div class="section-tag">Punët tona</div>
+        <h2 class="section-h" style="margin-top:20px; font-size:clamp(36px,4.5vw,64px)">Disa nga <em>punët tona</em></h2>
+      </div>
+
+      <div class="br-work-grid stagger">
+
+        <div class="br-work-card a">
+          <div class="br-work-thumb">
+            <div class="br-thumb-label">
+              <span class="br-thumb-name">Blackstones</span>
+            </div>
+          </div>
+          <div class="br-work-meta">
+            <div class="br-work-tag">Branding &amp; Identity</div>
+            <div class="br-work-title">The Blackstones Collective</div>
+            <p class="br-work-desc">
+              Identitet luksoz për platformë e-commerce
+              bukurie — logo, ngjyra dhe tipografi premium.
+            </p>
+          </div>
+        </div>
+
+        <div class="br-work-card b">
+          <div class="br-work-thumb">
+            <div class="br-thumb-label">
+              <span class="br-thumb-name" style="color:var(--inv)">VELOX</span>
+            </div>
+          </div>
+          <div class="br-work-meta">
+            <div class="br-work-tag">Branding &amp; Identity</div>
+            <div class="br-work-title">VELOX Studio</div>
+            <p class="br-work-desc">
+              Identiteti ynë — sistem logo, paleta e ngjyrave
+              dhe tipografia që shihni në këtë faqe.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====== BOTTOM CTA ====== -->
+    <section class="shell br-cta-section">
+      <div class="br-cta-inner reveal">
+        <div class="section-tag">Fillo sot</div>
+        <h2 class="section-h" style="margin-top:20px; font-size:clamp(36px,5vw,68px)">Gati të ndërtosh një brend <em>të paharrueshëm?</em></h2>
+        <p class="lede" style="margin-top:20px; max-width:500px; margin-left:auto; margin-right:auto">
+          Bisedojmë 15 minuta — pa angazhim. Kuotë brenda 24 orëve.
+        </p>
+        <div class="br-cta-btns">
+          <a href="https://wa.me/355692081322" class="btn btn-primary">
+            Dërgo mesazh në WhatsApp
+            <span class="arrow">→</span>
+          </a>
+        </div>
+        <p class="br-cta-link">
+          <a href="cmime.html">Shiko çmimet →</a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer">
+    <div class="footer-shell">
+      <div class="reveal">
+        <h2 class="footer-big">Më shumë klientë. <em>Më pak fjalë.</em></h2>
+        <div class="footer-ctas">
+          <a href="https://wa.me/355692081322" class="footer-cta">
+            WhatsApp
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11 L11 3 M5 3 H11 V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="mailto:Eneaziu622@gmail.com" class="footer-cta ghost">
+            Email
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11 L11 3 M5 3 H11 V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h6>Studio</h6>
+          <div class="footer-studio">Pogradec, <em>Shqipëri.</em></div>
+          <p style="margin-top:14px; color:rgba(244,247,251,0.7); font-size:14px">Rruga e Kavajës 1001</p>
+          <p style="color:rgba(244,247,251,0.5); font-size:13px; font-family:var(--mono); letter-spacing:.06em; text-transform:uppercase" id="footer-time">Ora lokale —</p>
+        </div>
+        <div class="footer-col">
+          <h6>Navigo</h6>
+          <a href="index.html">Kreu</a>
+          <a href="index.html#services">Shërbimet</a>
+          <a href="cmime.html">Çmimet</a>
+          <a href="faq.html">FAQ</a>
+          <a href="index.html#process">Procesi</a>
+          <a href="index.html#contact">Kontakt</a>
+        </div>
+        <div class="footer-col">
+          <h6>Shërbimet</h6>
+          <a href="web-design.html">Web Design</a>
+          <a href="branding.html">Brend &amp; identitet</a>
+          <a href="ui-ux.html">UI produkti</a>
+          <a href="index.html#services">SEO</a>
+        </div>
+        <div class="footer-col">
+          <h6>Na ndiq</h6>
+          <a href="#">Instagram ↗</a>
+          <a href="#">Behance ↗</a>
+          <a href="#">LinkedIn ↗</a>
+          <p style="margin-top:14px; color:rgba(244,247,251,0.7); font-size:14px">@velox<em style="color:var(--peach); font-family:var(--serif); font-style:italic">.al</em></p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 VELOX Studio</span>
+        <div class="footer-bottom-r">
+          <span>Bërë në Shqipëri · me kujdes</span>
+          <span>Të gjitha të drejtat e rezervuara</span>
+        </div>
+      </div>
+    </div>
+    <img src="logos/velox-stamp-white.png" alt="" aria-hidden="true" class="footer-watermark" />
+  </footer>
+
+<script>
+  // ===== Nav scroll state =====
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 12);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // ===== Local time =====
+  function fmt(now) {
+    return now.toLocaleTimeString('en-GB', { timeZone: 'Europe/Tirane', hour: '2-digit', minute: '2-digit' });
+  }
+  function tick() {
+    const now = new Date();
+    const t = fmt(now);
+    const el = document.getElementById('local-time');
+    const fel = document.getElementById('footer-time');
+    if (el)  el.textContent = `Pogradec · ${t}`;
+    if (fel) fel.textContent = `Ora lokale ${t}`;
+  }
+  tick(); setInterval(tick, 30000);
+
+  // ===== Scroll reveal =====
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
+  document.querySelectorAll('.reveal, .stagger, .process').forEach(el => io.observe(el));
+
+  // ===== Mobile menu =====
+  const burger = document.getElementById('nav-burger');
+  const mm = document.getElementById('mobile-menu');
+  function setMenu(open) {
+    document.body.classList.toggle('menu-open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    mm.setAttribute('aria-hidden', open ? 'false' : 'true');
+  }
+  burger?.addEventListener('click', () => setMenu(!document.body.classList.contains('menu-open')));
+  mm?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  window.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+
+  // Mirror time into mobile menu
+  const mmTime = document.getElementById('mm-time');
+  function tickAll() {
+    tick();
+    if (mmTime) mmTime.textContent = new Date().toLocaleTimeString('en-GB', { timeZone: 'Europe/Tirane', hour: '2-digit', minute: '2-digit' });
+  }
+  tickAll(); setInterval(tickAll, 30000);
+
+  // ===== Nav dropdown =====
+  document.querySelectorAll('.nav-dropdown').forEach(dd => {
+    const toggle = dd.querySelector('.nav-dropdown-toggle');
+    if (!toggle) return;
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = dd.classList.contains('open');
+      document.querySelectorAll('.nav-dropdown.open').forEach(d => {
+        d.classList.remove('open');
+        d.querySelector('.nav-dropdown-toggle')?.setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        dd.classList.add('open');
+        toggle.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.nav-dropdown.open').forEach(dd => {
+      dd.classList.remove('open');
+      dd.querySelector('.nav-dropdown-toggle')?.setAttribute('aria-expanded', 'false');
+    });
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.nav-dropdown.open').forEach(dd => {
+        dd.classList.remove('open');
+        dd.querySelector('.nav-dropdown-toggle')?.setAttribute('aria-expanded', 'false');
+      });
+    }
+  });
+</script>
+</body>
+</html>

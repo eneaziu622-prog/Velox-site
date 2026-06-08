@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://velox-design.netlify.app/sitemap.xml
+Sitemap: https://veloxstudio.al/sitemap.xml
