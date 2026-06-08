@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Outreach HQ — Salon Outreach</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#0a0c12;--sb:#0e1018;--surf:#131720;--s2:#191d2a;--bdr:#22263a;
+      --purple:#7c6dfa;--green:#1fd6a6;--yellow:#f5c518;--red:#f56161;
+      --blue:#38bdf8;--orange:#fb923c;
+      --text:#e2e5f1;--muted:#606480;--r:12px;
+    }
+    body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;display:flex;min-height:100vh}
+
+    /* SIDEBAR */
+    .sb{width:220px;background:var(--sb);border-right:1px solid var(--bdr);display:flex;flex-direction:column;position:fixed;height:100vh;z-index:100}
+    .sb-logo{padding:20px 18px 16px;border-bottom:1px solid var(--bdr)}
+    .sb-icon{width:32px;height:32px;background:linear-gradient(135deg,var(--purple),var(--green));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;margin-bottom:8px}
+    .sb-logo h1{font-size:14px;font-weight:800}
+    .sb-logo p{font-size:10px;color:var(--muted);margin-top:1px}
+    nav{flex:1;padding:8px}
+    .ni{display:flex;align-items:center;gap:9px;padding:9px 11px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:500;color:var(--muted);border:1px solid transparent;transition:all .15s;user-select:none}
+    .ni:hover{background:var(--s2);color:var(--text)}
+    .ni.active{background:var(--s2);color:var(--text);border-color:var(--bdr)}
+    .ni-i{font-size:14px;width:18px;text-align:center;flex-shrink:0}
+    .sb-foot{padding:12px;border-top:1px solid var(--bdr);display:flex;flex-direction:column;gap:6px}
+    .sb-btn{width:100%;background:transparent;border:1px solid var(--bdr);color:var(--muted);padding:7px;border-radius:7px;font-size:11px;cursor:pointer;transition:all .2s;font-family:inherit}
+    .sb-btn:hover{border-color:var(--red);color:var(--red)}
+    .sb-btn.exp:hover{border-color:var(--green);color:var(--green)}
+    .sb-btn.imp:hover{border-color:var(--blue);color:var(--blue)}
+
+    /* MAIN */
+    .main{margin-left:220px;flex:1;display:flex;flex-direction:column;min-height:100vh}
+    .ph{padding:18px 26px;border-bottom:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+    .ph h2{font-size:18px;font-weight:800}
+    .ph p{font-size:11px;color:var(--muted);margin-top:2px}
+    .streak{background:var(--s2);border:1px solid var(--bdr);border-radius:20px;padding:5px 12px;font-size:11px;color:var(--muted)}
+    .streak strong{color:var(--green)}
+    .pc{padding:22px 26px}
+
+    /* TABS */
+    .ts{display:none}.ts.active{display:block}
+
+    /* CARD */
+    .card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--r);padding:18px}
+    .ct{font-size:12px;font-weight:700;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between}
+    .ct-sub{font-size:10px;color:var(--muted);font-weight:400}
+
+    /* KPI */
+    .kpi-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:11px;margin-bottom:18px}
+    .kpi{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--r);padding:14px 16px;transition:border-color .2s}
+    .kpi:hover{border-color:var(--purple)}
+    .kpi-top{display:flex;justify-content:space-between;margin-bottom:5px}
+    .kpi-lbl{font-size:9px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+    .kpi-ico{font-size:16px;opacity:.4}
+    .kpi-val{font-size:24px;font-weight:900;letter-spacing:-1px;line-height:1}
+    .kpi-sub{font-size:9px;color:var(--muted);margin-top:3px}
+    .kpib{height:2px;background:var(--bdr);border-radius:2px;margin-top:8px;overflow:hidden}
+    .kpif{height:100%;border-radius:2px;transition:width .6s ease}
+
+    /* GRIDS */
+    .g2{display:grid;grid-template-columns:1.5fr 1fr;gap:14px;margin-bottom:14px}
+    .g2b{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+    .g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:14px}
+    .cw{position:relative}.cw canvas{max-height:240px}
+
+    /* FUNNEL */
+    .fn{display:flex;flex-direction:column;gap:6px}
+    .fn-row{display:flex;align-items:center;gap:9px}
+    .fn-lbl{font-size:9px;color:var(--muted);width:78px;text-align:right;flex-shrink:0;font-weight:600;text-transform:uppercase;letter-spacing:.3px}
+    .fn-track{flex:1;background:var(--s2);border-radius:5px;height:30px;overflow:hidden}
+    .fn-bar{height:100%;border-radius:5px;display:flex;align-items:center;padding:0 9px;font-size:11px;font-weight:800;min-width:28px;transition:width .8s cubic-bezier(.4,0,.2,1)}
+    .fn-r{width:58px;flex-shrink:0;text-align:right}
+    .fn-v{font-size:13px;font-weight:800}
+    .fn-p{font-size:9px;color:var(--muted)}
+
+    /* INSIGHT */
+    .insight{background:linear-gradient(135deg,rgba(124,109,250,.09),rgba(31,214,166,.05));border:1px solid rgba(124,109,250,.18);border-radius:var(--r);padding:12px 15px;font-size:12px;line-height:1.6;margin-bottom:16px;display:flex;align-items:flex-start;gap:9px}
+    .insight strong{color:var(--green)}
+
+    /* FORM */
+    .fg{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .fi{display:flex;flex-direction:column;gap:4px}
+    .fi.full{grid-column:1/-1}
+    .fi label{font-size:9px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.4px}
+    input.f,select.f,textarea.f{background:var(--s2);border:1px solid var(--bdr);border-radius:7px;color:var(--text);padding:8px 10px;font-size:13px;font-family:inherit;outline:none;transition:border-color .2s;width:100%}
+    input.f:focus,select.f:focus,textarea.f:focus{border-color:var(--purple)}
+    select.f option{background:var(--s2)}
+    textarea.f{resize:vertical;min-height:56px}
+    .btn{background:linear-gradient(135deg,var(--purple),#9f7aea);border:none;border-radius:8px;color:#fff;font-size:13px;font-weight:700;padding:11px 18px;cursor:pointer;transition:opacity .2s,transform .1s;font-family:inherit}
+    .btn:hover{opacity:.87}
+    .btn:active{transform:scale(.97)}
+    .btn2{background:var(--s2);border:1px solid var(--bdr);border-radius:7px;color:var(--text);font-size:12px;font-weight:600;padding:9px 14px;cursor:pointer;transition:border-color .2s;font-family:inherit}
+    .btn2:hover{border-color:var(--purple)}
+
+    /* TABLE */
+    .tw{overflow-x:auto}
+    table{width:100%;border-collapse:collapse;font-size:12px}
+    thead th{padding:8px 10px;text-align:left;font-size:9px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--bdr);white-space:nowrap}
+    tbody tr{border-bottom:1px solid var(--bdr);transition:background .1s}
+    tbody tr:last-child{border-bottom:none}
+    tbody tr:hover{background:var(--s2)}
+    tbody td{padding:8px 10px;white-space:nowrap}
+    tfoot td{padding:8px 10px;font-weight:800;color:var(--green);border-top:2px solid var(--bdr)}
+    .b{display:inline-block;padding:1px 7px;border-radius:20px;font-size:10px;font-weight:700}
+    .bg{background:rgba(31,214,166,.13);color:var(--green)}
+    .by{background:rgba(245,197,24,.13);color:var(--yellow)}
+    .br{background:rgba(245,97,97,.13);color:var(--red)}
+    .bp{background:rgba(124,109,250,.13);color:var(--purple)}
+    .bb{background:rgba(56,189,248,.13);color:var(--blue)}
+    .bo{background:rgba(251,146,60,.13);color:var(--orange)}
+    .del{background:none;border:none;color:var(--muted);cursor:pointer;font-size:12px;padding:2px 5px;border-radius:4px;transition:color .2s}
+    .del:hover{color:var(--red)}
+
+    /* GOALS */
+    .gg{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:13px}
+    .gc{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--r);padding:16px}
+    .gc-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+    .gc-lbl{font-size:9px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+    .gc-val{font-size:22px;font-weight:900}
+    .gbar{background:var(--s2);border-radius:3px;height:4px;overflow:hidden;margin:7px 0 3px}
+    .gfill{height:100%;border-radius:3px;transition:width .5s ease}
+    .gpct{font-size:9px;color:var(--muted)}
+    .gi-wrap{display:flex;align-items:center;gap:7px;margin-top:9px;padding-top:9px;border-top:1px solid var(--bdr)}
+    .gi-wrap label{font-size:9px;color:var(--muted);white-space:nowrap}
+    .gi-wrap input{background:var(--s2);border:1px solid var(--bdr);border-radius:5px;color:var(--text);padding:5px 8px;font-size:12px;width:80px;text-align:center;outline:none;font-family:inherit}
+    .gi-wrap input:focus{border-color:var(--purple)}
+
+    /* PLATFORM CARDS */
+    .pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:11px;margin-bottom:16px}
+    .pcard{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--r);padding:14px}
+    .pc-name{font-size:12px;font-weight:700;margin-bottom:9px;display:flex;align-items:center;gap:6px}
+    .ps{display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px}
+    .ps-l{color:var(--muted)}
+    .ps-v{font-weight:700}
+    .wtag{font-size:8px;font-weight:800;background:linear-gradient(135deg,var(--green),var(--blue));color:#0a0c12;padding:2px 7px;border-radius:20px;display:inline-block;margin-bottom:7px}
+
+    /* DAY TABLE */
+    .dt{width:100%;border-collapse:collapse;font-size:12px}
+    .dt th{padding:7px 10px;text-align:left;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);border-bottom:1px solid var(--bdr)}
+    .dt td{padding:8px 10px;border-bottom:1px solid var(--bdr)}
+    .dt tr:last-child td{border-bottom:none}
+    .dt-b{background:rgba(31,214,166,.06)}
+    .dt-w{background:rgba(245,97,97,.06)}
+
+    /* HEATMAP */
+    .hm-lbls{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin-bottom:3px}
+    .hm-lbl{font-size:8px;color:var(--muted);text-align:center;font-weight:700}
+    .hm{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
+    .hmc{aspect-ratio:1;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:600;cursor:default}
+    .hmc:hover{transform:scale(1.2);z-index:10}
+
+    /* A/B */
+    .abg{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:13px}
+    .abc{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--r);padding:16px}
+    .abc.win{border-color:var(--green);background:rgba(31,214,166,.03)}
+    .abl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;margin-bottom:10px;color:var(--muted)}
+    .abs{display:flex;justify-content:space-between;font-size:11px;margin-bottom:6px}
+    .abs span{color:var(--muted)}
+    .win-tag{font-size:8px;font-weight:800;background:linear-gradient(135deg,var(--green),#0ea5e9);color:#0a0c12;padding:2px 8px;border-radius:20px;display:inline-block;margin-bottom:8px}
+
+    /* WEEK MINI */
+    .wk{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+    .wkc{background:var(--s2);border-radius:7px;padding:11px;text-align:center}
+    .wkv{font-size:18px;font-weight:900;line-height:1}
+    .wkl{font-size:9px;color:var(--muted);margin-top:3px}
+
+    /* TOGGLE */
+    .tgl{display:flex;align-items:center;gap:6px;margin-bottom:18px}
+    .tgl-btn{background:var(--s2);border:1px solid var(--bdr);border-radius:7px;color:var(--muted);font-size:11px;font-weight:600;padding:6px 14px;cursor:pointer;transition:all .2s;font-family:inherit}
+    .tgl-btn.on{background:rgba(124,109,250,.15);border-color:var(--purple);color:var(--purple)}
+
+    /* EMPTY */
+    .empty{text-align:center;padding:40px 16px;color:var(--muted)}
+    .empty-i{font-size:38px;margin-bottom:9px}
+
+    /* TOAST */
+    #toast{position:fixed;bottom:20px;right:20px;font-size:12px;font-weight:700;padding:10px 16px;border-radius:9px;opacity:0;pointer-events:none;transform:translateY(6px);transition:all .25s;z-index:9999;background:var(--green);color:#0a0c12}
+    #toast.show{opacity:1;transform:translateY(0)}
+
+    /* RESPONSIVE */
+    @media(max-width:900px){
+      .sb{width:52px}.sb-logo h1,.sb-logo p,.ni>span:last-child,.sb-btn{display:none}
+      .main{margin-left:52px}.g2,.g2b,.g3{grid-template-columns:1fr}
+    }
+    @media(max-width:580px){.fg{grid-template-columns:1fr}.kpi-row{grid-template-columns:repeat(2,1fr)}}
+  </style>
+</head>
+<body>
+
+<!-- ═══ SIDEBAR ═══════════════════════════════════ -->
+<aside class="sb">
+  <div class="sb-logo">
+    <div class="sb-icon">✦</div>
+    <h1>Outreach HQ</h1>
+    <p>Salon Outreach</p>
+  </div>
+  <nav>
+    <div class="ni active" onclick="go('dashboard')"><span class="ni-i">◈</span><span>Dashboard</span></div>
+    <div class="ni" onclick="go('log')"><span class="ni-i">＋</span><span>Log Session</span></div>
+    <div class="ni" onclick="go('goals')"><span class="ni-i">◎</span><span>Goals</span></div>
+    <div class="ni" onclick="go('platforms')"><span class="ni-i">◫</span><span>Platforms</span></div>
+    <div class="ni" onclick="go('days')"><span class="ni-i">▦</span><span>Day Analysis</span></div>
+    <div class="ni" onclick="go('ab')"><span class="ni-i">⊕</span><span>A / B Test</span></div>
+  </nav>
+  <div class="sb-foot">
+    <button class="sb-btn exp" onclick="exportData()">⬇ Export Data</button>
+    <button class="sb-btn imp" onclick="document.getElementById('imp-file').click()">⬆ Import Data</button>
+    <input id="imp-file" type="file" accept=".json" style="display:none" onchange="importData(event)" />
+    <button class="sb-btn" onclick="confirmReset()">⚠ Reset All</button>
+  </div>
+</aside>
+
+<!-- ═══ MAIN ═══════════════════════════════════════ -->
+<div class="main">
+  <div class="ph">
+    <div>
+      <h2 id="page-title">Dashboard</h2>
+      <p id="page-sub">Your salon outreach overview</p>
+    </div>
+    <div class="streak">Streak <strong id="streak-val">0</strong> days 🔥</div>
+  </div>
+  <div class="pc">
+
+    <!-- ═══ DASHBOARD ═══════════════════════════════ -->
+    <div class="ts active" id="ts-dashboard">
+      <div class="insight"><span>💡</span><span id="insight-txt">Log your first session to see personalized insights.</span></div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="kpi-top"><div class="kpi-lbl">Sent</div><div class="kpi-ico">📤</div></div><div class="kpi-val" id="k-sent">0</div><div class="kpi-sub" id="k-sent-s">monthly goal: —</div><div class="kpib"><div class="kpif" id="kb-sent" style="background:var(--purple)"></div></div></div>
+        <div class="kpi"><div class="kpi-top"><div class="kpi-lbl">Reply Rate</div><div class="kpi-ico">💬</div></div><div class="kpi-val" id="k-rr">—</div><div class="kpi-sub" id="k-rr-s">replies / sent</div><div class="kpib"><div class="kpif" id="kb-rr" style="background:var(--green)"></div></div></div>
+        <div class="kpi"><div class="kpi-top"><div class="kpi-lbl">Warm Leads</div><div class="kpi-ico">🌡️</div></div><div class="kpi-val" id="k-warm">0</div><div class="kpi-sub" id="k-warm-s">—% of replies</div><div class="kpib"><div class="kpif" id="kb-warm" style="background:var(--yellow)"></div></div></div>
+        <div class="kpi"><div class="kpi-top"><div class="kpi-lbl">Hot Leads</div><div class="kpi-ico">🔥</div></div><div class="kpi-val" id="k-hot">0</div><div class="kpi-sub" id="k-hot-s">—% of warm</div><div class="kpib"><div class="kpif" id="kb-hot" style="background:var(--orange)"></div></div></div>
+        <div class="kpi"><div class="kpi-top"><div class="kpi-lbl">Meetings</div><div class="kpi-ico">📅</div></div><div class="kpi-val" id="k-meet">0</div><div class="kpi-sub" id="k-meet-s">—% of hot leads</div><div class="kpib"><div class="kpif" id="kb-meet" style="background:var(--blue)"></div></div></div>
+        <div class="kpi"><div class="kpi-top"><div class="kpi-lbl">Closes</div><div class="kpi-ico">💰</div></div><div class="kpi-val" id="k-closes">0</div><div class="kpi-sub" id="k-closes-s">—% close rate</div><div class="kpib"><div class="kpif" id="kb-closes" style="background:var(--red)"></div></div></div>
+        <div class="kpi"><div class="kpi-top"><div class="kpi-lbl">Revenue</div><div class="kpi-ico">💵</div></div><div class="kpi-val" id="k-rev">$0</div><div class="kpi-sub" id="k-rev-s">avg deal: $0</div><div class="kpib"><div class="kpif" id="kb-rev" style="background:var(--green)"></div></div></div>
+      </div>
+      <div class="g2">
+        <div class="card">
+          <div class="ct">30-Day Trend <span class="ct-sub" id="trend-lbl"></span></div>
+          <div class="cw"><canvas id="c-trend" height="220"></canvas></div>
+        </div>
+        <div class="card">
+          <div class="ct">Pipeline Funnel <span class="ct-sub">all time</span></div>
+          <div class="fn" id="funnel"></div>
+        </div>
+      </div>
+      <div class="g2b">
+        <div class="card">
+          <div class="ct">Reply Rate by Day <span class="ct-sub">green = best day</span></div>
+          <div class="cw"><canvas id="c-dow" height="210"></canvas></div>
+        </div>
+        <div class="card">
+          <div class="ct">Platform Reply Rate <span class="ct-sub">best → worst</span></div>
+          <div class="cw"><canvas id="c-plat" height="210"></canvas></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ LOG SESSION ═══════════════════════════ -->
+    <div class="ts" id="ts-log">
+      <div class="g2b" style="margin-bottom:18px">
+        <div class="card">
+          <div class="ct">New Session</div>
+          <form id="eform" onsubmit="addEntry(event)">
+            <div class="fg">
+              <div class="fi"><label>Date</label><input class="f" type="date" id="f-date" required /></div>
+              <div class="fi"><label>Platform</label>
+                <select class="f" id="f-plat">
+                  <option>Instagram DM</option><option>Email</option><option>Facebook</option>
+                  <option>LinkedIn</option><option>WhatsApp</option><option>TikTok</option>
+                  <option>Cold Call</option><option>Other</option>
+                </select>
+              </div>
+              <div class="fi"><label>Template</label>
+                <select class="f" id="f-tmpl">
+                  <option value="A">Template A</option><option value="B">Template B</option>
+                  <option value="C">Template C</option><option value="-">No Template</option>
+                </select>
+              </div>
+              <div class="fi"><label>Messages Sent *</label><input class="f" type="number" id="f-sent" value="0" min="0" required /></div>
+              <div class="fi"><label>Replies</label><input class="f" type="number" id="f-replies" value="0" min="0" /></div>
+              <div class="fi"><label>Warm Leads</label><input class="f" type="number" id="f-warm" value="0" min="0" /></div>
+              <div class="fi"><label>Hot Leads 🔥</label><input class="f" type="number" id="f-hot" value="0" min="0" /></div>
+              <div class="fi"><label>Meetings Booked 📅</label><input class="f" type="number" id="f-meet" value="0" min="0" /></div>
+              <div class="fi"><label>Closes 💰</label><input class="f" type="number" id="f-closes" value="0" min="0" /></div>
+              <div class="fi"><label>Deal Value ($)</label><input class="f" type="number" id="f-deal" value="0" min="0" /></div>
+              <div class="fi"><label>Follow-Ups Sent</label><input class="f" type="number" id="f-fu" value="0" min="0" /></div>
+              <div class="fi full"><label>Notes / What worked?</label><textarea class="f" id="f-notes" placeholder="e.g. New opener referencing balayage trend worked well..."></textarea></div>
+            </div>
+            <div style="display:flex;gap:8px;margin-top:14px">
+              <button type="submit" class="btn" style="flex:1">+ Log Session</button>
+              <button type="button" class="btn2" onclick="resetForm()">Reset</button>
+            </div>
+          </form>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:13px">
+          <div class="card"><div class="ct">This Week</div><div class="wk" id="wk-stats"></div></div>
+          <div class="card">
+            <div class="ct">Benchmarks</div>
+            <div style="font-size:11px;color:var(--muted);line-height:1.9">
+              Cold DM reply rate: <strong style="color:var(--text)">10–20%</strong><br>
+              Warm → Hot: aim for <strong style="color:var(--text)">30–50%</strong><br>
+              Hot → Meeting: target <strong style="color:var(--text)">50%+</strong><br>
+              Meeting → Close: <strong style="color:var(--text)">30–60%</strong><br>
+              Follow up <strong style="color:var(--text)">2–3×</strong> per lead<br>
+              Best days: <strong style="color:var(--text)">Tue, Wed, Thu</strong>
+            </div>
+          </div>
+          <div class="card"><div class="ct">Monthly Progress</div><div id="month-prog"></div></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="ct">Session History <span class="ct-sub" id="entry-count">0 sessions</span></div>
+        <div class="tw">
+          <table>
+            <thead><tr>
+              <th>Date</th><th>Platform</th><th>Tmpl</th><th>Sent</th><th>Replies</th>
+              <th>Reply%</th><th>Warm</th><th>Hot🔥</th><th>Meets</th><th>Closes</th>
+              <th>Deal</th><th>Follow-ups</th><th>Notes</th><th></th>
+            </tr></thead>
+            <tbody id="log-body"></tbody>
+            <tfoot id="log-foot"></tfoot>
+          </table>
+        </div>
+        <div id="log-empty" class="empty"><div class="empty-i">📭</div>No sessions logged yet.</div>
+      </div>
+    </div>
+
+    <!-- ═══ GOALS ═══════════════════════════════════ -->
+    <div class="ts" id="ts-goals">
+      <div class="tgl">
+        <button class="tgl-btn on" id="tb-monthly" onclick="setPeriod('monthly')">Monthly</button>
+        <button class="tgl-btn" id="tb-weekly" onclick="setPeriod('weekly')">Weekly</button>
+        <span style="font-size:11px;color:var(--muted);margin-left:4px">— type in any target box to update your goal</span>
+      </div>
+      <div class="gg" id="goals-grid"></div>
+    </div>
+
+    <!-- ═══ PLATFORMS ═══════════════════════════════ -->
+    <div class="ts" id="ts-platforms">
+      <div class="pg" id="plat-cards"></div>
+      <div class="card" style="margin-bottom:14px">
+        <div class="ct">Platform Comparison <span class="ct-sub">reply, warm & close rates</span></div>
+        <div class="cw"><canvas id="c-plat-full" height="230"></canvas></div>
+      </div>
+      <div class="g2b">
+        <div class="card"><div class="ct">Messages Sent by Platform</div><div class="cw"><canvas id="c-plat-sent" height="210"></canvas></div></div>
+        <div class="card"><div class="ct">Revenue by Platform</div><div class="cw"><canvas id="c-plat-rev" height="210"></canvas></div></div>
+      </div>
+    </div>
+
+    <!-- ═══ DAY ANALYSIS ═══════════════════════════ -->
+    <div class="ts" id="ts-days">
+      <div class="g2b" style="margin-bottom:14px">
+        <div class="card"><div class="ct">Reply Rate by Day <span class="ct-sub">best = green</span></div><div class="cw"><canvas id="c-dow-full" height="220"></canvas></div></div>
+        <div class="card"><div class="ct">Messages Sent by Day</div><div class="cw"><canvas id="c-dow-sent" height="220"></canvas></div></div>
+      </div>
+      <div class="card" style="margin-bottom:14px">
+        <div class="ct">Day Performance Breakdown</div>
+        <table class="dt" id="dow-tbl"></table>
+        <div id="dow-empty" class="empty" style="padding:24px"><div class="empty-i">📅</div>No data yet.</div>
+      </div>
+      <div class="card">
+        <div class="ct">42-Day Activity Heatmap <span class="ct-sub">darker = more messages sent</span></div>
+        <div class="hm-lbls"><div class="hm-lbl">Sun</div><div class="hm-lbl">Mon</div><div class="hm-lbl">Tue</div><div class="hm-lbl">Wed</div><div class="hm-lbl">Thu</div><div class="hm-lbl">Fri</div><div class="hm-lbl">Sat</div></div>
+        <div class="hm" id="heatmap"></div>
+      </div>
+    </div>
+
+    <!-- ═══ A/B TESTING ═══════════════════════════ -->
+    <div class="ts" id="ts-ab">
+      <div class="insight" style="margin-bottom:18px"><span>🧪</span><span>Tag sessions with Template A, B, or C when logging. This page auto-compares reply rate, hot leads, meetings, and closes.</span></div>
+      <div class="abg" id="ab-grid"></div>
+    </div>
+
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+// ═══════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════
+var E = JSON.parse(localStorage.getItem('ohq3_e') || '[]');
+var G = JSON.parse(localStorage.getItem('ohq3_g') || 'null') || {
+  monthly:{ sent:500, replies:75, warm:30, hot:15, meetings:8, closes:4, revenue:8000 },
+  weekly: { sent:125, replies:18, warm:7,  hot:4,  meetings:2, closes:1, revenue:2000 }
+};
+var period = 'monthly';
+var CH = {};
+var curTab = 'dashboard';
+
+var DAYS  = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+var DSHRT = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+var PAL   = ['#7c6dfa','#1fd6a6','#f5c518','#f56161','#38bdf8','#fb923c','#f472b6'];
+var ICONS = {
+  'Instagram DM':'📸','Email':'📧','Facebook':'👥','LinkedIn':'💼',
+  'WhatsApp':'💬','TikTok':'🎵','Cold Call':'📞','Other':'🔗'
+};
+
+// ═══════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('f-date').value = todayStr();
+  render();
+  setTimeout(function(){ renderCharts('dashboard'); }, 100);
+});
+
+function todayStr() {
+  return new Date().toISOString().slice(0,10);
+}
+
+// ═══════════════════════════════════════════════
+// NAVIGATION
+// ═══════════════════════════════════════════════
+function go(tab) {
+  curTab = tab;
+  var niList = document.querySelectorAll('.ni');
+  niList.forEach(function(n) {
+    var onclick = n.getAttribute('onclick') || '';
+    n.classList.toggle('active', onclick.indexOf("'" + tab + "'") !== -1);
+  });
+  document.querySelectorAll('.ts').forEach(function(t) {
+    t.classList.toggle('active', t.id === 'ts-' + tab);
+  });
+  var titles = {
+    dashboard:{ h:'Dashboard', p:'Your salon outreach overview' },
+    log:      { h:'Log Session', p:'Record a new outreach session' },
+    goals:    { h:'Goals & Targets', p:'Type in any target box to update your goal' },
+    platforms:{ h:'Platform Analysis', p:'Compare which channels drive the best results' },
+    days:     { h:'Day Analysis', p:'Discover your best and worst performing days' },
+    ab:       { h:'A/B Template Testing', p:'Compare performance across message templates' }
+  };
+  var m = titles[tab] || titles.dashboard;
+  document.getElementById('page-title').textContent = m.h;
+  document.getElementById('page-sub').textContent   = m.p;
+  if (tab === 'days') renderDayAnalysis();
+  setTimeout(function(){ renderCharts(tab); }, 50);
+}
+
+// ═══════════════════════════════════════════════
+// DATA OPERATIONS
+// ═══════════════════════════════════════════════
+function addEntry(ev) {
+  ev.preventDefault();
+  var entry = {
+    id:      Date.now(),
+    date:    val('f-date'),
+    plat:    val('f-plat'),
+    tmpl:    val('f-tmpl'),
+    sent:    num('f-sent'),
+    replies: num('f-replies'),
+    warm:    num('f-warm'),
+    hot:     num('f-hot'),
+    meet:    num('f-meet'),
+    closes:  num('f-closes'),
+    deal:    num('f-deal'),
+    fu:      num('f-fu'),
+    notes:   val('f-notes')
+  };
+  E.unshift(entry);
+  save();
+  render();
+  setTimeout(function(){ renderCharts('dashboard'); }, 50);
+  toast('Session logged! 🎉');
+  resetForm();
+}
+
+function deleteEntry(id) {
+  if (!confirm('Delete this session?')) return;
+  E = E.filter(function(e){ return e.id !== id; });
+  save();
+  render();
+  setTimeout(function(){ renderCharts(curTab); }, 50);
+  toast('Session deleted');
+}
+
+function confirmReset() {
+  if (confirm('Delete ALL session data? Goals will be kept.')) {
+    E = [];
+    save();
+    render();
+    setTimeout(function(){ renderCharts(curTab); }, 50);
+  }
+}
+
+function resetForm() {
+  var nums = ['f-sent','f-replies','f-warm','f-hot','f-meet','f-closes','f-deal','f-fu'];
+  nums.forEach(function(id){ document.getElementById(id).value = '0'; });
+  document.getElementById('f-notes').value = '';
+  document.getElementById('f-date').value = todayStr();
+}
+
+function save() {
+  localStorage.setItem('ohq3_e', JSON.stringify(E));
+  localStorage.setItem('ohq3_g', JSON.stringify(G));
+}
+
+function exportData() {
+  var blob = new Blob([JSON.stringify({ entries: E, goals: G }, null, 2)], { type: 'application/json' });
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'outreach-hq-backup-' + todayStr() + '.json';
+  a.click();
+  toast('Data exported!');
+}
+
+function importData(ev) {
+  var file = ev.target.files[0];
+  if (!file) return;
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    try {
+      var data = JSON.parse(e.target.result);
+      if (data.entries) E = data.entries;
+      if (data.goals) G = data.goals;
+      save();
+      render();
+      setTimeout(function(){ renderCharts(curTab); }, 50);
+      toast('Data imported! ' + E.length + ' sessions loaded');
+    } catch(err) {
+      toast('Import failed — invalid file');
+    }
+  };
+  reader.readAsText(file);
+  ev.target.value = '';
+}
+
+// ═══════════════════════════════════════════════
+// HELPERS
+// ═══════════════════════════════════════════════
+function val(id) {
+  var el = document.getElementById(id);
+  return el ? el.value.trim() : '';
+}
+function num(id) {
+  var el = document.getElementById(id);
+  return el ? (parseInt(el.value) || 0) : 0;
+}
+function pct(a, b) { return b > 0 ? (a / b) * 100 : 0; }
+function fpct(a, b) { return b > 0 ? pct(a,b).toFixed(1) + '%' : '—'; }
+function fdol(n) {
+  if (!n) return '$0';
+  return n >= 1000 ? '$' + (n/1000).toFixed(1) + 'k' : '$' + n;
+}
+function fdate(d) {
+  if (!d) return '—';
+  var p = d.split('-');
+  return parseInt(p[1]) + '/' + parseInt(p[2]) + '/' + p[0].slice(2);
+}
+function dowOf(dateStr) { return new Date(dateStr + 'T12:00:00').getDay(); }
+function weekStart() {
+  var d = new Date(); d.setDate(d.getDate() - d.getDay());
+  return d.toISOString().slice(0,10);
+}
+function monthStart() { return todayStr().slice(0,7) + '-01'; }
+function setEl(id, v) { var el = document.getElementById(id); if(el) el.textContent = v; }
+function setBar(id, v) { var el = document.getElementById(id); if(el) el.style.width = Math.min(Math.max(v,0),100) + '%'; }
+
+// ═══════════════════════════════════════════════
+// AGGREGATION
+// ═══════════════════════════════════════════════
+function totals(arr) {
+  var src = arr || E;
+  return src.reduce(function(a, e) {
+    return {
+      sent:    a.sent    + e.sent,
+      replies: a.replies + e.replies,
+      warm:    a.warm    + e.warm,
+      hot:     a.hot     + e.hot,
+      meet:    a.meet    + e.meet,
+      closes:  a.closes  + e.closes,
+      revenue: a.revenue + (e.closes * e.deal),
+      fu:      a.fu      + e.fu
+    };
+  }, { sent:0, replies:0, warm:0, hot:0, meet:0, closes:0, revenue:0, fu:0 });
+}
+
+function platStats() {
+  var m = {};
+  E.forEach(function(e) {
+    if (!m[e.plat]) m[e.plat] = { sent:0,replies:0,warm:0,hot:0,meet:0,closes:0,revenue:0,n:0 };
+    var p = m[e.plat];
+    p.sent += e.sent; p.replies += e.replies; p.warm += e.warm;
+    p.hot += e.hot; p.meet += e.meet; p.closes += e.closes;
+    p.revenue += e.closes * e.deal; p.n++;
+  });
+  return m;
+}
+
+function dowStats() {
+  var m = [0,1,2,3,4,5,6].map(function(){ return {sent:0,replies:0,warm:0,hot:0,meet:0,closes:0,n:0}; });
+  E.forEach(function(e) {
+    var d = dowOf(e.date);
+    m[d].sent += e.sent; m[d].replies += e.replies; m[d].warm += e.warm;
+    m[d].hot += e.hot; m[d].meet += e.meet; m[d].closes += e.closes; m[d].n++;
+  });
+  return m;
+}
+
+// ═══════════════════════════════════════════════
+// RENDER ALL
+// ═══════════════════════════════════════════════
+function render() {
+  renderKPIs();
+  renderFunnel();
+  renderTable();
+  renderGoals();
+  renderPlatforms();
+  renderDayAnalysis();
+  renderAB();
+  renderWeekStats();
+  renderStreak();
+  renderInsight();
+  renderMonthProg();
+}
+
+// ═══════════════════════════════════════════════
+// KPIs
+// ═══════════════════════════════════════════════
+function renderKPIs() {
+  var t = totals();
+  var g = G.monthly;
+  var rr = pct(t.replies, t.sent);
+  var avgDeal = t.closes > 0 ? Math.round(t.revenue / t.closes) : 0;
+
+  setEl('k-sent',   t.sent);
+  setEl('k-rr',     t.sent ? rr.toFixed(1)+'%' : '—');
+  setEl('k-warm',   t.warm);
+  setEl('k-hot',    t.hot);
+  setEl('k-meet',   t.meet);
+  setEl('k-closes', t.closes);
+  setEl('k-rev',    fdol(t.revenue));
+
+  setEl('k-sent-s',   'monthly goal: ' + g.sent);
+  setEl('k-rr-s',     t.replies + ' replies / ' + t.sent + ' sent');
+  setEl('k-warm-s',   fpct(t.warm,  t.replies) + ' of replies');
+  setEl('k-hot-s',    fpct(t.hot,   t.warm)    + ' of warm leads');
+  setEl('k-meet-s',   fpct(t.meet,  t.hot)     + ' of hot leads');
+  setEl('k-closes-s', fpct(t.closes,t.meet||t.hot) + ' close rate');
+  setEl('k-rev-s',    'avg deal: ' + fdol(avgDeal));
+
+  setBar('kb-sent',   pct(t.sent,    g.sent));
+  setBar('kb-rr',     Math.min(rr * 4, 100));
+  setBar('kb-warm',   pct(t.warm,    g.warm));
+  setBar('kb-hot',    pct(t.hot,     g.hot));
+  setBar('kb-meet',   pct(t.meet,    g.meetings));
+  setBar('kb-closes', pct(t.closes,  g.closes));
+  setBar('kb-rev',    pct(t.revenue, g.revenue));
+}
+
+// ═══════════════════════════════════════════════
+// FUNNEL
+// ═══════════════════════════════════════════════
+function renderFunnel() {
+  var t = totals();
+  var steps = [
+    { lbl:'Sent',     val:t.sent,    base:t.sent,    col:'var(--purple)' },
+    { lbl:'Replies',  val:t.replies, base:t.sent,    col:'var(--green)'  },
+    { lbl:'Warm',     val:t.warm,    base:t.replies, col:'var(--yellow)' },
+    { lbl:'Hot',      val:t.hot,     base:t.warm,    col:'var(--orange)' },
+    { lbl:'Meetings', val:t.meet,    base:t.hot,     col:'var(--blue)'   },
+    { lbl:'Closes',   val:t.closes,  base:t.meet,    col:'var(--red)'    }
+  ];
+  var max = t.sent || 1;
+  var html = steps.map(function(s, i) {
+    var w = s.val > 0 ? Math.max(pct(s.val, max), 5) : 0;
+    var sp = i === 0 ? '100%' : fpct(s.val, s.base);
+    return '<div class="fn-row">' +
+      '<div class="fn-lbl">' + s.lbl + '</div>' +
+      '<div class="fn-track"><div class="fn-bar" style="width:' + w + '%;background:' + s.col + '33;color:' + s.col + '">' + s.val + '</div></div>' +
+      '<div class="fn-r"><div class="fn-v" style="color:' + s.col + '">' + s.val + '</div><div class="fn-p">' + sp + '</div></div>' +
+      '</div>';
+  }).join('');
+  document.getElementById('funnel').innerHTML = html;
+}
+
+// ═══════════════════════════════════════════════
+// TABLE
+// ═══════════════════════════════════════════════
+function renderTable() {
+  var body  = document.getElementById('log-body');
+  var foot  = document.getElementById('log-foot');
+  var empty = document.getElementById('log-empty');
+  setEl('entry-count', E.length + ' sessions');
+
+  if (!E.length) {
+    body.innerHTML = ''; foot.innerHTML = '';
+    empty.style.display = 'block'; return;
+  }
+  empty.style.display = 'none';
+
+  body.innerHTML = E.map(function(e) {
+    var rr = pct(e.replies, e.sent);
+    var rc = rr >= 15 ? 'bg' : rr >= 7 ? 'by' : 'br';
+    var tc = e.tmpl === 'A' ? 'bp' : e.tmpl === 'B' ? 'bb' : e.tmpl === 'C' ? 'bo' : 'bg';
+    return '<tr>' +
+      '<td>' + fdate(e.date) + '</td>' +
+      '<td>' + e.plat + '</td>' +
+      '<td><span class="b ' + tc + '">' + e.tmpl + '</span></td>' +
+      '<td>' + e.sent + '</td>' +
+      '<td>' + e.replies + '</td>' +
+      '<td><span class="b ' + rc + '">' + fpct(e.replies, e.sent) + '</span></td>' +
+      '<td>' + e.warm + '</td>' +
+      '<td style="color:var(--orange);font-weight:700">' + e.hot + '</td>' +
+      '<td style="color:var(--blue)">' + e.meet + '</td>' +
+      '<td style="color:' + (e.closes>0?'var(--green)':'inherit') + ';font-weight:700">' + e.closes + '</td>' +
+      '<td>' + (e.deal ? fdol(e.deal) : '—') + '</td>' +
+      '<td>' + (e.fu||0) + '</td>' +
+      '<td style="max-width:120px;overflow:hidden;text-overflow:ellipsis;color:var(--muted)">' + (e.notes||'—') + '</td>' +
+      '<td><button class="del" onclick="deleteEntry(' + e.id + ')">✕</button></td>' +
+      '</tr>';
+  }).join('');
+
+  var t = totals();
+  foot.innerHTML = '<tr>' +
+    '<td colspan="3">TOTALS</td>' +
+    '<td>' + t.sent + '</td><td>' + t.replies + '</td>' +
+    '<td>' + fpct(t.replies,t.sent) + '</td>' +
+    '<td>' + t.warm + '</td><td>' + t.hot + '</td><td>' + t.meet + '</td>' +
+    '<td>' + t.closes + '</td><td>' + fdol(t.revenue) + '</td>' +
+    '<td>' + t.fu + '</td><td colspan="2"></td></tr>';
+}
+
+// ═══════════════════════════════════════════════
+// GOALS
+// ═══════════════════════════════════════════════
+function setPeriod(p) {
+  period = p;
+  ['monthly','weekly'].forEach(function(x) {
+    var el = document.getElementById('tb-' + x);
+    if (el) el.classList.toggle('on', x === p);
+  });
+  renderGoals();
+}
+
+function renderGoals() {
+  var ms = monthStart(), ws = weekStart();
+  var src = E.filter(function(e){ return period==='weekly' ? e.date>=ws : e.date>=ms; });
+  var t = totals(src);
+  var g = G[period];
+
+  var items = [
+    { key:'sent',     lbl:'Messages Sent',  val:t.sent,    col:'var(--purple)', ico:'📤'  },
+    { key:'replies',  lbl:'Replies',         val:t.replies, col:'var(--green)',  ico:'💬'  },
+    { key:'warm',     lbl:'Warm Leads',      val:t.warm,    col:'var(--yellow)', ico:'🌡️'  },
+    { key:'hot',      lbl:'Hot Leads',       val:t.hot,     col:'var(--orange)', ico:'🔥'  },
+    { key:'meetings', lbl:'Meetings',         val:t.meet,    col:'var(--blue)',   ico:'📅'  },
+    { key:'closes',   lbl:'Closes',           val:t.closes,  col:'var(--red)',    ico:'💰'  },
+    { key:'revenue',  lbl:'Revenue',          val:t.revenue, col:'var(--green)',  ico:'💵', fmt:true }
+  ];
+
+  document.getElementById('goals-grid').innerHTML = items.map(function(item) {
+    var target = g[item.key] || 1;
+    var p = Math.min(pct(item.val, target), 100);
+    var dv = item.fmt ? fdol(item.val) : item.val;
+    var over = p >= 100;
+    var perLabel = period.charAt(0).toUpperCase() + period.slice(1);
+    return '<div class="gc">' +
+      '<div class="gc-head"><div class="gc-lbl">' + item.ico + ' ' + item.lbl + '</div>' +
+      '<div class="gc-val" style="color:' + item.col + '">' + dv + '</div></div>' +
+      '<div class="gbar"><div class="gfill" style="width:' + p + '%;background:' + item.col + '"></div></div>' +
+      '<div class="gpct" style="color:' + (over?'var(--green)':'var(--muted)') + '">' +
+        (over ? '✅ Goal hit! ' : '') + p.toFixed(0) + '% of ' + period + ' goal' +
+      '</div>' +
+      '<div class="gi-wrap"><label>' + perLabel + ' target:</label>' +
+      '<input type="number" value="' + target + '" min="1" onchange="updateGoal(\'' + item.key + '\', this.value)" /></div>' +
+      '</div>';
+  }).join('');
+}
+
+function updateGoal(key, val) {
+  G[period][key] = parseInt(val) || 1;
+  save();
+  renderGoals();
+  renderKPIs();
+  toast('Goal updated!');
+}
+
+// ═══════════════════════════════════════════════
+// PLATFORMS
+// ═══════════════════════════════════════════════
+function renderPlatforms() {
+  var map = platStats();
+  var arr = Object.entries(map).sort(function(a,b){ return pct(b[1].replies,b[1].sent)-pct(a[1].replies,a[1].sent); });
+
+  if (!arr.length) {
+    document.getElementById('plat-cards').innerHTML = '<div class="empty" style="grid-column:1/-1"><div class="empty-i">📊</div>No data yet.</div>';
+    return;
+  }
+
+  document.getElementById('plat-cards').innerHTML = arr.map(function(item, i) {
+    var name = item[0], p = item[1];
+    var ico = ICONS[name] || '🔗';
+    return '<div class="pcard">' +
+      (i===0&&arr.length>1 ? '<div class="wtag">🏆 Best Platform</div>' : '') +
+      '<div class="pc-name">' + ico + ' ' + name + '</div>' +
+      '<div class="ps"><span class="ps-l">Sessions</span><span class="ps-v">' + p.n + '</span></div>' +
+      '<div class="ps"><span class="ps-l">Sent</span><span class="ps-v">' + p.sent + '</span></div>' +
+      '<div class="ps"><span class="ps-l">Reply Rate</span><span class="ps-v" style="color:var(--green)">' + fpct(p.replies,p.sent) + '</span></div>' +
+      '<div class="ps"><span class="ps-l">Warm Rate</span><span class="ps-v" style="color:var(--yellow)">' + fpct(p.warm,p.replies) + '</span></div>' +
+      '<div class="ps"><span class="ps-l">Hot Rate</span><span class="ps-v" style="color:var(--orange)">' + fpct(p.hot,p.warm) + '</span></div>' +
+      '<div class="ps"><span class="ps-l">Meet Rate</span><span class="ps-v" style="color:var(--blue)">' + fpct(p.meet,p.hot) + '</span></div>' +
+      '<div class="ps"><span class="ps-l">Closes</span><span class="ps-v" style="color:var(--red)">' + p.closes + '</span></div>' +
+      '<div class="ps"><span class="ps-l">Revenue</span><span class="ps-v" style="color:var(--purple)">' + fdol(p.revenue) + '</span></div>' +
+      '</div>';
+  }).join('');
+}
+
+// ═══════════════════════════════════════════════
+// DAY ANALYSIS
+// ═══════════════════════════════════════════════
+function renderDayAnalysis() {
+  var dw = dowStats();
+  var rates = dw.map(function(d){ return d.sent > 0 ? pct(d.replies, d.sent) : -1; });
+  var validRates = rates.filter(function(r){ return r >= 0; });
+  var bestD  = validRates.length ? rates.indexOf(Math.max.apply(null, rates)) : -1;
+  var worstD = validRates.length ? rates.indexOf(Math.min.apply(null, validRates)) : -1;
+  var hasData = validRates.length > 0;
+
+  var tbl = document.getElementById('dow-tbl');
+  var dowEmpty = document.getElementById('dow-empty');
+  if (tbl) {
+    if (!hasData) {
+      tbl.innerHTML = '';
+      if (dowEmpty) dowEmpty.style.display = 'block';
+    } else {
+      if (dowEmpty) dowEmpty.style.display = 'none';
+      tbl.innerHTML = '<thead><tr>' +
+        '<th>Day</th><th>Sessions</th><th>Sent</th><th>Replies</th>' +
+        '<th>Reply %</th><th>Warm</th><th>Hot</th><th>Meets</th><th>Closes</th>' +
+        '</tr></thead><tbody>' +
+        dw.map(function(d, i) {
+          var r = d.sent > 0 ? pct(d.replies,d.sent).toFixed(1)+'%' : '—';
+          var cls = (i===bestD&&d.n) ? 'dt-b' : (i===worstD&&d.n) ? 'dt-w' : '';
+          var tag = (i===bestD&&d.n) ? ' ✅' : (i===worstD&&d.n) ? ' ⚠️' : '';
+          return '<tr class="' + cls + '">' +
+            '<td>' + DAYS[i] + tag + '</td>' +
+            '<td>' + d.n + '</td><td>' + d.sent + '</td><td>' + d.replies + '</td><td>' + r + '</td>' +
+            '<td>' + d.warm + '</td><td>' + d.hot + '</td><td>' + d.meet + '</td><td>' + d.closes + '</td>' +
+            '</tr>';
+        }).join('') + '</tbody>';
+    }
+  }
+
+  // Heatmap
+  var hm = document.getElementById('heatmap');
+  if (!hm) return;
+  var days42 = [];
+  for (var i = 41; i >= 0; i--) {
+    var d = new Date(); d.setDate(d.getDate() - i);
+    days42.push(d.toISOString().slice(0,10));
+  }
+  var firstDow = new Date(days42[0] + 'T12:00:00').getDay();
+  var cells = [];
+  for (var j = 0; j < firstDow; j++) cells.push(null);
+  days42.forEach(function(d){ cells.push(d); });
+
+  var dayMap = {};
+  E.forEach(function(e){ dayMap[e.date] = (dayMap[e.date]||0) + e.sent; });
+  var vals = Object.values(dayMap);
+  var maxSent = vals.length ? Math.max.apply(null, vals) : 1;
+
+  hm.innerHTML = cells.map(function(d) {
+    if (!d) return '<div class="hmc" style="background:transparent"></div>';
+    var v = dayMap[d] || 0;
+    var intensity = v / maxSent;
+    var isToday = d === todayStr();
+    var bg = v === 0 ? 'var(--s2)' : 'rgba(124,109,250,' + (0.12 + intensity*0.88) + ')';
+    var dd = new Date(d + 'T12:00:00').getDate();
+    var outline = isToday ? 'outline:2px solid var(--purple);' : '';
+    return '<div class="hmc" style="background:' + bg + ';' + outline + 'color:' + (v?'#fff':'var(--muted)') + '" title="' + d + ': ' + v + ' sent">' + dd + '</div>';
+  }).join('');
+}
+
+// ═══════════════════════════════════════════════
+// A/B TESTING
+// ═══════════════════════════════════════════════
+function renderAB() {
+  var grid = document.getElementById('ab-grid');
+  var tmpls = [];
+  var seen = {};
+  E.forEach(function(e){ if (e.tmpl && !seen[e.tmpl]) { seen[e.tmpl] = true; tmpls.push(e.tmpl); } });
+
+  if (!tmpls.length) {
+    grid.innerHTML = '<div class="empty" style="grid-column:1/-1"><div class="empty-i">🧪</div>Log sessions with Template tags to see A/B results.</div>';
+    return;
+  }
+
+  var data = {};
+  tmpls.forEach(function(t) {
+    var ents = E.filter(function(e){ return e.tmpl === t; });
+    var tot = totals(ents);
+    tot.n = ents.length;
+    data[t] = tot;
+  });
+
+  tmpls.sort(function(a, b){ return pct(data[b].replies,data[b].sent)-pct(data[a].replies,data[a].sent); });
+  var winner = tmpls[0];
+
+  grid.innerHTML = tmpls.map(function(t) {
+    var d = data[t];
+    var isWin = t === winner && tmpls.length > 1;
+    return '<div class="abc ' + (isWin?'win':'') + '">' +
+      (isWin ? '<div class="win-tag">🏆 Best Template</div>' : '') +
+      '<div class="abl" style="color:' + (isWin?'var(--green)':'var(--muted)') + '">Template ' + (t==='-'?'Untagged':t) + '</div>' +
+      '<div class="abs"><span>Sessions</span><strong>' + d.n + '</strong></div>' +
+      '<div class="abs"><span>Sent</span><strong>' + d.sent + '</strong></div>' +
+      '<div class="abs"><span>Reply Rate</span><strong style="color:' + (isWin?'var(--green)':'inherit') + '">' + fpct(d.replies,d.sent) + '</strong></div>' +
+      '<div class="abs"><span>Warm Rate</span><strong>' + fpct(d.warm,d.replies) + '</strong></div>' +
+      '<div class="abs"><span>Hot Rate</span><strong style="color:var(--orange)">' + fpct(d.hot,d.warm) + '</strong></div>' +
+      '<div class="abs"><span>Meeting Rate</span><strong style="color:var(--blue)">' + fpct(d.meet,d.hot) + '</strong></div>' +
+      '<div class="abs"><span>Closes</span><strong style="color:var(--green)">' + d.closes + '</strong></div>' +
+      '<div class="abs"><span>Revenue</span><strong>' + fdol(d.revenue) + '</strong></div>' +
+      '</div>';
+  }).join('');
+}
+
+// ═══════════════════════════════════════════════
+// STREAK + INSIGHT + WEEK STATS + MONTH PROG
+// ═══════════════════════════════════════════════
+function renderStreak() {
+  var dates = [];
+  var seen = {};
+  E.forEach(function(e){ if (!seen[e.date]) { seen[e.date]=true; dates.push(e.date); } });
+  dates.sort().reverse();
+  var streak = 0;
+  var d = new Date();
+  for (var i = 0; i < dates.length; i++) {
+    var check = d.toISOString().slice(0,10);
+    if (dates[i] === check) { streak++; d.setDate(d.getDate()-1); } else break;
+  }
+  setEl('streak-val', streak);
+}
+
+function renderInsight() {
+  var t = totals();
+  var el = document.getElementById('insight-txt');
+  if (!el) return;
+
+  var txt = 'Log your first session to see personalized insights.';
+  if (t.sent > 0) {
+    var rr = pct(t.replies, t.sent);
+    if (rr >= 15) {
+      txt = 'Your reply rate is <strong>' + rr.toFixed(1) + '%</strong> — above the 15% benchmark. Keep it up!';
+    } else if (rr >= 8) {
+      txt = 'Reply rate is <strong>' + rr.toFixed(1) + '%</strong>. Try mentioning the salon by name and a style they specialize in.';
+    } else {
+      txt = 'Reply rate is <strong>' + rr.toFixed(1) + '%</strong>. Shorter messages that reference their specific work tend to 2-3x responses.';
+    }
+    var pm = platStats();
+    var pa = Object.entries(pm).sort(function(a,b){ return pct(b[1].replies,b[1].sent)-pct(a[1].replies,a[1].sent); });
+    if (pa.length > 1) txt += ' Best platform: <strong>' + pa[0][0] + '</strong>.';
+    var dw = dowStats();
+    var rates = dw.map(function(d){ return d.sent > 0 ? pct(d.replies,d.sent) : -1; });
+    var bestD = rates.indexOf(Math.max.apply(null, rates));
+    if (rates[bestD] > 0) txt += ' Best day: <strong>' + DAYS[bestD] + '</strong>.';
+  }
+  el.innerHTML = txt;
+}
+
+function renderWeekStats() {
+  var t = totals(E.filter(function(e){ return e.date >= weekStart(); }));
+  var el = document.getElementById('wk-stats');
+  if (!el) return;
+  var items = [
+    { v:t.sent,             l:'sent',      c:'var(--purple)' },
+    { v:fpct(t.replies,t.sent), l:'reply rate', c:'var(--green)'  },
+    { v:t.hot,              l:'hot leads', c:'var(--orange)' },
+    { v:t.meet,             l:'meetings',  c:'var(--blue)'   },
+    { v:t.closes,           l:'closes',    c:'var(--red)'    },
+    { v:fdol(t.revenue),    l:'revenue',   c:'var(--green)'  }
+  ];
+  el.innerHTML = items.map(function(i){
+    return '<div class="wkc"><div class="wkv" style="color:' + i.c + '">' + i.v + '</div><div class="wkl">' + i.l + '</div></div>';
+  }).join('');
+}
+
+function renderMonthProg() {
+  var t = totals(E.filter(function(e){ return e.date >= monthStart(); }));
+  var g = G.monthly;
+  var el = document.getElementById('month-prog');
+  if (!el) return;
+  var items = [
+    { lbl:'Sent',   val:t.sent,    goal:g.sent,    col:'var(--purple)' },
+    { lbl:'Closes', val:t.closes,  goal:g.closes,  col:'var(--red)'    },
+    { lbl:'Revenue',val:t.revenue, goal:g.revenue, col:'var(--green)',  fmt:true }
+  ];
+  el.innerHTML = items.map(function(item){
+    var p = Math.min(pct(item.val,item.goal),100);
+    var dv = item.fmt ? fdol(item.val) : item.val;
+    var gv = item.fmt ? fdol(item.goal) : item.goal;
+    return '<div style="margin-bottom:9px">' +
+      '<div style="display:flex;justify-content:space-between;font-size:10px;margin-bottom:3px">' +
+        '<span style="color:var(--muted)">' + item.lbl + '</span>' +
+        '<span style="font-weight:700">' + dv + ' / ' + gv + '</span>' +
+      '</div>' +
+      '<div style="background:var(--s2);border-radius:3px;height:4px;overflow:hidden">' +
+        '<div style="width:' + p + '%;height:100%;background:' + item.col + ';border-radius:3px;transition:width .5s ease"></div>' +
+      '</div></div>';
+  }).join('');
+}
+
+// ═══════════════════════════════════════════════
+// CHARTS
+// ═══════════════════════════════════════════════
+function mkChart(id, type, data, options) {
+  var ctx = document.getElementById(id);
+  if (!ctx) return;
+  try { if (CH[id]) { CH[id].destroy(); CH[id] = null; } } catch(e) {}
+  try { CH[id] = new Chart(ctx, { type:type, data:data, options:options }); } catch(e) {}
+}
+
+var XY_OPTS = {
+  responsive: true,
+  maintainAspectRatio: false,
+  plugins: { legend: { labels: { color:'#606480', font:{size:10}, boxWidth:10, padding:12 } } },
+  scales: {
+    x: { ticks:{ color:'#606480', font:{size:10} }, grid:{ color:'#22263a' } },
+    y: { ticks:{ color:'#606480', font:{size:10} }, grid:{ color:'#22263a' }, beginAtZero:true }
+  }
+};
+
+function renderCharts(tab) {
+  if (tab === 'dashboard') {
+    renderTrendChart();
+    renderDowMiniChart();
+    renderPlatMiniChart();
+  }
+  if (tab === 'platforms') {
+    renderPlatFullChart();
+    renderPlatSentChart();
+    renderPlatRevChart();
+  }
+  if (tab === 'days') {
+    renderDowFullChart();
+    renderDowSentChart();
+  }
+}
+
+function renderTrendChart() {
+  var days = [];
+  for (var i = 29; i >= 0; i--) {
+    var d = new Date(); d.setDate(d.getDate() - i);
+    days.push(d.toISOString().slice(0,10));
+  }
+  var labels = days.map(function(d){
+    var p = d.split('-'); return parseInt(p[1])+'/'+parseInt(p[2]);
+  });
+  function get(key) {
+    return days.map(function(d){
+      return E.filter(function(e){ return e.date===d; }).reduce(function(a,e){ return a+e[key]; },0);
+    });
+  }
+  var lbl = document.getElementById('trend-lbl');
+  if (lbl) lbl.textContent = labels[0] + ' – ' + labels[labels.length-1];
+
+  mkChart('c-trend','line',{
+    labels: labels,
+    datasets: [
+      { label:'Sent',      data:get('sent'),    borderColor:'#7c6dfa', backgroundColor:'rgba(124,109,250,.07)', tension:.4, fill:true,  pointRadius:2, borderWidth:2 },
+      { label:'Replies',   data:get('replies'), borderColor:'#1fd6a6', backgroundColor:'transparent',            tension:.4, fill:false, pointRadius:2, borderWidth:2 },
+      { label:'Hot Leads', data:get('hot'),     borderColor:'#fb923c', backgroundColor:'transparent',            tension:.4, fill:false, pointRadius:2, borderWidth:2 },
+      { label:'Closes',    data:get('closes'),  borderColor:'#f56161', backgroundColor:'transparent',            tension:.4, fill:false, pointRadius:3, borderWidth:2 }
+    ]
+  }, Object.assign({}, XY_OPTS, { interaction:{ mode:'index', intersect:false } }));
+}
+
+function renderDowMiniChart() {
+  var dw = dowStats();
+  var rates = dw.map(function(d){ return d.sent>0 ? parseFloat(pct(d.replies,d.sent).toFixed(1)) : 0; });
+  var maxR = Math.max.apply(null, rates);
+  var colors = rates.map(function(r){ return (r===maxR && r>0) ? 'rgba(31,214,166,.85)' : 'rgba(124,109,250,.45)'; });
+  mkChart('c-dow','bar',{
+    labels: DSHRT,
+    datasets: [{ label:'Reply %', data:rates, backgroundColor:colors, borderRadius:5, borderSkipped:false }]
+  },{
+    responsive:true, maintainAspectRatio:false,
+    plugins:{ legend:{display:false} },
+    scales:{
+      x:{ ticks:{color:'#606480',font:{size:10}}, grid:{color:'#22263a'} },
+      y:{ ticks:{color:'#606480',font:{size:10},callback:function(v){return v+'%'}}, grid:{color:'#22263a'}, beginAtZero:true }
+    }
+  });
+}
+
+function renderPlatMiniChart() {
+  var map = platStats();
+  var pa = Object.entries(map).sort(function(a,b){ return pct(b[1].replies,b[1].sent)-pct(a[1].replies,a[1].sent); });
+  var labels = pa.map(function(x){ return x[0]; });
+  var data   = pa.map(function(x){ return parseFloat(pct(x[1].replies,x[1].sent).toFixed(1)); });
+  var colors = pa.map(function(_,i){ return PAL[i%PAL.length]; });
+  mkChart('c-plat','bar',{
+    labels: labels,
+    datasets: [{ label:'Reply %', data:data, backgroundColor:colors, borderRadius:5, borderSkipped:false }]
+  },{
+    responsive:true, maintainAspectRatio:false, indexAxis:'y',
+    plugins:{ legend:{display:false} },
+    scales:{
+      x:{ ticks:{color:'#606480',font:{size:10},callback:function(v){return v+'%'}}, grid:{color:'#22263a'}, beginAtZero:true },
+      y:{ ticks:{color:'#606480',font:{size:10}}, grid:{display:false} }
+    }
+  });
+}
+
+function renderPlatFullChart() {
+  var map = platStats();
+  var pa = Object.entries(map);
+  if (!pa.length) return;
+  mkChart('c-plat-full','bar',{
+    labels: pa.map(function(x){ return x[0]; }),
+    datasets: [
+      { label:'Reply %', data:pa.map(function(x){ return parseFloat(pct(x[1].replies,x[1].sent).toFixed(1)); }), backgroundColor:'rgba(31,214,166,.7)', borderRadius:5 },
+      { label:'Warm %',  data:pa.map(function(x){ return parseFloat(pct(x[1].warm,x[1].replies).toFixed(1)); }), backgroundColor:'rgba(245,197,24,.7)',  borderRadius:5 },
+      { label:'Hot %',   data:pa.map(function(x){ return parseFloat(pct(x[1].hot,x[1].warm).toFixed(1)); }),     backgroundColor:'rgba(251,146,60,.7)',  borderRadius:5 },
+      { label:'Close %', data:pa.map(function(x){ var b=x[1].meet||x[1].hot||1; return parseFloat(pct(x[1].closes,b).toFixed(1)); }), backgroundColor:'rgba(245,97,97,.7)', borderRadius:5 }
+    ]
+  },{
+    responsive:true, maintainAspectRatio:false,
+    interaction:{ mode:'index', intersect:false },
+    plugins:{ legend:{ labels:{ color:'#606480', font:{size:10}, boxWidth:10, padding:12 } } },
+    scales:{
+      x:{ ticks:{color:'#606480',font:{size:10}}, grid:{color:'#22263a'} },
+      y:{ ticks:{color:'#606480',font:{size:10},callback:function(v){return v+'%'}}, grid:{color:'#22263a'}, beginAtZero:true }
+    }
+  });
+}
+
+function renderDoughnut(id, data, labels, fmtFn) {
+  var opts = {
+    responsive:true, maintainAspectRatio:false, cutout:'65%',
+    plugins:{
+      legend:{ position:'bottom', labels:{ color:'#606480', font:{size:10}, boxWidth:10 } },
+      tooltip:{}
+    }
+  };
+  if (fmtFn) opts.plugins.tooltip.callbacks = { label: fmtFn };
+  mkChart(id,'doughnut',{ labels:labels, datasets:[{ data:data, backgroundColor:PAL, borderWidth:0, hoverOffset:8 }] }, opts);
+}
+
+function renderPlatSentChart() {
+  var map = platStats();
+  var pa = Object.entries(map);
+  renderDoughnut('c-plat-sent', pa.map(function(x){return x[1].sent;}), pa.map(function(x){return x[0];}));
+}
+
+function renderPlatRevChart() {
+  var map = platStats();
+  var pa = Object.entries(map);
+  renderDoughnut('c-plat-rev', pa.map(function(x){return x[1].revenue;}), pa.map(function(x){return x[0];}),
+    function(ctx){ return ' ' + fdol(ctx.raw); });
+}
+
+function renderDowFullChart() {
+  var dw = dowStats();
+  var rates = dw.map(function(d){ return d.sent>0 ? parseFloat(pct(d.replies,d.sent).toFixed(1)) : 0; });
+  var maxR = Math.max.apply(null, rates);
+  mkChart('c-dow-full','bar',{
+    labels: DAYS,
+    datasets:[{ label:'Reply %', data:rates,
+      backgroundColor: rates.map(function(r){ return (r===maxR&&r>0)?'rgba(31,214,166,.85)':'rgba(124,109,250,.5)'; }),
+      borderRadius:7, borderSkipped:false }]
+  },{
+    responsive:true, maintainAspectRatio:false,
+    plugins:{ legend:{display:false} },
+    scales:{
+      x:{ ticks:{color:'#606480',font:{size:10}}, grid:{color:'#22263a'} },
+      y:{ ticks:{color:'#606480',font:{size:10},callback:function(v){return v+'%'}}, grid:{color:'#22263a'}, beginAtZero:true }
+    }
+  });
+}
+
+function renderDowSentChart() {
+  var dw = dowStats();
+  mkChart('c-dow-sent','bar',{
+    labels: DAYS,
+    datasets:[{ label:'Messages Sent', data:dw.map(function(d){return d.sent;}), backgroundColor:'rgba(124,109,250,.6)', borderRadius:7, borderSkipped:false }]
+  },{
+    responsive:true, maintainAspectRatio:false,
+    plugins:{ legend:{display:false} },
+    scales:{
+      x:{ ticks:{color:'#606480',font:{size:10}}, grid:{color:'#22263a'} },
+      y:{ ticks:{color:'#606480',font:{size:10}}, grid:{color:'#22263a'}, beginAtZero:true }
+    }
+  });
+}
+
+// ═══════════════════════════════════════════════
+// TOAST
+// ═══════════════════════════════════════════════
+var toastTimer = null;
+function toast(msg) {
+  var el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  if (toastTimer) clearTimeout(toastTimer);
+  toastTimer = setTimeout(function(){ el.classList.remove('show'); }, 2400);
+}
+</script>
+</body>
+</html>

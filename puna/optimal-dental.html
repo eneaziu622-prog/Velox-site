@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8" />
+<title>Optimal Dental — Web Design Case Study | VELOX Studio</title>
+<meta name="description" content="Si VELOX ndërtoi faqen e re të Optimal Dental — dizajn modern, prani profesionale dhe mundësi për klientë ndërkombëtarë italianë. Lexo case study-n." />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="VELOX Studio" />
+<meta property="og:locale" content="sq_AL" />
+<meta property="og:title" content="Optimal Dental — Web Design Case Study | VELOX Studio" />
+<meta property="og:description" content="Si VELOX ndërtoi faqen e re të Optimal Dental — dizajn modern dhe prani profesionale për klientë ndërkombëtarë." />
+<meta property="og:url" content="https://velox-design.netlify.app/puna/optimal-dental" />
+<meta property="og:image" content="https://velox-design.netlify.app/og-image.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Optimal Dental — Web Design Case Study | VELOX Studio" />
+<meta name="twitter:description" content="Si VELOX ndërtoi faqen e re të Optimal Dental — dizajn modern dhe prani profesionale për klientë ndërkombëtarë." />
+<meta name="twitter:image" content="https://velox-design.netlify.app/og-image.jpg" />
+
+<!-- Breadcrumb schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Kryefaqja", "item": "https://velox-design.netlify.app/" },
+    { "@type": "ListItem", "position": 2, "name": "Puna", "item": "https://velox-design.netlify.app/#work" },
+    { "@type": "ListItem", "position": 3, "name": "Optimal Dental", "item": "https://velox-design.netlify.app/puna/optimal-dental" }
+  ]
+}
+</script>
+
+<!-- Case study schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Optimal Dental — Nga Zero në Prani Profesionale Online",
+  "description": "Si VELOX Studio ndërtoi faqen e parë profesionale të Optimal Dental, duke u hapur rrugën klientëve ndërkombëtarë italianë.",
+  "author": { "@type": "Organization", "name": "VELOX Studio" },
+  "publisher": { "@type": "Organization", "name": "VELOX Studio", "url": "https://velox-design.netlify.app" },
+  "datePublished": "2026-06-03"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../velox-site.css">
+
+<style>
+  /* Case study specific styles */
+  .cs-hero {
+    padding: 160px 0 80px;
+    max-width: 760px;
+  }
+  .cs-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-family: var(--mono);
+    color: var(--ink-3);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+  }
+  .cs-breadcrumb a { color: var(--ink-3); transition: color .2s; }
+  .cs-breadcrumb a:hover { color: var(--ink); }
+  .cs-breadcrumb span { color: var(--line); }
+
+  .cs-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .cs-tag {
+    font-size: 12px;
+    font-family: var(--mono);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    color: var(--ink-2);
+  }
+
+  .cs-headline {
+    font-family: var(--serif);
+    font-size: clamp(36px, 5vw, 58px);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -.02em;
+    color: var(--ink);
+    margin-bottom: 24px;
+  }
+  .cs-headline em {
+    font-style: italic;
+    color: var(--peach);
+  }
+
+  .cs-subtitle {
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--ink-2);
+    max-width: 580px;
+  }
+
+  .cs-divider {
+    height: 1px;
+    background: var(--line);
+    margin: 64px 0;
+  }
+
+  .cs-meta-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 32px;
+    padding: 40px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 80px;
+  }
+  .cs-meta-item {}
+  .cs-meta-label {
+    font-size: 11px;
+    font-family: var(--mono);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 8px;
+  }
+  .cs-meta-val {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .cs-body {
+    max-width: 680px;
+  }
+  .cs-section {
+    margin-bottom: 64px;
+  }
+  .cs-section-tag {
+    font-size: 11px;
+    font-family: var(--mono);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--peach);
+    margin-bottom: 16px;
+  }
+  .cs-section h2 {
+    font-family: var(--serif);
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 400;
+    line-height: 1.25;
+    letter-spacing: -.02em;
+    color: var(--ink);
+    margin-bottom: 20px;
+  }
+  .cs-section h2 em {
+    font-style: italic;
+    color: var(--peach);
+  }
+  .cs-section p {
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--ink-2);
+    margin-bottom: 16px;
+  }
+
+  .cs-highlight {
+    background: var(--navy);
+    color: var(--inv);
+    border-radius: 16px;
+    padding: 36px 40px;
+    margin: 48px 0;
+  }
+  .cs-highlight p {
+    font-family: var(--serif);
+    font-size: clamp(20px, 2.5vw, 26px);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.5;
+    color: rgba(244,247,251,0.9);
+    margin: 0;
+  }
+  .cs-highlight em {
+    color: var(--peach);
+    font-style: italic;
+  }
+
+  .cs-deliverables {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin: 32px 0;
+  }
+  .cs-deliverable {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 20px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: white;
+  }
+  .cs-deliverable-icon {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    background: var(--bg-blue);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--navy);
+  }
+  .cs-deliverable-text { font-size: 14px; font-weight: 500; color: var(--ink); line-height: 1.4; }
+
+  .cs-cta-section {
+    background: var(--bg-warm);
+    border-radius: 20px;
+    padding: 56px 48px;
+    margin: 80px 0;
+    text-align: center;
+  }
+  .cs-cta-section h3 {
+    font-family: var(--serif);
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 400;
+    letter-spacing: -.02em;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+  .cs-cta-section h3 em { font-style: italic; color: var(--peach-2); }
+  .cs-cta-section p {
+    font-size: 16px;
+    color: var(--ink-2);
+    max-width: 420px;
+    margin: 0 auto 32px;
+    line-height: 1.65;
+  }
+
+  @media (max-width: 600px) {
+    .cs-hero { padding: 120px 0 60px; }
+    .cs-cta-section { padding: 40px 24px; }
+    .cs-highlight { padding: 28px 24px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+  <div class="cursor-dot"  id="cursor-dot"  aria-hidden="true"></div>
+
+  <div class="bg-layer" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-glow"></div>
+    <div class="bg-glow b"></div>
+  </div>
+
+  <!-- Nav -->
+  <nav class="nav" id="nav">
+    <a href="/" class="logo" aria-label="VELOX">
+      <img src="../logos/velox-stamp-blue.png" alt="VELOX Studio — web design profesional Tiranë" class="logo-img" />
+    </a>
+    <div class="nav-links" role="navigation">
+      <a href="/#work">Puna</a>
+      <a href="/#services">Shërbimet</a>
+      <a href="/#process">Procesi</a>
+      <a href="/#contact">Kontakt</a>
+    </div>
+    <div class="nav-right">
+      <span class="nav-time" id="local-time">Tiranë · 00:00</span>
+      <a href="/#contact" class="nav-cta">
+        Të flasim
+        <span class="nav-cta-arrow" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M2 10 L10 2 M4 2 H10 V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+      <button class="nav-burger" id="nav-burger" aria-label="Hap menunë" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-inner">
+      <a href="/#work"     class="mm-link"><span class="mm-num">01</span> Puna      <span class="mm-arrow">→</span></a>
+      <a href="/#services" class="mm-link"><span class="mm-num">02</span> Shërbimet <span class="mm-arrow">→</span></a>
+      <a href="/#process"  class="mm-link"><span class="mm-num">03</span> Procesi   <span class="mm-arrow">→</span></a>
+      <a href="/#contact"  class="mm-link"><span class="mm-num">04</span> Kontakt   <span class="mm-arrow">→</span></a>
+      <div class="mm-foot">
+        <a href="https://wa.me/355692081322" target="_blank" rel="noopener noreferrer" class="btn btn-primary mm-cta">
+          Fillo bisedën — falas <span class="arrow">→</span>
+        </a>
+        <div class="mm-meta">
+          <span>Tiranë, Shqipëri</span>
+          <span id="mm-time">00:00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <div class="shell">
+
+      <!-- Hero -->
+      <div class="cs-hero reveal">
+        <nav class="cs-breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Kreu</a>
+          <span>/</span>
+          <a href="/#work">Puna</a>
+          <span>/</span>
+          <span style="color:var(--ink-2)">Optimal Dental</span>
+        </nav>
+
+        <div class="cs-tags">
+          <span class="cs-tag">Web Design</span>
+          <span class="cs-tag">Shumëgjuhësh</span>
+          <span class="cs-tag">Turizëm Dentar</span>
+          <span class="cs-tag">2025</span>
+        </div>
+
+        <h1 class="cs-headline">Optimal Dental — Nga Zero në <em>Prani Profesionale Online.</em></h1>
+        <p class="cs-subtitle">
+          Si ndërtuam faqen e parë profesionale të një klinike dentare shqiptare —
+          dhe i hapëm rrugën klientëve italianë që kërkonin shërbime dentare në Shqipëri.
+        </p>
+      </div>
+
+      <!-- Project meta -->
+      <div class="cs-meta-row reveal">
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Klienti</div>
+          <div class="cs-meta-val">Optimal Dental</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Shërbimi</div>
+          <div class="cs-meta-val">Web Design</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Viti</div>
+          <div class="cs-meta-val">2025</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Tregu</div>
+          <div class="cs-meta-val">AL · IT</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Dorëzimi</div>
+          <div class="cs-meta-val">7 ditë</div>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="cs-body">
+
+        <!-- Section 1: The situation -->
+        <div class="cs-section reveal">
+          <div class="cs-section-tag">01 — Situata</div>
+          <h2>Klinikë e mirë. <em>E padukshme online.</em></h2>
+          <p>
+            Optimal Dental është një klinikë dentare me shërbime cilësore dhe staf profesional.
+            Por kur dikush e kërkonte në Google — nuk gjente asgjë. Asnjë faqe. Asnjë prani.
+            Klinika ishte praktikisht e padukshme për çdo pacient potencial që nuk kalonte fizikisht pranë saj.
+          </p>
+          <p>
+            Problemi i vërtetë: jo mungesa e klientëve shqiptarë — por mundësia e humbur me
+            turistët dentar italianë. Italiania është një treg i madh për kujdesin dentar jashtë vendit.
+            Shqipëria ofron çmime dukshëm më të ulëta me cilësi europiane. Por pa faqe profesionale
+            në italisht, ata pacientë as nuk e konsideronin Optimal Dental.
+          </p>
+        </div>
+
+        <!-- Quote highlight -->
+        <div class="cs-highlight reveal">
+          <p>
+            Çdo ditë pa faqe interneti profesionale ishte <em>një pacient italian</em>
+            që zgjidhte klinikën tjetër — sepse e gjente më lehtë.
+          </p>
+        </div>
+
+        <!-- Section 2: The challenge -->
+        <div class="cs-section reveal">
+          <div class="cs-section-tag">02 — Sfida</div>
+          <h2>Dy audienca. <em>Një faqe e vetme.</em></h2>
+          <p>
+            Duhej ndërtuar diçka që funksiononte për dy grupe krejtësisht të ndryshme njëkohësisht:
+          </p>
+          <p>
+            <strong>Pacientë shqiptarë</strong> — që kërkonin besueshmëri lokale, çmime të qarta
+            dhe kontakt të lehtë. Këta preferojnë WhatsApp dhe komunikim direkt.
+          </p>
+          <p>
+            <strong>Pacientë italianë</strong> — që kërkonin informacion të plotë në gjuhën e tyre,
+            garanci cilësie dhe mundësi për të planifikuar vizitën nga distanca.
+            Këta marrin vendime bazuar shumë te pamja profesionale e faqes.
+          </p>
+          <p>
+            Zgjidhja duhej të ishte e shpejtë, e pastër dhe e besueshme — pa bërë kompromis
+            me asnjë nga dy audiencave.
+          </p>
+        </div>
+
+        <!-- Section 3: What we built -->
+        <div class="cs-section reveal">
+          <div class="cs-section-tag">03 — Zgjidhja</div>
+          <h2>Dizajn i pastër. <em>Mesazh i qartë.</em></h2>
+          <p>
+            Ndërtuam faqen e parë profesionale të Optimal Dental — të dizajnuar me kujdes
+            për të komunikuar besueshmëri dhe cilësi nga sekonda e parë.
+          </p>
+          <p>
+            Struktura e faqes u hartua rreth udhëtimit të pacientit: çfarë shërbimesh ofrohet,
+            pse të zgjedhësh Optimal Dental, dhe si të kontaktosh. Çdo hap i lehtë dhe i qartë.
+          </p>
+          <p>
+            Struktura shumëgjuhësh i dha mundësinë pacientëve italianë të eksploronin shërbimet
+            në gjuhën e tyre — me ritmin dhe kohën e tyre — para se të kontaktonin.
+            Kjo është saktësisht ajo çfarë duhet për të fituar besimin e dikujt që vjen nga jashtë vendit.
+          </p>
+        </div>
+
+        <!-- Deliverables -->
+        <div class="cs-deliverables reveal">
+          <div class="cs-deliverable">
+            <div class="cs-deliverable-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9H21"/>
+              </svg>
+            </div>
+            <div class="cs-deliverable-text">Faqe interneti profesionale</div>
+          </div>
+          <div class="cs-deliverable">
+            <div class="cs-deliverable-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="12" r="9"/><path d="M3 12H21M12 3C15 7 15 17 12 21M12 3C9 7 9 17 12 21"/>
+              </svg>
+            </div>
+            <div class="cs-deliverable-text">Struktura shumëgjuhësh (SQ · IT)</div>
+          </div>
+          <div class="cs-deliverable">
+            <div class="cs-deliverable-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="5" y="2" width="14" height="20" rx="2"/><path d="M9 7h6M9 11h6M9 15h4"/>
+              </svg>
+            </div>
+            <div class="cs-deliverable-text">Faqe shërbimesh të detajuara</div>
+          </div>
+          <div class="cs-deliverable">
+            <div class="cs-deliverable-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M3 17L9 11L13 15L21 7"/><path d="M15 7H21V13"/>
+              </svg>
+            </div>
+            <div class="cs-deliverable-text">SEO bazë i integruar</div>
+          </div>
+          <div class="cs-deliverable">
+            <div class="cs-deliverable-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="5" y="2" width="14" height="20" rx="2"/>
+              </svg>
+            </div>
+            <div class="cs-deliverable-text">Responsive — telefon & desktop</div>
+          </div>
+          <div class="cs-deliverable">
+            <div class="cs-deliverable-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <div class="cs-deliverable-text">Dorëzim brenda 7 ditëve</div>
+          </div>
+        </div>
+
+        <!-- Section 4: Result -->
+        <div class="cs-section reveal">
+          <div class="cs-section-tag">04 — Rezultati</div>
+          <h2>Nga e padukshme, <em>te e besueshme.</em></h2>
+          <p>
+            Optimal Dental kaloi nga zero prani online në një faqe profesionale që funksionon
+            24 orë në ditë — duke u treguar pacientëve potencialë saktësisht çfarë ofron klinika
+            dhe pse duhet ta zgjedhin.
+          </p>
+          <p>
+            Pacientët italianë tani mund të eksplorojnë shërbimet, të kuptojnë çmimet dhe të
+            ndërtojnë besim — gjithë kjo para se të dërgojnë mesazhin e parë. Kjo ndryshon
+            cilësinë e çdo kontakti: jo më "çfarë bëni?" — por "dua të rezervoj."
+          </p>
+          <p>
+            Klinika tani duket e nivelit të shërbimit që ofron. Dhe kjo, në fund të ditës, është
+            puna jonë.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- CTA -->
+      <div class="cs-cta-section reveal">
+        <h3>Dëshiron <em>rezultate të ngjashme?</em></h3>
+        <p>
+          Tregona projektin tënd dhe të japim një vlerësim konkret brenda 24 orësh. Pa angazhim.
+        </p>
+        <div class="cta-row" style="justify-content:center">
+          <a href="https://wa.me/355692081322?text=Pershendetje%20VELOX%2C%20dua%20te%20flas%20per%20nje%20projekt."
+             target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            Fillo bisedën — WhatsApp <span class="arrow">→</span>
+          </a>
+          <a href="/#work" class="btn btn-ghost">Shiko punë të tjera</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-shell">
+      <div class="reveal">
+        <h2 class="footer-big">Konkurrenti yt <em>nuk pret. As ti nuk duhet.</em></h2>
+        <div class="footer-ctas">
+          <a href="https://wa.me/355692081322" target="_blank" rel="noopener noreferrer" class="footer-cta">
+            WhatsApp — fillo sot
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11 L11 3 M5 3 H11 V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="mailto:Eneaziu622@gmail.com" class="footer-cta ghost">
+            Dërgo email
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11 L11 3 M5 3 H11 V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h6>Studio</h6>
+          <div class="footer-studio">Tiranë, <em>Shqipëri.</em></div>
+          <p style="margin-top:14px; color:rgba(244,247,251,0.7); font-size:14px">Rruga e Kavajës 1001</p>
+          <p style="color:rgba(244,247,251,0.5); font-size:13px; font-family:var(--mono); letter-spacing:.06em; text-transform:uppercase" id="footer-time">Ora lokale —</p>
+        </div>
+        <div class="footer-col">
+          <h6>Navigo</h6>
+          <a href="/">Kreu</a>
+          <a href="/#services">Shërbimet</a>
+          <a href="/#work">Puna</a>
+          <a href="/#process">Procesi</a>
+          <a href="/#contact">Kontakt</a>
+        </div>
+        <div class="footer-col">
+          <h6>Shërbimet</h6>
+          <a href="/#services">Faqe interneti</a>
+          <a href="/#services">Brend &amp; identitet</a>
+          <a href="/#services">UI produkti</a>
+          <a href="/#services">SEO</a>
+        </div>
+        <div class="footer-col">
+          <h6>Na ndiq</h6>
+          <a href="#">Instagram ↗</a>
+          <a href="#">Behance ↗</a>
+          <a href="#">LinkedIn ↗</a>
+          <p style="margin-top:14px; color:rgba(244,247,251,0.7); font-size:14px">@velox<em style="color:var(--peach); font-family:var(--serif); font-style:italic">.al</em></p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 VELOX Studio</span>
+        <div class="footer-bottom-r">
+          <span>Bërë në Shqipëri · me kujdes</span>
+          <span>Të gjitha të drejtat e rezervuara</span>
+        </div>
+      </div>
+    </div>
+    <img src="../logos/velox-stamp-white.png" alt="" aria-hidden="true" class="footer-watermark" />
+  </footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 12);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  function fmtTime(now) {
+    return now.toLocaleTimeString('en-GB', { timeZone: 'Europe/Tirane', hour: '2-digit', minute: '2-digit' });
+  }
+  function tick() {
+    const t = fmtTime(new Date());
+    const el  = document.getElementById('local-time');
+    const fel = document.getElementById('footer-time');
+    const mmt = document.getElementById('mm-time');
+    if (el)  el.textContent  = `Tiranë · ${t}`;
+    if (fel) fel.textContent = `Ora lokale ${t}`;
+    if (mmt) mmt.textContent = t;
+  }
+  tick();
+  setInterval(tick, 30000);
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  const burger = document.getElementById('nav-burger');
+  const mm     = document.getElementById('mobile-menu');
+  function setMenu(open) {
+    document.body.classList.toggle('menu-open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    mm.setAttribute('aria-hidden', open ? 'false' : 'true');
+  }
+  burger?.addEventListener('click', () => setMenu(!document.body.classList.contains('menu-open')));
+  mm?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  window.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+
+  if (window.matchMedia('(pointer: fine)').matches) {
+    const ring = document.getElementById('cursor-ring');
+    const dot  = document.getElementById('cursor-dot');
+    let mx = -200, my = -200, rx = -200, ry = -200;
+    (function animCursor() {
+      rx += (mx - rx) * 0.13;
+      ry += (my - ry) * 0.13;
+      ring.style.transform = `translate(calc(${rx}px - 50%), calc(${ry}px - 50%))`;
+      dot.style.transform  = `translate(calc(${mx}px - 50%), calc(${my}px - 50%))`;
+      requestAnimationFrame(animCursor);
+    })();
+    document.addEventListener('mousemove', (e) => {
+      mx = e.clientX; my = e.clientY;
+      if (!ring.classList.contains('visible')) {
+        ring.classList.add('visible'); dot.classList.add('visible');
+        document.body.classList.add('cursor-active');
+      }
+    });
+    document.addEventListener('mouseleave', () => {
+      ring.classList.remove('visible'); dot.classList.remove('visible');
+    });
+    document.querySelectorAll('a, button').forEach(el => {
+      const isBtn = el.matches('.btn, .nav-cta, .footer-cta');
+      el.addEventListener('mouseenter', () => ring.classList.add(isBtn ? 'on-btn' : 'on-link'));
+      el.addEventListener('mouseleave', () => ring.classList.remove('on-btn', 'on-link'));
+    });
+  }
+
+  document.querySelectorAll('.btn-primary, .nav-cta').forEach(btn => {
+    let resetT;
+    btn.addEventListener('mousemove', (e) => {
+      clearTimeout(resetT);
+      const r  = btn.getBoundingClientRect();
+      const dx = e.clientX - (r.left + r.width  / 2);
+      const dy = e.clientY - (r.top  + r.height / 2);
+      btn.style.transition = 'transform 0.15s ease, background 0.2s, box-shadow 0.2s';
+      btn.style.transform  = `translate(${dx * 0.25}px, ${dy * 0.25}px) translateY(-2px)`;
+    });
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transition = 'transform 0.55s cubic-bezier(.2,.7,.2,1), background 0.2s, box-shadow 0.2s';
+      btn.style.transform  = '';
+      resetT = setTimeout(() => { btn.style.transition = ''; }, 560);
+    });
+  });
+
+  document.querySelectorAll('.btn, .footer-cta, .contact-card, .nav-cta').forEach(el => {
+    el.addEventListener('click', (e) => {
+      const r   = el.getBoundingClientRect();
+      const rip = document.createElement('span');
+      rip.className   = 'v-ripple';
+      rip.style.left  = (e.clientX - r.left - 10) + 'px';
+      rip.style.top   = (e.clientY - r.top  - 10) + 'px';
+      el.appendChild(rip);
+      setTimeout(() => rip.remove(), 700);
+    });
+  });
+</script>
+</body>
+</html>

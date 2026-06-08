@@ -1,0 +1,22 @@
+# System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Thumbnails
+.thumbnail
+.thumbnail/
+
+# Logs
+*.log
+
+# Node modules
+node_modules/
+
+# Tool configs (not part of the site)
+.claude/
+.mcp.json
+.netlify/
+
+# Separate demo project (has its own repo)
+imobiliare-demo/
