@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="google-site-verification" content="google22feaed34476a4f1" />
+<title>Web Design Profesional në Pogradec — Faqe që Konvertojnë | VELOX</title>
+<meta name="description" content="Krijojmë faqe interneti profesionale në Pogradec që sjellin klientë të vërtetë. Webflow, Next.js & WordPress. Dorëzim brenda 7 ditëve nga 149€.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://veloxstudio.al/web-design">
+<link rel="stylesheet" href="velox-site.css">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VELOX Studio">
+<meta property="og:locale" content="sq_AL">
+<meta property="og:title" content="Web Design Profesional në Pogradec — Faqe që Konvertojnë | VELOX">
+<meta property="og:description" content="Krijojmë faqe interneti profesionale që sjellin klientë të vërtetë. Dorëzim brenda 7 ditëve nga 149€.">
+<meta property="og:url" content="https://veloxstudio.al/web-design">
+<meta property="og:image" content="https://veloxstudio.al/uploads/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Web Design Profesional në Pogradec — Faqe që Konvertojnë | VELOX">
+<meta name="twitter:description" content="Krijojmë faqe interneti profesionale që sjellin klientë të vërtetë. Dorëzim brenda 7 ditëve nga 149€.">
+<meta name="twitter:image" content="https://veloxstudio.al/uploads/og-image.jpg">
+
+<!-- LocalBusiness Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "ProfessionalService"],
+  "name": "VELOX Studio",
+  "url": "https://veloxstudio.al",
+  "telephone": "+355692081322",
+  "email": "eneaziu622@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Pogradec",
+    "addressCountry": "AL"
+  }
+}
+</script>
+
+<!-- Service Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Web Design Profesional",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "VELOX Studio",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Pogradec",
+      "addressCountry": "AL"
+    }
+  },
+  "areaServed": "Albania",
+  "description": "Krijim faqe interneti profesionale me Webflow, Next.js dhe WordPress. Dorëzim brenda 7 ditëve.",
+  "offers": {
+    "@type": "AggregateOffer",
+    "lowPrice": "149",
+    "highPrice": "549",
+    "priceCurrency": "EUR"
+  }
+}
+</script>
+
+<style>
+/* ── Nav dropdown ── */
+.nav-dropdown { position: relative; display: inline-flex; align-items: center; }
+.nav-dropdown-toggle {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 8px 14px 8px 18px;
+  border-radius: 999px;
+  font-size: 14px; font-weight: 400;
+  font-family: var(--sans);
+  color: var(--ink-2);
+  text-decoration: none;
+  transition: color .2s, background .2s;
+  cursor: pointer;
+  border: none; background: none;
+  white-space: nowrap;
+}
+.nav-dropdown-toggle:hover,
+.nav-dropdown.open .nav-dropdown-toggle { color: var(--ink); background: rgba(13,26,58,0.05); }
+.nav-dropdown-toggle.active { color: var(--inv); background: var(--navy); }
+.nav-dropdown-toggle .chev {
+  transition: transform .22s var(--ease-out);
+  flex-shrink: 0;
+  color: var(--ink-3);
+}
+.nav-dropdown.open .nav-dropdown-toggle .chev { transform: rotate(180deg); }
+.nav-dropdown-toggle.active .chev { color: rgba(244,247,251,.6); }
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%; transform: translateX(-50%) translateY(-4px);
+  background: rgba(244,247,251,0.97);
+  backdrop-filter: saturate(180%) blur(16px);
+  -webkit-backdrop-filter: saturate(180%) blur(16px);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 0 20px 40px -12px rgba(13,26,58,0.18), 0 2px 8px rgba(13,26,58,0.06);
+  padding: 6px;
+  min-width: 210px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s var(--ease-out), transform .2s var(--ease-out);
+  z-index: 200;
+}
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown.open .nav-dropdown-menu {
+  opacity: 1; pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+.nav-dropdown-item {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 13.5px; font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+  transition: background .15s;
+}
+.nav-dropdown-item:hover { background: rgba(13,26,58,.05); }
+.nav-dropdown-item.active { background: rgba(13,26,58,.06); color: var(--navy); }
+.nav-dropdown-item.disabled {
+  color: var(--ink-3); cursor: default; pointer-events: none;
+}
+.ndi-soon {
+  font-family: var(--mono);
+  font-size: 9px; text-transform: uppercase; letter-spacing: .06em;
+  color: var(--ink-3);
+  background: rgba(13,26,58,.06);
+  padding: 3px 8px; border-radius: 999px;
+  flex-shrink: 0;
+}
+
+/* ── Page header ── */
+.wd-header {
+  padding-top: 140px;
+  padding-bottom: 72px;
+  border-bottom: 1px solid var(--line);
+}
+.wd-header-inner { max-width: 760px; }
+.wd-header .section-h { margin-top: 20px; font-size: clamp(40px, 5vw, 72px); }
+.wd-lede {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  max-width: 640px;
+  margin-top: 28px;
+  margin-bottom: 0;
+}
+
+/* ── Features section ── */
+.wd-features { padding: 88px 0 72px; }
+.wd-section-head { margin-bottom: 52px; }
+.wd-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  overflow: hidden;
+}
+.wd-feature {
+  background: var(--bg);
+  padding: 40px 40px 36px;
+  transition: background .2s;
+}
+.wd-feature:hover { background: rgba(255,255,255,.8); }
+.wd-num {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .1em;
+  color: var(--peach-2);
+  font-weight: 500;
+  margin-bottom: 18px;
+  display: block;
+}
+.wd-feature-title {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  color: var(--ink);
+  margin-bottom: 12px;
+  font-variation-settings: "SOFT" 100, "opsz" 144;
+}
+.wd-feature-text {
+  font-size: 14.5px;
+  color: var(--ink-2);
+  line-height: 1.65;
+}
+
+/* ── Technology section ── */
+.wd-tech { padding: 72px 0; border-top: 1px solid var(--line); }
+.wd-tech-badges {
+  display: flex; gap: 12px; flex-wrap: wrap;
+  margin-top: 40px;
+}
+.wd-badge {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.55);
+  font-family: var(--mono);
+  font-size: 13px; font-weight: 500;
+  color: var(--ink);
+  transition: background .18s, transform .18s, box-shadow .18s;
+}
+.wd-badge:hover {
+  background: #fff;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+.wd-badge-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--peach); flex-shrink: 0; }
+.wd-tech-note {
+  margin-top: 22px;
+  font-size: 14px;
+  color: var(--ink-3);
+  font-style: italic;
+  font-family: var(--serif);
+}
+
+/* ── Portfolio section ── */
+.wd-portfolio { padding: 88px 0 72px; border-top: 1px solid var(--line); }
+.wd-work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 44px;
+}
+.wd-work-card {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  text-decoration: none;
+  color: var(--ink);
+  display: flex; flex-direction: column;
+  transition: transform .3s var(--ease-out), box-shadow .3s var(--ease-out);
+  background: #fff;
+}
+.wd-work-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+.wd-work-thumb {
+  height: 200px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  position: relative;
+  overflow: hidden;
+}
+.wd-work-card.a .wd-work-thumb { background: linear-gradient(135deg, var(--bg-warm) 0%, #F7D4B8 100%); }
+.wd-work-card.b .wd-work-thumb { background: var(--navy); color: var(--inv); }
+.wd-thumb-label {
+  display: flex; align-items: center; justify-content: space-between;
+  width: 100%; padding: 0 28px;
+}
+.wd-thumb-name {
+  font-family: var(--serif);
+  font-size: 24px; font-weight: 500;
+  letter-spacing: -0.02em;
+  font-variation-settings: "SOFT" 100, "opsz" 144;
+}
+.wd-thumb-arrow {
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 1px solid rgba(13,26,58,.2);
+  display: grid; place-items: center;
+  transition: transform .25s var(--ease-out), background .2s;
+}
+.wd-work-card.b .wd-thumb-arrow { border-color: rgba(244,247,251,.2); }
+.wd-work-card:hover .wd-thumb-arrow { transform: rotate(-45deg); background: var(--navy); border-color: var(--navy); color: var(--inv); }
+.wd-work-card.b:hover .wd-thumb-arrow { background: var(--peach); border-color: var(--peach); }
+.wd-work-meta {
+  padding: 22px 28px 26px;
+  display: flex; flex-direction: column; gap: 6px;
+  border-top: 1px solid var(--line);
+}
+.wd-work-tag {
+  font-family: var(--mono);
+  font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--ink-3);
+}
+.wd-work-title {
+  font-family: var(--serif);
+  font-size: 18px; font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  font-variation-settings: "SOFT" 100, "opsz" 144;
+}
+.wd-work-desc {
+  font-size: 14px;
+  color: var(--ink-2);
+  line-height: 1.55;
+  margin-top: 4px;
+}
+.wd-work-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 12px;
+  font-size: 13px; font-weight: 500;
+  color: var(--navy);
+  transition: gap .2s;
+}
+.wd-work-card:hover .wd-work-link { gap: 10px; }
+
+/* ── Pricing preview ── */
+.wd-pricing { padding: 88px 0 72px; border-top: 1px solid var(--line); }
+.wd-price-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  overflow: hidden;
+  margin-top: 44px;
+}
+.wd-price-col {
+  background: var(--bg);
+  padding: 36px 36px 32px;
+  display: flex; flex-direction: column; gap: 8px;
+  transition: background .2s;
+}
+.wd-price-col:hover { background: rgba(255,255,255,.85); }
+.wd-price-col.featured { background: var(--navy); }
+.wd-price-col.featured:hover { background: var(--navy-2); }
+.wd-price-label {
+  font-family: var(--mono);
+  font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--ink-3);
+}
+.wd-price-col.featured .wd-price-label { color: rgba(244,247,251,.42); }
+.wd-price-name {
+  font-family: var(--serif);
+  font-size: 22px; font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  font-variation-settings: "SOFT" 100, "opsz" 144;
+}
+.wd-price-col.featured .wd-price-name { color: var(--inv); }
+.wd-price-amount {
+  font-family: var(--display);
+  font-size: 42px; font-weight: 700; line-height: 1;
+  color: var(--ink);
+  letter-spacing: -0.03em;
+  font-variation-settings: "SOFT" 100, "opsz" 144;
+  margin-top: 6px;
+}
+.wd-price-col.featured .wd-price-amount { color: var(--peach); }
+.wd-price-days {
+  font-family: var(--mono);
+  font-size: 11px; letter-spacing: .05em;
+  color: var(--ink-3);
+  margin-top: 4px;
+}
+.wd-price-col.featured .wd-price-days { color: rgba(244,247,251,.42); }
+.wd-price-footer {
+  text-align: center;
+  margin-top: 28px;
+  font-size: 14px;
+  color: var(--ink-2);
+}
+.wd-price-footer a {
+  color: var(--navy);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity .18s;
+}
+.wd-price-footer a:hover { opacity: .75; }
+
+/* ── Process section ── */
+.wd-process { padding: 88px 0 80px; border-top: 1px solid var(--line); }
+.wd-process-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+  margin-top: 52px;
+}
+
+/* ── Bottom CTA ── */
+.wd-cta-section {
+  padding: 88px 0 100px;
+  text-align: center;
+  border-top: 1px solid var(--line);
+}
+.wd-cta-inner { max-width: 580px; margin: 0 auto; }
+.wd-cta-btns {
+  display: flex; justify-content: center; gap: 12px;
+  flex-wrap: wrap; margin-top: 36px;
+}
+.wd-cta-link {
+  display: block; margin-top: 20px;
+  font-size: 14px; color: var(--ink-2);
+  transition: color .18s;
+}
+.wd-cta-link:hover { color: var(--navy); }
+.wd-cta-link a {
+  color: var(--navy); font-weight: 500;
+  text-decoration: underline; text-underline-offset: 3px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .wd-grid { grid-template-columns: 1fr; }
+  .wd-work-grid { grid-template-columns: 1fr; }
+  .wd-price-row { grid-template-columns: 1fr; }
+  .wd-process-grid { grid-template-columns: 1fr; gap: 40px; }
+}
+@media (max-width: 600px) {
+  .wd-header { padding-top: 110px; padding-bottom: 48px; }
+  .wd-feature { padding: 28px 24px 24px; }
+  .wd-tech-badges { gap: 8px; }
+}
+</style>
+</head>
+<body>
+
+  <!-- ====== Background ====== -->
+  <div class="bg-layer" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-glow"></div>
+    <div class="bg-glow b"></div>
+  </div>
+
+  <!-- ====== Intro loader (~1.4s) ====== -->
+  <div class="intro" id="intro" aria-hidden="true">
+    <div class="intro-meta">VELOX · STUDIO · 2026</div>
+    <div class="intro-meta r">POGRADEC, SHQIPËRI</div>
+    <div class="intro-inner">
+      <div class="intro-streak"></div>
+      <div class="intro-letters">VEL<em>O</em>X</div>
+    </div>
+  </div>
+
+  <!-- ====== Nav ====== -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="logo" aria-label="VELOX">
+      <img src="logos/velox-stamp-blue.png" alt="VELOX Studio logo — web design profesional Pogradec" class="logo-img" />
+    </a>
+    <div class="nav-links" role="navigation">
+      <a href="index.html#work">Puna</a>
+      <!-- Services dropdown -->
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-toggle active" aria-expanded="false" aria-haspopup="true">
+          Shërbimet
+          <svg class="chev" width="10" height="6" viewBox="0 0 10 6" fill="none">
+            <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="nav-dropdown-menu" role="menu">
+          <a href="web-design.html" class="nav-dropdown-item active" role="menuitem">Web Design</a>
+          <a href="branding.html" class="nav-dropdown-item" role="menuitem">Brend &amp; Identitet</a>
+          <a href="ui-ux.html" class="nav-dropdown-item" role="menuitem">UI/UX Design</a>
+          <span class="nav-dropdown-item disabled" role="menuitem" aria-disabled="true">
+            SEO &amp; Performancë <span class="ndi-soon">së shpejti</span>
+          </span>
+        </div>
+      </div>
+      <a href="cmime.html">Çmimet</a>
+      <a href="faq.html">FAQ</a>
+      <a href="index.html#process">Procesi</a>
+      <a href="index.html#contact">Kontakt</a>
+    </div>
+    <div class="nav-right">
+      <span class="nav-time" id="local-time">Pogradec · 00:00</span>
+      <a href="https://wa.me/355692081322" class="nav-cta">
+        Të flasim
+        <span class="nav-cta-arrow" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M2 10 L10 2 M4 2 H10 V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+      <button class="nav-burger" id="nav-burger" aria-label="Hap menunë" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ====== Mobile menu drawer ====== -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-inner">
+      <a href="index.html#work" class="mm-link"><span class="mm-num">01</span> Puna <span class="mm-arrow">→</span></a>
+      <a href="web-design.html" class="mm-link active"><span class="mm-num">02</span> Web Design <span class="mm-arrow">→</span></a>
+      <a href="cmime.html" class="mm-link"><span class="mm-num">03</span> Çmimet <span class="mm-arrow">→</span></a>
+      <a href="faq.html" class="mm-link"><span class="mm-num">04</span> FAQ <span class="mm-arrow">→</span></a>
+      <a href="index.html#process" class="mm-link"><span class="mm-num">05</span> Procesi <span class="mm-arrow">→</span></a>
+      <a href="index.html#contact" class="mm-link"><span class="mm-num">06</span> Kontakt <span class="mm-arrow">→</span></a>
+      <div class="mm-foot">
+        <a href="https://wa.me/355692081322" class="btn btn-primary mm-cta">
+          Bisedo në WhatsApp <span class="arrow">→</span>
+        </a>
+        <div class="mm-meta">
+          <span>Pogradec, Shqipëri</span>
+          <span id="mm-time">00:00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ====== PAGE HEADER ====== -->
+    <section class="shell wd-header">
+      <div class="wd-header-inner reveal">
+        <div class="section-tag">Shërbimi ynë kryesor</div>
+        <h1 class="section-h" style="margin-top:20px">Web Design Profesional — <em>Faqe Interneti që Sjellin Klientë</em></h1>
+        <p class="wd-lede">
+          Shumica e faqeve janë të bukura — por nuk shesin. Ne ndërtojmë
+          faqe interneti të dizajnuara rreth një qëllimi: të kthejnë
+          vizitorët në klientë. Çdo element ka një arsye.
+        </p>
+        <div class="cta-row" style="margin-top:36px; margin-bottom:0">
+          <a href="https://wa.me/355692081322" class="btn btn-primary">
+            Fillo projektin tënd <span class="arrow">→</span>
+          </a>
+          <a href="cmime.html" class="btn btn-ghost">Shiko çmimet</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== FEATURES ====== -->
+    <section class="shell wd-features" id="features">
+      <div class="wd-section-head reveal">
+        <div class="section-tag">Çfarë ofrojmë</div>
+        <h2 class="section-h" style="margin-top:20px; font-size:clamp(36px,4.5vw,64px)">Çfarë përfshin shërbimi <em>ynë i web design</em></h2>
+      </div>
+
+      <div class="wd-grid stagger">
+
+        <div class="wd-feature">
+          <span class="wd-num">01</span>
+          <h3 class="wd-feature-title">Dizajn Custom — Jo Template</h3>
+          <p class="wd-feature-text">
+            Çdo faqe ndërtohet nga e para, sipas identitetit dhe
+            qëllimeve tuaja. Asnjë klient nuk merr të njëjtën faqe.
+          </p>
+        </div>
+
+        <div class="wd-feature">
+          <span class="wd-num">02</span>
+          <h3 class="wd-feature-title">Responsive për Çdo Pajisje</h3>
+          <p class="wd-feature-text">
+            Desktop, tablet, telefon — faqja duket dhe funksionon
+            perfekt kudo. Mbi 70% e vizitorëve vijnë nga telefoni.
+          </p>
+        </div>
+
+        <div class="wd-feature">
+          <span class="wd-num">03</span>
+          <h3 class="wd-feature-title">Shpejtësi &amp; Performancë 100/100</h3>
+          <p class="wd-feature-text">
+            Faqe të shpejta renditen më lart në Google dhe mbajnë
+            vizitorët më gjatë. Optimizojmë çdo detaj teknik.
+          </p>
+        </div>
+
+        <div class="wd-feature">
+          <span class="wd-num">04</span>
+          <h3 class="wd-feature-title">SEO i Integruar</h3>
+          <p class="wd-feature-text">
+            Meta tags, tituj, sitemap, alt text dhe strukturë
+            semantike — të gjitha të përfshira në çdo projekt.
+          </p>
+        </div>
+
+        <div class="wd-feature">
+          <span class="wd-num">05</span>
+          <h3 class="wd-feature-title">Dorëzim Brenda 7 Ditëve</h3>
+          <p class="wd-feature-text">
+            Nuk presësh muaj. Faqja jote live brenda një jave pune
+            — garantuar.
+          </p>
+        </div>
+
+        <div class="wd-feature">
+          <span class="wd-num">06</span>
+          <h3 class="wd-feature-title">Garanci 30 Ditë</h3>
+          <p class="wd-feature-text">
+            Nëse nuk jeni të kënaqur me rezultatin brenda 30
+            ditëve — ju kthejmë paratë plotësisht, pa pyetje.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====== TECHNOLOGY ====== -->
+    <section class="shell wd-tech" id="tech">
+      <div class="reveal">
+        <div class="section-tag">Teknologjia</div>
+        <h2 class="section-h" style="margin-top:20px; font-size:clamp(36px,4.5vw,64px)">Teknologjitë <em>që përdorim</em></h2>
+      </div>
+      <div class="wd-tech-badges stagger">
+        <div class="wd-badge"><span class="wd-badge-dot"></span>Webflow</div>
+        <div class="wd-badge"><span class="wd-badge-dot" style="background:#0D1A3A"></span>Next.js</div>
+        <div class="wd-badge"><span class="wd-badge-dot" style="background:#2165AE"></span>WordPress</div>
+        <div class="wd-badge"><span class="wd-badge-dot" style="background:#7C4DFF"></span>Figma</div>
+      </div>
+      <p class="wd-tech-note">
+        "Zgjedhim teknologjinë sipas nevojës suaj — jo ajo që na vjen lehtë neve."
+      </p>
+    </section>
+
+    <!-- ====== PORTFOLIO ====== -->
+    <section class="shell wd-portfolio" id="portfolio">
+      <div class="reveal">
+        <div class="section-tag">Punët tona</div>
+        <h2 class="section-h" style="margin-top:20px; font-size:clamp(36px,4.5vw,64px)">Disa nga <em>punët tona</em></h2>
+      </div>
+
+      <div class="wd-work-grid stagger">
+
+        <!-- Optimal Dental -->
+        <a href="https://optimaldental-al.netlify.app/" target="_blank" rel="noopener" class="wd-work-card a">
+          <div class="wd-work-thumb">
+            <div class="wd-thumb-label">
+              <span class="wd-thumb-name">Optimal Dental</span>
+              <span class="wd-thumb-arrow">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M3 11 L11 3 M5 3 H11 V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </div>
+          </div>
+          <div class="wd-work-meta">
+            <div class="wd-work-tag">Web Design</div>
+            <div class="wd-work-title">Optimal Dental</div>
+            <p class="wd-work-desc">
+              Klinikë dentare — faqe profesionale me rezervim
+              online dhe dizajn që ndërton besim.
+            </p>
+            <span class="wd-work-link">Shiko projektin →</span>
+          </div>
+        </a>
+
+        <!-- The Blackstones Collective -->
+        <a href="https://theblackstonescollective.com/" target="_blank" rel="noopener" class="wd-work-card b">
+          <div class="wd-work-thumb">
+            <div class="wd-thumb-label">
+              <span class="wd-thumb-name">Blackstones</span>
+              <span class="wd-thumb-arrow">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M3 11 L11 3 M5 3 H11 V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </div>
+          </div>
+          <div class="wd-work-meta">
+            <div class="wd-work-tag">Web Design &amp; E-Commerce</div>
+            <div class="wd-work-title">The Blackstones Collective</div>
+            <p class="wd-work-desc">
+              Platformë luksoze e-commerce për produkte
+              bukurie — dizajn premium me konvertim të lartë.
+            </p>
+            <span class="wd-work-link">Shiko projektin →</span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ====== PRICING PREVIEW ====== -->
+    <section class="shell wd-pricing" id="pricing">
+      <div class="reveal">
+        <div class="section-tag">Çmimet</div>
+        <h2 class="section-h" style="margin-top:20px; font-size:clamp(36px,4.5vw,64px)">Çmimet — <em>të qarta, pa surpriza</em></h2>
+      </div>
+
+      <div class="wd-price-row stagger">
+
+        <div class="wd-price-col">
+          <div class="wd-price-label">01 — Landing Page</div>
+          <div class="wd-price-name">Landing Page</div>
+          <div class="wd-price-amount">Nga 149€</div>
+          <div class="wd-price-days">7 ditë</div>
+        </div>
+
+        <div class="wd-price-col featured">
+          <div class="wd-price-label">02 — Starter Site</div>
+          <div class="wd-price-name">Starter Site</div>
+          <div class="wd-price-amount">Nga 299€</div>
+          <div class="wd-price-days">7 ditë</div>
+        </div>
+
+        <div class="wd-price-col">
+          <div class="wd-price-label">03 — Business Site</div>
+          <div class="wd-price-name">Business Site</div>
+          <div class="wd-price-amount">Nga 549€</div>
+          <div class="wd-price-days">10–14 ditë</div>
+        </div>
+
+      </div>
+
+      <p class="wd-price-footer">
+        <a href="cmime.html">Shiko të gjitha çmimet dhe detajet →</a>
+      </p>
+    </section>
+
+    <!-- ====== PROCESS ====== -->
+    <section class="shell wd-process" id="process">
+      <div class="reveal">
+        <div class="section-tag">Procesi</div>
+        <h2 class="section-h" style="margin-top:20px; font-size:clamp(36px,4.5vw,64px)">Si funksionon <em>procesi</em></h2>
+      </div>
+
+      <div class="wd-process-grid">
+        <div class="process" id="process-list">
+          <div class="process-line"></div>
+
+          <div class="step">
+            <div class="step-num">01</div>
+            <h4 class="step-h">Biseda</h4>
+            <p class="step-p">Diskutojmë nevojat tuaja — falas, pa angazhim.</p>
+            <span class="step-when">Dita 1</span>
+          </div>
+
+          <div class="step">
+            <div class="step-num">02</div>
+            <h4 class="step-h">Propozimi</h4>
+            <p class="step-p">Dërgojmë kuotë të detajuar brenda 24 orëve.</p>
+            <span class="step-when">Dita 1</span>
+          </div>
+
+          <div class="step">
+            <div class="step-num">03</div>
+            <h4 class="step-h">Dizajni</h4>
+            <p class="step-p">Fillojmë punën menjëherë pas konfirmimit — dizajn iterativ në Figma.</p>
+            <span class="step-when">Dita 2–4</span>
+          </div>
+
+          <div class="step">
+            <div class="step-num">04</div>
+            <h4 class="step-h">Revizioni</h4>
+            <p class="step-p">2–3 raunde feedback — derisa gjithçka të jetë saktësisht siç duhet.</p>
+            <span class="step-when">Dita 5–6</span>
+          </div>
+
+          <div class="step">
+            <div class="step-num">05</div>
+            <h4 class="step-h">Live</h4>
+            <p class="step-p">Faqja juaj online — lansim, QA dhe 30 ditë mbështetje falas.</p>
+            <span class="step-when">Dita 7</span>
+          </div>
+
+        </div>
+
+        <div class="reveal" style="padding-top:4px">
+          <div style="background:var(--bg-warm); border-radius:20px; padding:36px; display:flex; flex-direction:column; gap:18px;">
+            <div class="section-tag">Pse VELOX?</div>
+            <p style="font-size:15px; color:var(--ink-2); line-height:1.65">
+              Nuk jemi agjenci e madhe me shumë layer-a. Punon direkt me
+              dizajnerin — asnjë ndërmjetës, asnjë vonesë.
+            </p>
+            <div style="display:flex; flex-direction:column; gap:10px">
+              <div style="display:flex; gap:10px; align-items:center; font-size:14px; color:var(--ink)">
+                <span style="width:20px;height:20px;border-radius:50%;background:var(--peach);display:grid;place-items:center;flex-shrink:0">
+                  <svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1.5 4.5l2 2 4-4" stroke="#0D1A3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                Dorëzim garantuar brenda 7 ditëve
+              </div>
+              <div style="display:flex; gap:10px; align-items:center; font-size:14px; color:var(--ink)">
+                <span style="width:20px;height:20px;border-radius:50%;background:var(--peach);display:grid;place-items:center;flex-shrink:0">
+                  <svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1.5 4.5l2 2 4-4" stroke="#0D1A3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                Garanci kthimi parash 30 ditë
+              </div>
+              <div style="display:flex; gap:10px; align-items:center; font-size:14px; color:var(--ink)">
+                <span style="width:20px;height:20px;border-radius:50%;background:var(--peach);display:grid;place-items:center;flex-shrink:0">
+                  <svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1.5 4.5l2 2 4-4" stroke="#0D1A3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                Çmim fiks — pa surpriza
+              </div>
+              <div style="display:flex; gap:10px; align-items:center; font-size:14px; color:var(--ink)">
+                <span style="width:20px;height:20px;border-radius:50%;background:var(--peach);display:grid;place-items:center;flex-shrink:0">
+                  <svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1.5 4.5l2 2 4-4" stroke="#0D1A3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                40+ klientë të kënaqur
+              </div>
+            </div>
+            <div style="margin-top:4px">
+              <span class="stars" style="color:var(--peach-2); font-size:18px; letter-spacing:2px">★★★★★</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== BOTTOM CTA ====== -->
+    <section class="shell wd-cta-section">
+      <div class="wd-cta-inner reveal">
+        <div class="section-tag">Fillo sot</div>
+        <h2 class="section-h" style="margin-top:20px; font-size:clamp(36px,5vw,68px)">Gati të fillosh? <em>Na shkruaj.</em></h2>
+        <p class="lede" style="margin-top:20px; max-width:500px; margin-left:auto; margin-right:auto">
+          Bisedojmë 15 minuta — pa angazhim. Kuotë brenda 24 orëve.
+        </p>
+        <div class="wd-cta-btns">
+          <a href="https://wa.me/355692081322" class="btn btn-primary">
+            Dërgo mesazh në WhatsApp
+            <span class="arrow">→</span>
+          </a>
+          <a href="mailto:Eneaziu622@gmail.com" class="btn btn-ghost">Dërgo email</a>
+        </div>
+        <p class="wd-cta-link">
+          <a href="cmime.html">Shiko çmimet →</a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer">
+    <div class="footer-shell">
+      <div class="reveal">
+        <h2 class="footer-big">Më shumë klientë. <em>Më pak fjalë.</em></h2>
+        <div class="footer-ctas">
+          <a href="https://wa.me/355692081322" class="footer-cta">
+            WhatsApp
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11 L11 3 M5 3 H11 V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="mailto:Eneaziu622@gmail.com" class="footer-cta ghost">
+            Email
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11 L11 3 M5 3 H11 V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h6>Studio</h6>
+          <div class="footer-studio">Pogradec, <em>Shqipëri.</em></div>
+          <p style="margin-top:14px; color:rgba(244,247,251,0.7); font-size:14px">Rruga e Kavajës 1001</p>
+          <p style="color:rgba(244,247,251,0.5); font-size:13px; font-family:var(--mono); letter-spacing:.06em; text-transform:uppercase" id="footer-time">Ora lokale —</p>
+        </div>
+        <div class="footer-col">
+          <h6>Navigo</h6>
+          <a href="index.html">Kreu</a>
+          <a href="index.html#services">Shërbimet</a>
+          <a href="cmime.html">Çmimet</a>
+          <a href="faq.html">FAQ</a>
+          <a href="index.html#process">Procesi</a>
+          <a href="index.html#contact">Kontakt</a>
+        </div>
+        <div class="footer-col">
+          <h6>Shërbimet</h6>
+          <a href="web-design.html">Web Design</a>
+          <a href="branding.html">Brend &amp; identitet</a>
+          <a href="ui-ux.html">UI produkti</a>
+          <a href="index.html#services">SEO</a>
+        </div>
+        <div class="footer-col">
+          <h6>Na ndiq</h6>
+          <a href="#">Instagram ↗</a>
+          <a href="#">Behance ↗</a>
+          <a href="#">LinkedIn ↗</a>
+          <p style="margin-top:14px; color:rgba(244,247,251,0.7); font-size:14px">@velox<em style="color:var(--peach); font-family:var(--serif); font-style:italic">.al</em></p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 VELOX Studio</span>
+        <div class="footer-bottom-r">
+          <span>Bërë në Shqipëri · me kujdes</span>
+          <span>Të gjitha të drejtat e rezervuara</span>
+        </div>
+      </div>
+    </div>
+    <img src="logos/velox-stamp-white.png" alt="" aria-hidden="true" class="footer-watermark" />
+  </footer>
+
+<script>
+  // ===== Nav scroll state =====
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 12);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // ===== Local time =====
+  function fmt(now) {
+    return now.toLocaleTimeString('en-GB', { timeZone: 'Europe/Tirane', hour: '2-digit', minute: '2-digit' });
+  }
+  function tick() {
+    const now = new Date();
+    const t = fmt(now);
+    const el = document.getElementById('local-time');
+    const fel = document.getElementById('footer-time');
+    if (el)  el.textContent = `Pogradec · ${t}`;
+    if (fel) fel.textContent = `Ora lokale ${t}`;
+  }
+  tick(); setInterval(tick, 30000);
+
+  // ===== Scroll reveal =====
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
+  document.querySelectorAll('.reveal, .stagger, .process').forEach(el => io.observe(el));
+
+  // ===== Mobile menu =====
+  const burger = document.getElementById('nav-burger');
+  const mm = document.getElementById('mobile-menu');
+  function setMenu(open) {
+    document.body.classList.toggle('menu-open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    mm.setAttribute('aria-hidden', open ? 'false' : 'true');
+  }
+  burger?.addEventListener('click', () => setMenu(!document.body.classList.contains('menu-open')));
+  mm?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  window.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+
+  // Mirror time into mobile menu
+  const mmTime = document.getElementById('mm-time');
+  function tickAll() {
+    tick();
+    if (mmTime) mmTime.textContent = new Date().toLocaleTimeString('en-GB', { timeZone: 'Europe/Tirane', hour: '2-digit', minute: '2-digit' });
+  }
+  tickAll(); setInterval(tickAll, 30000);
+
+  // ===== Nav dropdown =====
+  document.querySelectorAll('.nav-dropdown').forEach(dd => {
+    const toggle = dd.querySelector('.nav-dropdown-toggle');
+    if (!toggle) return;
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = dd.classList.contains('open');
+      document.querySelectorAll('.nav-dropdown.open').forEach(d => {
+        d.classList.remove('open');
+        d.querySelector('.nav-dropdown-toggle')?.setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        dd.classList.add('open');
+        toggle.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.nav-dropdown.open').forEach(dd => {
+      dd.classList.remove('open');
+      dd.querySelector('.nav-dropdown-toggle')?.setAttribute('aria-expanded', 'false');
+    });
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.nav-dropdown.open').forEach(dd => {
+        dd.classList.remove('open');
+        dd.querySelector('.nav-dropdown-toggle')?.setAttribute('aria-expanded', 'false');
+      });
+    }
+  });
+</script>
+</body>
+</html>

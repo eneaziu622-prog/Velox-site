@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="google-site-verification" content="google22feaed34476a4f1" />
+<title>UI/UX Design — Dashboard, SaaS & App Design | VELOX Studio Pogradec</title>
+<meta name="description" content="Dizajnojmë interface për SaaS, dashboard dhe aplikacione mobile. Prototipim Figma, design system dhe dorëzim i plotë nga 299€.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://veloxstudio.al/ui-ux">
+<link rel="stylesheet" href="velox-site.css">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VELOX Studio">
+<meta property="og:title" content="UI/UX Design — Dashboard, SaaS & App Design | VELOX Studio">
+<meta property="og:description" content="Dizajnojmë interface për SaaS, dashboard dhe aplikacione mobile. Nga 299€.">
+<meta property="og:url" content="https://veloxstudio.al/ui-ux">
+<meta property="og:image" content="https://veloxstudio.al/uploads/og-image.jpg">
+
+<!-- Service Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "UI/UX Design",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "VELOX Studio",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Pogradec",
+      "addressCountry": "AL"
+    }
+  },
+  "areaServed": "Albania",
+  "description": "Dizajn interface profesional për SaaS, dashboard dhe aplikacione mobile me Figma.",
+  "offers": {
+    "@type": "AggregateOffer",
+    "lowPrice": "299",
+    "highPrice": "999",
+    "priceCurrency": "EUR"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..800,100;1,9..144,400..800,100&display=swap" rel="stylesheet">
+
+<style>
+/* ── Nav dropdown ── */
+.nav-dropdown { position: relative; display: inline-flex; align-items: center; }
+.nav-dropdown-toggle {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 8px 14px 8px 18px; border-radius: 999px;
+  font-size: 14px; font-weight: 400; font-family: var(--sans);
+  color: var(--ink-2); transition: color .2s, background .2s;
+  cursor: pointer; border: none; background: none; white-space: nowrap;
+}
+.nav-dropdown-toggle:hover,
+.nav-dropdown.open .nav-dropdown-toggle { color: var(--ink); background: rgba(13,26,58,0.05); }
+.nav-dropdown-toggle.active { color: var(--inv); background: var(--navy); }
+.nav-dropdown-toggle .chev {
+  transition: transform .22s var(--ease-out); flex-shrink: 0; color: var(--ink-3);
+}
+.nav-dropdown.open .nav-dropdown-toggle .chev { transform: rotate(180deg); }
+.nav-dropdown-toggle.active .chev { color: rgba(244,247,251,.6); }
+.nav-dropdown-menu {
+  position: absolute; top: calc(100% + 10px);
+  left: 50%; transform: translateX(-50%) translateY(-4px);
+  background: rgba(244,247,251,0.97);
+  backdrop-filter: saturate(180%) blur(16px);
+  -webkit-backdrop-filter: saturate(180%) blur(16px);
+  border: 1px solid var(--line); border-radius: 16px;
+  box-shadow: 0 20px 40px -12px rgba(13,26,58,0.18), 0 2px 8px rgba(13,26,58,0.06);
+  padding: 6px; min-width: 210px; opacity: 0; pointer-events: none;
+  transition: opacity .2s var(--ease-out), transform .2s var(--ease-out); z-index: 200;
+}
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown.open .nav-dropdown-menu { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+.nav-dropdown-item {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 10px 14px; border-radius: 10px; font-size: 13.5px; font-weight: 500;
+  color: var(--ink); text-decoration: none; transition: background .15s;
+}
+.nav-dropdown-item:hover { background: rgba(13,26,58,.05); }
+.nav-dropdown-item.active { background: rgba(13,26,58,.06); color: var(--navy); }
+.nav-dropdown-item.disabled { color: var(--ink-3); cursor: default; pointer-events: none; }
+.ndi-soon {
+  font-family: var(--mono); font-size: 9px; text-transform: uppercase; letter-spacing: .06em;
+  color: var(--ink-3); background: rgba(13,26,58,.06); padding: 3px 8px; border-radius: 999px; flex-shrink: 0;
+}
+
+/* ── Page header ── */
+.ux-header {
+  padding-top: 140px;
+  padding-bottom: 72px;
+  border-bottom: 1px solid var(--line);
+}
+.ux-header-inner { max-width: 760px; }
+.ux-header .section-h { margin-top: 20px; font-size: clamp(40px, 5vw, 72px); }
+.ux-lede {
+  font-size: 18px; line-height: 1.6;
+  color: var(--ink-2); max-width: 640px;
+  margin-top: 28px; margin-bottom: 0;
+}
+
+/* ── Features grid ── */
+.ux-features { padding: 88px 0 72px; }
+.ux-section-head { margin-bottom: 52px; }
+.ux-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 1px; background: var(--line);
+  border: 1px solid var(--line); border-radius: 24px; overflow: hidden;
+}
+.ux-feature {
+  background: var(--bg); padding: 40px 40px 36px; transition: background .2s;
+}
+.ux-feature:hover { background: rgba(255,255,255,.8); }
+.ux-num {
+  font-family: var(--mono); font-size: 12px; letter-spacing: .1em;
+  color: var(--peach-2); font-weight: 500; margin-bottom: 18px; display: block;
+}
+.ux-feature-title {
+  font-family: var(--serif); font-weight: 500; font-size: 20px;
+  letter-spacing: -0.01em; line-height: 1.2; color: var(--ink);
+  margin-bottom: 12px; font-variation-settings: "SOFT" 100, "opsz" 144;
+}
+.ux-feature-text { font-size: 14.5px; color: var(--ink-2); line-height: 1.65; }
+
+/* ── Stats section ── */
+.ux-stats { padding: 88px 0 72px; border-top: 1px solid var(--line); }
+.ux-stats-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px; background: var(--line);
+  border: 1px solid var(--line); border-radius: 24px; overflow: hidden;
+  margin-top: 52px;
+}
+.ux-stat-block {
+  background: var(--bg); padding: 48px 40px 44px; transition: background .2s;
+}
+.ux-stat-block:hover { background: rgba(255,255,255,.8); }
+.ux-stat-num {
+  font-family: var(--display); font-weight: 700;
+  font-size: clamp(48px, 6vw, 72px); line-height: 1;
+  letter-spacing: -0.04em; color: var(--navy);
+  font-variation-settings: "SOFT" 100, "opsz" 144;
+  margin-bottom: 16px;
+}
+.ux-stat-num em { font-style: italic; color: var(--peach); font-weight: 500; }
+.ux-stat-text { font-size: 15px; color: var(--ink-2); line-height: 1.6; max-width: 240px; }
+
+/* ── Process section ── */
+.ux-process { padding: 88px 0 80px; border-top: 1px solid var(--line); }
+.ux-process-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 60px; align-items: start; margin-top: 52px;
+}
+
+/* ── Tools section ── */
+.ux-tools { padding: 72px 0; border-top: 1px solid var(--line); }
+.ux-tool-badges {
+  display: flex; gap: 12px; flex-wrap: wrap; margin-top: 40px;
+}
+.ux-badge {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 12px 22px; border-radius: 999px;
+  border: 1px solid var(--line); background: rgba(255,255,255,.55);
+  font-family: var(--mono); font-size: 13px; font-weight: 500; color: var(--ink);
+  transition: background .18s, transform .18s, box-shadow .18s;
+}
+.ux-badge:hover { background: #fff; transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+.ux-badge-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--peach); flex-shrink: 0; }
+.ux-tools-note {
+  margin-top: 22px; font-size: 14px;
+  color: var(--ink-3); font-style: italic; font-family: var(--serif);
+}
+
+/* ── Pricing preview ── */
+.ux-pricing { padding: 88px 0 72px; border-top: 1px solid var(--line); }
+.ux-price-row {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px; background: var(--line);
+  border: 1px solid var(--line); border-radius: 20px; overflow: hidden;
+  margin-top: 44px;
+}
+.ux-price-col {
+  background: var(--bg); padding: 36px 36px 32px;
+  display: flex; flex-direction: column; gap: 8px; transition: background .2s;
+}
+.ux-price-col:hover { background: rgba(255,255,255,.85); }
+.ux-price-col.featured { background: var(--navy); }
+.ux-price-col.featured:hover { background: var(--navy-2); }
+.ux-price-label {
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3);
+}
+.ux-price-col.featured .ux-price-label { color: rgba(244,247,251,.42); }
+.ux-price-name {
+  font-family: var(--serif); font-size: 22px; font-weight: 500;
+  letter-spacing: -0.02em; color: var(--ink);
+  font-variation-settings: "SOFT" 100, "opsz" 144;
+}
+.ux-price-col.featured .ux-price-name { color: var(--inv); }
+.ux-price-amount {
+  font-family: var(--display); font-size: 42px; font-weight: 700;
+  line-height: 1; color: var(--ink); letter-spacing: -0.03em;
+  font-variation-settings: "SOFT" 100, "opsz" 144; margin-top: 6px;
+}
+.ux-price-col.featured .ux-price-amount { color: var(--peach); }
+.ux-price-includes {
+  font-size: 14px; color: var(--ink-2); line-height: 1.55; margin-top: 6px;
+}
+.ux-price-col.featured .ux-price-includes { color: rgba(244,247,251,.65); }
+.ux-price-footer {
+  text-align: center; margin-top: 28px;
+  font-size: 14px; color: var(--ink-2);
+}
+.ux-price-footer a {
+  color: var(--navy); font-weight: 500;
+  text-decoration: underline; text-underline-offset: 3px; transition: opacity .18s;
+}
+.ux-price-footer a:hover { opacity: .75; }
+
+/* ── Bottom CTA ── */
+.ux-cta-section {
+  padding: 88px 0 100px; text-align: center;
+  border-top: 1px solid var(--line);
+}
+.ux-cta-inner { max-width: 580px; margin: 0 auto; }
+.ux-cta-btns {
+  display: flex; justify-content: center; gap: 12px;
+  flex-wrap: wrap; margin-top: 36px;
+}
+.ux-cta-link {
+  display: block; margin-top: 20px;
+  font-size: 14px; color: var(--ink-2); transition: color .18s;
+}
+.ux-cta-link:hover { color: var(--navy); }
+.ux-cta-link a {
+  color: var(--navy); font-weight: 500;
+  text-decoration: underline; text-underline-offset: 3px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .ux-grid { grid-template-columns: 1fr; }
+  .ux-stats-grid { grid-template-columns: 1fr; }
+  .ux-process-grid { grid-template-columns: 1fr; gap: 40px; }
+  .ux-price-row { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .ux-header { padding-top: 110px; padding-bottom: 48px; }
+  .ux-feature { padding: 28px 24px 24px; }
+  .ux-stat-block { padding: 32px 28px 28px; }
+  .ux-tool-badges { gap: 8px; }
+}
+</style>
+</head>
+<body>
+
+  <!-- ====== Background ====== -->
+  <div class="bg-layer" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-glow"></div>
+    <div class="bg-glow b"></div>
+  </div>
+
+  <!-- ====== Intro loader (~1.4s) ====== -->
+  <div class="intro" id="intro" aria-hidden="true">
+    <div class="intro-meta">VELOX · STUDIO · 2026</div>
+    <div class="intro-meta r">POGRADEC, SHQIPËRI</div>
+    <div class="intro-inner">
+      <div class="intro-streak"></div>
+      <div class="intro-letters">VEL<em>O</em>X</div>
+    </div>
+  </div>
+
+  <!-- ====== Nav ====== -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="logo" aria-label="VELOX">
+      <img src="logos/velox-stamp-blue.png" alt="VELOX Studio logo — web design profesional Pogradec" class="logo-img" />
+    </a>
+    <div class="nav-links" role="navigation">
+      <a href="index.html#work">Puna</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-toggle active" aria-expanded="false" aria-haspopup="true">
+          Shërbimet
+          <svg class="chev" width="10" height="6" viewBox="0 0 10 6" fill="none">
+            <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="nav-dropdown-menu" role="menu">
+          <a href="web-design.html" class="nav-dropdown-item" role="menuitem">Web Design</a>
+          <a href="branding.html" class="nav-dropdown-item" role="menuitem">Brend &amp; Identitet</a>
+          <a href="ui-ux.html" class="nav-dropdown-item active" role="menuitem">UI/UX Design</a>
+          <span class="nav-dropdown-item disabled" role="menuitem" aria-disabled="true">
+            SEO &amp; Performancë <span class="ndi-soon">së shpejti</span>
+          </span>
+        </div>
+      </div>
+      <a href="cmime.html">Çmimet</a>
+      <a href="faq.html">FAQ</a>
+      <a href="index.html#process">Procesi</a>
+      <a href="index.html#contact">Kontakt</a>
+    </div>
+    <div class="nav-right">
+      <span class="nav-time" id="local-time">Pogradec · 00:00</span>
+      <a href="https://wa.me/355692081322" class="nav-cta">
+        Të flasim
+        <span class="nav-cta-arrow" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M2 10 L10 2 M4 2 H10 V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+      <button class="nav-burger" id="nav-burger" aria-label="Hap menunë" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ====== Mobile menu drawer ====== -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-inner">
+      <a href="index.html#work" class="mm-link"><span class="mm-num">01</span> Puna <span class="mm-arrow">→</span></a>
+      <a href="ui-ux.html" class="mm-link active"><span class="mm-num">02</span> UI/UX Design <span class="mm-arrow">→</span></a>
+      <a href="cmime.html" class="mm-link"><span class="mm-num">03</span> Çmimet <span class="mm-arrow">→</span></a>
+      <a href="faq.html" class="mm-link"><span class="mm-num">04</span> FAQ <span class="mm-arrow">→</span></a>
+      <a href="index.html#process" class="mm-link"><span class="mm-num">05</span> Procesi <span class="mm-arrow">→</span></a>
+      <a href="index.html#contact" class="mm-link"><span class="mm-num">06</span> Kontakt <span class="mm-arrow">→</span></a>
+      <div class="mm-foot">
+        <a href="https://wa.me/355692081322" class="btn btn-primary mm-cta">
+          Bisedo në WhatsApp <span class="arrow">→</span>
+        </a>
+        <div class="mm-meta">
+          <span>Pogradec, Shqipëri</span>
+          <span id="mm-time">00:00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ====== PAGE HEADER ====== -->
+    <section class="shell ux-header">
+      <div class="ux-header-inner reveal">
+        <div class="section-tag">Dizajn produkti</div>
+        <h1 class="section-h" style="margin-top:20px">UI/UX Design — <em>Interface që Njerëzit Duan të Përdorin</em></h1>
+        <p class="ux-lede">
+          Një produkt i bukur që askush nuk e kupton është një produkt
+          i dështuar. Ne dizajnojmë interface të qarta, intuitive dhe
+          të bukura — që përdoruesit i duan dhe bizneset i shesin.
+        </p>
+        <div class="cta-row" style="margin-top:36px; margin-bottom:0">
+          <a href="https://wa.me/355692081322" class="btn btn-primary">
+            Fillo projektin tënd <span class="arrow">→</span>
+          </a>
+          <a href="cmime.html" class="btn btn-ghost">Shiko çmimet</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SERVICES GRID ====== -->
+    <section class="shell ux-features" id="features">
+      <div class="ux-section-head reveal">
+        <div class="section-tag">Çfarë ofrojmë</div>
+        <h2 class="section-h" style="margin-top:20px; font-size:clamp(36px,4.5vw,64px)">Çfarë <em>dizajnojmë</em></h2>
+      </div>
+
+      <div class="ux-grid stagger">
+
+        <div class="ux-feature">
+          <span class="ux-num">01</span>
+          <h3 class="ux-feature-title">Dashboard Design</h3>
+          <p class="ux-feature-text">
+            Panele administrimi dhe raportimi të qarta —
+            të dhëna komplekse të paraqitura thjesht dhe
+            me kuptim.
+          </p>
+        </div>
+
+        <div class="ux-feature">
+          <span class="ux-num">02</span>
+          <h3 class="ux-feature-title">SaaS Interface</h3>
+          <p class="ux-feature-text">
+            Dizajn i plotë për produkte software — nga
+            onboarding deri tek faqet e avancuara të
+            konfigurimit.
+          </p>
+        </div>
+
+        <div class="ux-feature">
+          <span class="ux-num">03</span>
+          <h3 class="ux-feature-title">Mobile App Design</h3>
+          <p class="ux-feature-text">
+            Aplikacione iOS dhe Android me përvojë
+            përdoruesi të optimizuar për ekran të vogël
+            dhe ndërveprim me gisht.
+          </p>
+        </div>
+
+        <div class="ux-feature">
+          <span class="ux-num">04</span>
+          <h3 class="ux-feature-title">Figma Prototyping</h3>
+          <p class="ux-feature-text">
+            Prototipe interaktive të plota — testoni
+            produktin tuaj para se të shpenzoni asnjë
+            euro në zhvillim.
+          </p>
+        </div>
+
+        <div class="ux-feature">
+          <span class="ux-num">05</span>
+          <h3 class="ux-feature-title">Design System</h3>
+          <p class="ux-feature-text">
+            Bibliotekë komponentësh të ripërdorshëm —
+            buton, formë, kartë, navigim — konsistencë
+            totale në çdo ekran.
+          </p>
+        </div>
+
+        <div class="ux-feature">
+          <span class="ux-num">06</span>
+          <h3 class="ux-feature-title">Developer Handoff</h3>
+          <p class="ux-feature-text">
+            Skedarë Figma të organizuar me specifika
+            të plota — zhvilluesit tuaj dinë saktësisht
+            çfarë të ndërtojnë.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====== WHY UI/UX MATTERS ====== -->
+    <section class="shell ux-stats" id="why">
+      <div class="reveal">
+        <div class="section-tag">Pse ka rëndësi</div>
+        <h2 class="section-h" style="margin-top:20px; font-size:clamp(36px,4.5vw,64px)">Pse UI/UX ndikon direkt <em>në të ardhura</em></h2>
+      </div>
+
+      <div class="ux-stats-grid stagger">
+
+        <div class="ux-stat-block">
+          <div class="ux-stat-num">88<em>%</em></div>
+          <p class="ux-stat-text">
+            e përdoruesve nuk kthehen pas një përvoje
+            të keqe dixhitale
+          </p>
+        </div>
+
+        <div class="ux-stat-block">
+          <div class="ux-stat-num">200<em>%</em></div>
+          <p class="ux-stat-text">
+            rritje e konvertimit me një UX të optimizuar
+            sipas studimeve të Forrester Research
+          </p>
+        </div>
+
+        <div class="ux-stat-block">
+          <div class="ux-stat-num" style="font-size:clamp(36px,4vw,54px)">7 <em style="font-size:.65em">ditë</em></div>
+          <p class="ux-stat-text">
+            kohë mesatare e dorëzimit për prototipin
+            tuaj të plotë interaktiv
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====== PROCESS ====== -->
+    <section class="shell ux-process" id="process">
+      <div class="reveal">
+        <div class="section-tag">Procesi</div>
+        <h2 class="section-h" style="margin-top:20px; font-size:clamp(36px,4.5vw,64px)">Procesi ynë <em>i UI/UX</em></h2>
+      </div>
+
+      <div class="ux-process-grid">
+        <div class="process" id="process-list">
+          <div class="process-line"></div>
+
+          <div class="step">
+            <div class="step-num">01</div>
+            <h4 class="step-h">Research</h4>
+            <p class="step-p">Kuptojmë përdoruesit dhe qëllimet e biznesit tuaj.</p>
+            <span class="step-when">Dita 1</span>
+          </div>
+
+          <div class="step">
+            <div class="step-num">02</div>
+            <h4 class="step-h">Wireframes</h4>
+            <p class="step-p">Struktura dhe fluksi i faqeve — pa ngjyrë, pa distraktorë.</p>
+            <span class="step-when">Dita 2</span>
+          </div>
+
+          <div class="step">
+            <div class="step-num">03</div>
+            <h4 class="step-h">UI Design</h4>
+            <p class="step-p">Dizajni vizual i plotë në Figma — çdo ekran, çdo gjendje.</p>
+            <span class="step-when">Dita 3–5</span>
+          </div>
+
+          <div class="step">
+            <div class="step-num">04</div>
+            <h4 class="step-h">Prototip</h4>
+            <p class="step-p">Lidhim gjithçka në prototip interaktiv — klikoni, navigoni, testoni.</p>
+            <span class="step-when">Dita 6</span>
+          </div>
+
+          <div class="step">
+            <div class="step-num">05</div>
+            <h4 class="step-h">Handoff</h4>
+            <p class="step-p">Dorëzim skedarësh + prezantim zhvilluesve — gati për ndërtim.</p>
+            <span class="step-when">Dita 7</span>
+          </div>
+
+        </div>
+
+        <div class="reveal" style="padding-top:4px">
+          <div style="background:var(--bg-blue); border-radius:20px; padding:36px; display:flex; flex-direction:column; gap:18px;">
+            <div class="section-tag">Çfarë merrni</div>
+            <p style="font-size:15px; color:var(--ink-2); line-height:1.65">
+              Çdo projekt UI/UX dorëzohet me gjithçka që ekipi
+              i zhvillimit dhe biznesi juaj kanë nevojë.
+            </p>
+            <div style="display:flex; flex-direction:column; gap:10px">
+              <div style="display:flex; gap:10px; align-items:center; font-size:14px; color:var(--ink)">
+                <span style="width:20px;height:20px;border-radius:50%;background:var(--peach);display:grid;place-items:center;flex-shrink:0">
+                  <svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1.5 4.5l2 2 4-4" stroke="#0D1A3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                Skedar Figma i plotë dhe i organizuar
+              </div>
+              <div style="display:flex; gap:10px; align-items:center; font-size:14px; color:var(--ink)">
+                <span style="width:20px;height:20px;border-radius:50%;background:var(--peach);display:grid;place-items:center;flex-shrink:0">
+                  <svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1.5 4.5l2 2 4-4" stroke="#0D1A3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                Prototip interaktiv i klikueshëm
+              </div>
+              <div style="display:flex; gap:10px; align-items:center; font-size:14px; color:var(--ink)">
+                <span style="width:20px;height:20px;border-radius:50%;background:var(--peach);display:grid;place-items:center;flex-shrink:0">
+                  <svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1.5 4.5l2 2 4-4" stroke="#0D1A3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                Design tokens dhe stilet e komponentëve
+              </div>
+              <div style="display:flex; gap:10px; align-items:center; font-size:14px; color:var(--ink)">
+                <span style="width:20px;height:20px;border-radius:50%;background:var(--peach);display:grid;place-items:center;flex-shrink:0">
+                  <svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1.5 4.5l2 2 4-4" stroke="#0D1A3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                Specifika madhësiesh, spacing dhe font
+              </div>
+            </div>
+            <div style="margin-top:4px">
+              <span class="stars" style="color:var(--peach-2); font-size:18px; letter-spacing:2px">★★★★★</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== TOOLS ====== -->
+    <section class="shell ux-tools" id="tools">
+      <div class="reveal">
+        <div class="section-tag">Mjetet</div>
+        <h2 class="section-h" style="margin-top:20px; font-size:clamp(36px,4.5vw,64px)">Mjetet <em>që përdorim</em></h2>
+      </div>
+      <div class="ux-tool-badges stagger">
+        <div class="ux-badge"><span class="ux-badge-dot"></span>Figma</div>
+        <div class="ux-badge"><span class="ux-badge-dot" style="background:#7B61FF"></span>FigJam</div>
+        <div class="ux-badge"><span class="ux-badge-dot" style="background:#FF4785"></span>Maze (testim)</div>
+        <div class="ux-badge"><span class="ux-badge-dot" style="background:#0D1A3A"></span>Next.js (implementim)</div>
+      </div>
+      <p class="ux-tools-note">
+        "Figma është standardi industrial për UI/UX — çdo skedar që dorëzojmë është gati për zhvillim direkt."
+      </p>
+    </section>
+
+    <!-- ====== PRICING ====== -->
+    <section class="shell ux-pricing" id="pricing">
+      <div class="reveal">
+        <div class="section-tag">Çmimet</div>
+        <h2 class="section-h" style="margin-top:20px; font-size:clamp(36px,4.5vw,64px)">Çmimet — <em>të qarta, pa surpriza</em></h2>
+      </div>
+
+      <div class="ux-price-row stagger">
+
+        <div class="ux-price-col">
+          <div class="ux-price-label">01 — Bazë</div>
+          <div class="ux-price-name">Prototip Bazë</div>
+          <div class="ux-price-amount">Nga 299€</div>
+          <p class="ux-price-includes">Deri 5 ekrane, Figma file, 1 raund revizioni</p>
+        </div>
+
+        <div class="ux-price-col featured">
+          <div class="ux-price-label">02 — I plotë</div>
+          <div class="ux-price-name">UI/UX i Plotë</div>
+          <div class="ux-price-amount">Nga 599€</div>
+          <p class="ux-price-includes">Deri 15 ekrane, design system bazë, prototip interaktiv, 2 raunde revizioni</p>
+        </div>
+
+        <div class="ux-price-col">
+          <div class="ux-price-label">03 — Enterprise</div>
+          <div class="ux-price-name">Produkt SaaS</div>
+          <div class="ux-price-amount" style="font-size:32px">Me kuotë</div>
+          <p class="ux-price-includes">Ekrane të pakufizuara, design system i plotë, testim me përdorues, developer handoff i plotë</p>
+        </div>
+
+      </div>
+
+      <p class="ux-price-footer">
+        <a href="cmime.html">Shiko të gjitha çmimet dhe detajet →</a>
+      </p>
+    </section>
+
+    <!-- ====== BOTTOM CTA ====== -->
+    <section class="shell ux-cta-section">
+      <div class="ux-cta-inner reveal">
+        <div class="section-tag">Fillo sot</div>
+        <h2 class="section-h" style="margin-top:20px; font-size:clamp(36px,5vw,68px)">Ke një ide produkti? <em>Na trego.</em></h2>
+        <p class="lede" style="margin-top:20px; max-width:500px; margin-left:auto; margin-right:auto">
+          Tregona vizionin tënd — e kthejmë në dizajn brenda 7 ditëve.
+        </p>
+        <div class="ux-cta-btns">
+          <a href="https://wa.me/355692081322" class="btn btn-primary">
+            Dërgo mesazh në WhatsApp
+            <span class="arrow">→</span>
+          </a>
+        </div>
+        <p class="ux-cta-link">
+          <a href="cmime.html">Shiko çmimet →</a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer">
+    <div class="footer-shell">
+      <div class="reveal">
+        <h2 class="footer-big">Më shumë klientë. <em>Më pak fjalë.</em></h2>
+        <div class="footer-ctas">
+          <a href="https://wa.me/355692081322" class="footer-cta">
+            WhatsApp
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11 L11 3 M5 3 H11 V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="mailto:Eneaziu622@gmail.com" class="footer-cta ghost">
+            Email
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11 L11 3 M5 3 H11 V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h6>Studio</h6>
+          <div class="footer-studio">Pogradec, <em>Shqipëri.</em></div>
+          <p style="margin-top:14px; color:rgba(244,247,251,0.7); font-size:14px">Rruga e Kavajës 1001</p>
+          <p style="color:rgba(244,247,251,0.5); font-size:13px; font-family:var(--mono); letter-spacing:.06em; text-transform:uppercase" id="footer-time">Ora lokale —</p>
+        </div>
+        <div class="footer-col">
+          <h6>Navigo</h6>
+          <a href="index.html">Kreu</a>
+          <a href="index.html#services">Shërbimet</a>
+          <a href="cmime.html">Çmimet</a>
+          <a href="faq.html">FAQ</a>
+          <a href="index.html#process">Procesi</a>
+          <a href="index.html#contact">Kontakt</a>
+        </div>
+        <div class="footer-col">
+          <h6>Shërbimet</h6>
+          <a href="web-design.html">Web Design</a>
+          <a href="branding.html">Brend &amp; identitet</a>
+          <a href="ui-ux.html">UI/UX Design</a>
+          <a href="index.html#services">SEO</a>
+        </div>
+        <div class="footer-col">
+          <h6>Na ndiq</h6>
+          <a href="#">Instagram ↗</a>
+          <a href="#">Behance ↗</a>
+          <a href="#">LinkedIn ↗</a>
+          <p style="margin-top:14px; color:rgba(244,247,251,0.7); font-size:14px">@velox<em style="color:var(--peach); font-family:var(--serif); font-style:italic">.al</em></p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 VELOX Studio</span>
+        <div class="footer-bottom-r">
+          <span>Bërë në Shqipëri · me kujdes</span>
+          <span>Të gjitha të drejtat e rezervuara</span>
+        </div>
+      </div>
+    </div>
+    <img src="logos/velox-stamp-white.png" alt="" aria-hidden="true" class="footer-watermark" />
+  </footer>
+
+<script>
+  // ===== Nav scroll state =====
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 12);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // ===== Local time =====
+  function fmt(now) {
+    return now.toLocaleTimeString('en-GB', { timeZone: 'Europe/Tirane', hour: '2-digit', minute: '2-digit' });
+  }
+  function tick() {
+    const now = new Date();
+    const t = fmt(now);
+    const el = document.getElementById('local-time');
+    const fel = document.getElementById('footer-time');
+    if (el)  el.textContent = `Pogradec · ${t}`;
+    if (fel) fel.textContent = `Ora lokale ${t}`;
+  }
+  tick(); setInterval(tick, 30000);
+
+  // ===== Scroll reveal =====
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
+  document.querySelectorAll('.reveal, .stagger, .process').forEach(el => io.observe(el));
+
+  // ===== Mobile menu =====
+  const burger = document.getElementById('nav-burger');
+  const mm = document.getElementById('mobile-menu');
+  function setMenu(open) {
+    document.body.classList.toggle('menu-open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    mm.setAttribute('aria-hidden', open ? 'false' : 'true');
+  }
+  burger?.addEventListener('click', () => setMenu(!document.body.classList.contains('menu-open')));
+  mm?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  window.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+
+  // Mirror time into mobile menu
+  const mmTime = document.getElementById('mm-time');
+  function tickAll() {
+    tick();
+    if (mmTime) mmTime.textContent = new Date().toLocaleTimeString('en-GB', { timeZone: 'Europe/Tirane', hour: '2-digit', minute: '2-digit' });
+  }
+  tickAll(); setInterval(tickAll, 30000);
+
+  // ===== Nav dropdown =====
+  document.querySelectorAll('.nav-dropdown').forEach(dd => {
+    const toggle = dd.querySelector('.nav-dropdown-toggle');
+    if (!toggle) return;
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = dd.classList.contains('open');
+      document.querySelectorAll('.nav-dropdown.open').forEach(d => {
+        d.classList.remove('open');
+        d.querySelector('.nav-dropdown-toggle')?.setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        dd.classList.add('open');
+        toggle.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.nav-dropdown.open').forEach(dd => {
+      dd.classList.remove('open');
+      dd.querySelector('.nav-dropdown-toggle')?.setAttribute('aria-expanded', 'false');
+    });
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.nav-dropdown.open').forEach(dd => {
+        dd.classList.remove('open');
+        dd.querySelector('.nav-dropdown-toggle')?.setAttribute('aria-expanded', 'false');
+      });
+    }
+  });
+</script>
+</body>
+</html>
