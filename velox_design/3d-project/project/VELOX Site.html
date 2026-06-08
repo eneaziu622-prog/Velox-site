@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8" />
+<title>VELOX — Studio Dixhitale në Tiranë, Shqipëri</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="velox-site.css">
+</head>
+<body>
+
+  <!-- ====== Background ====== -->
+  <div class="bg-layer" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-glow"></div>
+    <div class="bg-glow b"></div>
+  </div>
+
+  <!-- ====== Intro loader (~1.4s) ====== -->
+  <div class="intro" id="intro" aria-hidden="true">
+    <div class="intro-meta">VELOX · STUDIO · 2026</div>
+    <div class="intro-meta r">TIRANË, SHQIPËRI</div>
+    <div class="intro-inner">
+      <div class="intro-streak"></div>
+      <div class="intro-letters">VEL<em>O</em>X</div>
+    </div>
+  </div>
+
+  <!-- ====== Nav ====== -->
+  <nav class="nav" id="nav">
+    <a href="#top" class="logo" aria-label="VELOX">
+      <img src="logos/velox-stamp-blue.png" alt="VELOX Studio · Tiranë" class="logo-img" />
+    </a>
+    <div class="nav-links" role="navigation">
+      <a href="#work">Puna</a>
+      <a href="#services">Shërbimet</a>
+      <a href="#process">Procesi</a>
+      <a href="#contact">Kontakt</a>
+    </div>
+    <div class="nav-right">
+      <span class="nav-time" id="local-time">Tiranë · 00:00</span>
+      <a href="#contact" class="nav-cta">
+        Të flasim
+        <span class="nav-cta-arrow" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M2 10 L10 2 M4 2 H10 V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+      <button class="nav-burger" id="nav-burger" aria-label="Hap menunë" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ====== Mobile menu drawer ====== -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-inner">
+      <a href="#work" class="mm-link"><span class="mm-num">01</span> Puna <span class="mm-arrow">→</span></a>
+      <a href="#services" class="mm-link"><span class="mm-num">02</span> Shërbimet <span class="mm-arrow">→</span></a>
+      <a href="#process" class="mm-link"><span class="mm-num">03</span> Procesi <span class="mm-arrow">→</span></a>
+      <a href="#contact" class="mm-link"><span class="mm-num">04</span> Kontakt <span class="mm-arrow">→</span></a>
+      <div class="mm-foot">
+        <a href="https://web.whatsapp.com/send/?phone=355692081322" class="btn btn-primary mm-cta">
+          Bisedo në WhatsApp <span class="arrow">→</span>
+        </a>
+        <div class="mm-meta">
+          <span>Tiranë, Shqipëri</span>
+          <span id="mm-time">00:00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ====== HERO ====== -->
+    <section class="shell hero" id="top">
+      <div class="hero-content">
+        <div class="status">
+          <span class="status-dot"></span>
+          Në dispozicion për projekte — Maj 2026
+        </div>
+        <div class="eyebrow">Studio dixhitale · Tiranë, Shqipëri</div>
+        <h1 class="headline">Ne ndërtojmë <em>velox —</em> gjëra që lëvizin.</h1>
+        <p class="lede">
+          VELOX është një studio e vogël që krijon faqe interneti, brende dhe
+          produkte dixhitale për ekipe ambicioze në Shqipëri dhe më gjerë.
+          Punime të shpejta, cilësi e vërtetë, pa fjalë të tepruara.
+        </p>
+        <div class="cta-row">
+          <a href="https://web.whatsapp.com/send/?phone=355692081322" class="btn btn-primary">
+            Bisedo në WhatsApp
+            <span class="arrow">→</span>
+          </a>
+          <a href="#work" class="btn btn-ghost">Shiko punët tona</a>
+        </div>
+        <div class="trust">
+          <span class="stars">★★★★★</span>
+          <span>40+ klientë të kënaqur · që nga 2022</span>
+        </div>
+      </div>
+
+      <div class="scene" id="scene" aria-hidden="true">
+        <div class="scene-grid">
+          <svg viewBox="0 0 600 600" preserveAspectRatio="none">
+            <defs>
+              <pattern id="gp" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M40 0H0V40" fill="none" stroke="rgba(13,26,58,0.08)" stroke-width="1"/>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#gp)" />
+          </svg>
+        </div>
+        <div class="stack stack-bob" id="stack">
+          <div class="chip chip-a"><span class="x"></span>Webflow · Live</div>
+          <div class="chip chip-b"><span class="x"></span>100/100 Performance</div>
+          <div class="chip chip-c"><span class="x"></span>Brend & UI</div>
+
+          <div class="plane plane-browser">
+            <div class="chrome">
+              <span class="cdot"></span><span class="cdot"></span><span class="cdot"></span>
+              <div class="url">velox.al / studio</div>
+            </div>
+            <div class="plane-body">
+              <div class="mini-eyebrow">01 — Studio</div>
+              <div class="mini-title">Faqe që <em>konvertojnë.</em></div>
+              <div class="row" style="margin-top:18px"><div class="mini-line" style="width:88%"></div></div>
+              <div class="row" style="margin-top:8px"><div class="mini-line" style="width:64%"></div></div>
+              <div class="grid-cards">
+                <div class="gc warm"><div class="b"></div><div class="s"></div></div>
+                <div class="gc accent"><div class="b"></div><div class="s"></div></div>
+                <div class="gc"><div class="b"></div><div class="s"></div></div>
+              </div>
+              <div class="sweep"></div>
+            </div>
+          </div>
+
+          <div class="plane plane-phone">
+            <div class="phone-screen">
+              <div class="phone-notch"></div>
+              <div class="phone-title">Punë <em>recente</em></div>
+              <div class="phone-card">
+                <div class="phone-thumb a"></div>
+                <div class="phone-lines"><div class="l1"></div><div class="l2"></div></div>
+              </div>
+              <div class="phone-card">
+                <div class="phone-thumb b"></div>
+                <div class="phone-lines"><div class="l1"></div><div class="l2"></div></div>
+              </div>
+              <div class="phone-card">
+                <div class="phone-thumb c"></div>
+                <div class="phone-lines"><div class="l1"></div><div class="l2"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== COUNTER BAND ====== -->
+    <section class="shell counter reveal">
+      <div class="counter-l">
+        <span>Themeluar 2022</span>
+        <span style="color:var(--ink-3)">Numerator aktiv</span>
+      </div>
+      <div class="counter-wrap">
+        <span class="counter-num" id="counter-num">60<em>+</em></span>
+        <p class="counter-cap">Projekte të dorëzuara nga koncepti deri në lansim — faqe interneti, brende dhe UI produktesh.</p>
+      </div>
+      <div class="counter-r">
+        <span>5+ vite eksperiencë</span>
+        <span style="color:var(--ink-3)">Me bazë në Tiranë</span>
+        <span style="color:var(--ink-3)">Lëviz poshtë ↓</span>
+      </div>
+    </section>
+
+    <!-- ====== MARQUEE ====== -->
+    <div class="marquee-wrap reveal">
+      <div class="marquee">
+        <div class="marquee-group">
+          <span>Faqe interneti</span><i></i>
+          <span>Identitet brendi</span><i></i>
+          <span><em>Dizajn produkti</em></span><i></i>
+          <span>Aplikacione web</span><i></i>
+          <span>SEO &amp; shpejtësi</span><i></i>
+          <span>E-commerce</span><i></i>
+          <span>Animacion</span><i></i>
+        </div>
+        <div class="marquee-group" aria-hidden="true">
+          <span>Faqe interneti</span><i></i>
+          <span>Identitet brendi</span><i></i>
+          <span><em>Dizajn produkti</em></span><i></i>
+          <span>Aplikacione web</span><i></i>
+          <span>SEO &amp; shpejtësi</span><i></i>
+          <span>E-commerce</span><i></i>
+          <span>Animacion</span><i></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====== SERVICES ====== -->
+    <section class="shell services" id="services">
+      <div class="services-head">
+        <div class="reveal">
+          <div class="section-tag">02 — Shërbimet</div>
+          <h2 class="section-h" style="margin-top:20px">Çfarë bëjmë, <em>dhe</em> e bëjmë mirë.</h2>
+        </div>
+        <p class="lede reveal reveal-d2">
+          Katër shërbime të fokusuara. E mbajmë ekipin të vogël që çdo projekt
+          të marrë vemendje senior nga nisja deri në lansim.
+        </p>
+      </div>
+
+      <div class="services-grid stagger">
+        <article class="service-card">
+          <div class="service-top">
+            <span class="service-num">01</span>
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <rect x="3" y="5" width="18" height="14" rx="2"/>
+                <path d="M3 9 H21"/>
+                <circle cx="6.5" cy="7" r=".5" fill="currentColor"/>
+              </svg>
+            </div>
+          </div>
+          <div class="service-body">
+            <h3 class="service-h3">Faqe që konvertojnë</h3>
+            <p class="service-p">
+              Faqe marketingu, landing page dhe portfolio të dizenjuara për të
+              ngarkëzuar shpejt dhe për të kthyer vizitorët në klientë.
+            </p>
+            <div class="service-tags">
+              <span class="service-tag">Webflow</span>
+              <span class="service-tag">Next.js</span>
+              <span class="service-tag">WordPress</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-card dark">
+          <div class="service-top">
+            <span class="service-num">02</span>
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <circle cx="12" cy="12" r="9"/>
+                <path d="M3 12 H21 M12 3 C15 7 15 17 12 21 M12 3 C9 7 9 17 12 21"/>
+              </svg>
+            </div>
+          </div>
+          <div class="service-body">
+            <h3 class="service-h3">Brend & identitet</h3>
+            <p class="service-p">
+              Sisteme logosh, identitet vizual dhe udhëzues brendi që duken mirë
+              kudo — nga billboardi tek telefoni.
+            </p>
+            <div class="service-tags">
+              <span class="service-tag">Logo</span>
+              <span class="service-tag">Udhëzues</span>
+              <span class="service-tag">Print</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-card blue">
+          <div class="service-top">
+            <span class="service-num">03</span>
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <rect x="3" y="4" width="18" height="12" rx="2"/>
+                <path d="M3 10 H10 V16 M14 4 V10 H21"/>
+              </svg>
+            </div>
+          </div>
+          <div class="service-body">
+            <h3 class="service-h3">UI / UX produkti</h3>
+            <p class="service-p">
+              Dashboard, ndërfaqe SaaS dhe aplikacione mobile — nga kërkimi dhe
+              rrjedhat te dorëzimi pixel-perfect.
+            </p>
+            <div class="service-tags">
+              <span class="service-tag">Figma</span>
+              <span class="service-tag">Prototip</span>
+              <span class="service-tag">Sistem dizajni</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-card cream">
+          <div class="service-top">
+            <span class="service-num">04</span>
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M3 17 L9 11 L13 15 L21 7"/>
+                <path d="M15 7 H21 V13"/>
+              </svg>
+            </div>
+          </div>
+          <div class="service-body">
+            <h3 class="service-h3">SEO & performancë</h3>
+            <p class="service-p">
+              Audite, SEO teknike dhe optimizim Core Web Vitals që faqja jote
+              të dalë me të vërtetë në Google.
+            </p>
+            <div class="service-tags">
+              <span class="service-tag">Audit</span>
+              <span class="service-tag">On-page</span>
+              <span class="service-tag">SEO lokal</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ====== WORK ====== -->
+    <section class="shell work" id="work">
+      <div class="work-head">
+        <div class="reveal">
+          <div class="section-tag">03 — Punë të zgjedhura</div>
+          <h2 class="section-h" style="margin-top:20px">Projekte të <em>fundit.</em></h2>
+        </div>
+        <p class="lede reveal reveal-d2">
+          Një përmbledhje e punimeve të 18 muajve të fundit.
+        </p>
+      </div>
+
+      <div class="work-grid two-up stagger">
+        <a href="https://web.whatsapp.com/send/?phone=355692081322" class="work-card a">
+          <div class="work-thumb">
+            <div class="work-thumb-art">Aa</div>
+          </div>
+          <div class="work-meta">
+            <div>
+              <div class="work-info">Brend · 2025</div>
+              <div class="work-title">Studio Aroma</div>
+            </div>
+            <div class="work-arrow">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M3 11 L11 3 M5 3 H11 V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://web.whatsapp.com/send/?phone=355692081322" class="work-card b">
+          <div class="work-thumb">
+            <div class="work-thumb-art">N°02</div>
+          </div>
+          <div class="work-meta">
+            <div>
+              <div class="work-info">UI Produkti · 2025</div>
+              <div class="work-title">Lëviz Dashboard</div>
+            </div>
+            <div class="work-arrow">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M3 11 L11 3 M5 3 H11 V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="work-note reveal">
+        <p>Më shumë projekte së shpejti — na kontakto për të parë case studies të plota.</p>
+        <a href="#contact" class="btn btn-primary">
+          Fillo një projekt
+          <span class="arrow">→</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ====== ABOUT + PROCESS ====== -->
+    <section class="shell about" id="process">
+      <div class="about-grid">
+        <div class="about-l">
+          <div class="reveal">
+            <div class="section-tag">04 — Rreth nesh & procesi</div>
+            <h2 class="section-h" style="margin-top:20px">Një studio e vogël, <em>e ndërtuar për shpejtësi.</em></h2>
+          </div>
+          <div class="about-fast reveal reveal-d2">
+            <span class="bolt">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M8 0 L1 8 H6 L4 14 L11 5 H7 Z"/></svg>
+            </span>
+            Gati në vetëm <strong>1 JAVË</strong>
+          </div>
+          <p class="about-p reveal reveal-d3">
+            VELOX (nga latinishtja për "i shpejtë") është puna e një ekipi të
+            fokusuar me bazë në Tiranë. Bashkëpunojmë me themelues, agjenci dhe
+            ekipe in-house që kërkojnë cilësi të dorëzuar në afate reale. Pa
+            ndërmjetës, pa account managers — fol direkt me njerëzit që bëjnë
+            punën.
+          </p>
+          <div class="about-ctas reveal reveal-d4">
+            <a href="#contact" class="btn btn-primary">Fillo një projekt <span class="arrow">→</span></a>
+            <a href="#work" class="btn btn-ghost">Shiko punët</a>
+          </div>
+        </div>
+
+        <div class="process" id="process-list">
+          <div class="process-line"></div>
+          <div class="step">
+            <div class="step-num">01</div>
+            <h4 class="step-h">Zbulim</h4>
+            <p class="step-p">Telefonatë njohjeje 30-minutësh, skopi dhe objektiva. Falas.</p>
+            <span class="step-when">Dita 0</span>
+          </div>
+          <div class="step">
+            <div class="step-num">02</div>
+            <h4 class="step-h">Përcaktim</h4>
+            <p class="step-p">Brief, sitemap dhe drejtim vizual të rënë dakord para se të prekim pikselat.</p>
+            <span class="step-when">Dita 1</span>
+          </div>
+          <div class="step">
+            <div class="step-num">03</div>
+            <h4 class="step-h">Dizajn</h4>
+            <p class="step-p">Dizajn iterativ në Figma me rishikime live — pa zbulime të mëdha.</p>
+            <span class="step-when">Dita 2–3</span>
+          </div>
+          <div class="step">
+            <div class="step-num">04</div>
+            <h4 class="step-h">Ndërtim</h4>
+            <p class="step-p">I ndërtuar me dorë, i shpejtë, i aksesueshem dhe i lehtë për ty për ta përditesuar.</p>
+            <span class="step-when">Dita 4–5</span>
+          </div>
+          <div class="step">
+            <div class="step-num">05</div>
+            <h4 class="step-h">Lansim & përkujdes</h4>
+            <p class="step-p">QA, mbështetje në ditën e lansimit dhe 30 ditë përkujdesje falas.</p>
+            <span class="step-when">Dita 6–7</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== CONTACT ====== -->
+    <section class="shell contact" id="contact">
+      <div class="contact-grid">
+        <div class="reveal">
+          <div class="section-tag">05 — Kontakt</div>
+          <h2 class="section-h contact-h">Na trego çfarë <em>po ndërton.</em></h2>
+          <p class="contact-p">
+            Mënyra më e shpejtë për të na arritur është një mesazh në WhatsApp
+            ose një email i shkurtër. Trego ca rreshta për projektin tënd dhe
+            do të përgjigjemi brenda pak orësh në ditët e punës.
+          </p>
+          <div class="contact-hours">
+            <strong>Hapur · Hën — Pre · 09:00 — 18:00</strong><br>
+            Pa formular rezervimi — vetëm kur të jesh gati.
+          </div>
+        </div>
+
+        <div class="contact-methods reveal reveal-d2">
+          <a href="https://web.whatsapp.com/send/?phone=355692081322&text=Pershendetje%20VELOX%2C%20dua%20te%20flas%20per%20nje%20projekt." class="contact-card">
+            <div class="contact-card-l">
+              <span class="contact-label">Mesazh në WhatsApp</span>
+              <span class="contact-val">+355 69 208 1322</span>
+              <span class="contact-meta">Përgjigje më e shpejtë · nën 2 orë</span>
+            </div>
+            <div class="contact-arrow">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M3 13 L13 3 M5 3 H13 V11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </a>
+          <a href="mailto:Eneaziu622@gmail.com?subject=Kerkese%20per%20projekt" class="contact-card">
+            <div class="contact-card-l">
+              <span class="contact-label">Dërgo email</span>
+              <span class="contact-val">Eneaziu622@gmail.com</span>
+              <span class="contact-meta">Ideale për brief & shtojca</span>
+            </div>
+            <div class="contact-arrow">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M3 13 L13 3 M5 3 H13 V11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer">
+    <div class="footer-shell">
+      <div class="reveal">
+        <h2 class="footer-big">Ke një ide? <em>T'i japim lëvizje.</em></h2>
+        <div class="footer-ctas">
+          <a href="https://web.whatsapp.com/send/?phone=355692081322" class="footer-cta">
+            WhatsApp
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11 L11 3 M5 3 H11 V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="mailto:Eneaziu622@gmail.com" class="footer-cta ghost">
+            Email
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11 L11 3 M5 3 H11 V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h6>Studio</h6>
+          <div class="footer-studio">Tiranë, <em>Shqipëri.</em></div>
+          <p style="margin-top:14px; color:rgba(244,247,251,0.7); font-size:14px">Rruga e Kavajës 1001</p>
+          <p style="color:rgba(244,247,251,0.5); font-size:13px; font-family:var(--mono); letter-spacing:.06em; text-transform:uppercase" id="footer-time">Ora lokale —</p>
+        </div>
+        <div class="footer-col">
+          <h6>Navigo</h6>
+          <a href="#top">Kreu</a>
+          <a href="#services">Shërbimet</a>
+          <a href="#work">Puna</a>
+          <a href="#process">Procesi</a>
+          <a href="#contact">Kontakt</a>
+        </div>
+        <div class="footer-col">
+          <h6>Shërbimet</h6>
+          <a href="#services">Faqe interneti</a>
+          <a href="#services">Brend &amp; identitet</a>
+          <a href="#services">UI produkti</a>
+          <a href="#services">SEO</a>
+        </div>
+        <div class="footer-col">
+          <h6>Na ndiq</h6>
+          <a href="#">Instagram ↗</a>
+          <a href="#">Behance ↗</a>
+          <a href="#">LinkedIn ↗</a>
+          <p style="margin-top:14px; color:rgba(244,247,251,0.7); font-size:14px">@velox<em style="color:var(--peach); font-family:var(--serif); font-style:italic">.al</em></p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 VELOX Studio</span>
+        <div class="footer-bottom-r">
+          <span>Bërë në Shqipëri · me kujdes</span>
+          <span>Të gjitha të drejtat e rezervuara</span>
+        </div>
+      </div>
+    </div>
+    <img src="logos/velox-stamp-white.png" alt="" aria-hidden="true" class="footer-watermark" />
+  </footer>
+
+<script>
+  // ===== Nav scroll state =====
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 12);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // ===== Local time (Tirana) =====
+  function fmt(now){
+    return now.toLocaleTimeString('en-GB', { timeZone: 'Europe/Tirane', hour: '2-digit', minute: '2-digit' });
+  }
+  function tick() {
+    const now = new Date();
+    const t = fmt(now);
+    const el = document.getElementById('local-time');
+    const fel = document.getElementById('footer-time');
+    if (el)  el.textContent = `Tiranë · ${t}`;
+    if (fel) fel.textContent = `Ora lokale ${t}`;
+  }
+  tick(); setInterval(tick, 30000);
+
+  // ===== Cursor-driven 3D parallax =====
+  const scene = document.getElementById('scene');
+  const stack = document.getElementById('stack');
+  let raf = null, targetX = 0, targetY = 0, curX = 0, curY = 0, settleT = null;
+  function onMove(e) {
+    if (!scene) return;
+    const r = scene.getBoundingClientRect();
+    if (r.bottom < 0 || r.top > window.innerHeight) return;
+    const cx = (e.clientX - (r.left + r.width / 2)) / (r.width / 2);
+    const cy = (e.clientY - (r.top + r.height / 2)) / (r.height / 2);
+    targetX = Math.max(-1, Math.min(1, cx));
+    targetY = Math.max(-1, Math.min(1, cy));
+    stack.classList.remove('stack-bob');
+    if (!raf) raf = requestAnimationFrame(loop);
+    clearTimeout(settleT);
+    settleT = setTimeout(() => {
+      targetX = 0; targetY = 0;
+      if (!raf) raf = requestAnimationFrame(loop);
+      setTimeout(() => {
+        if (Math.abs(curX) < 0.02 && Math.abs(curY) < 0.02) {
+          stack.classList.add('stack-bob');
+        }
+      }, 600);
+    }, 1200);
+  }
+  function loop() {
+    curX += (targetX - curX) * 0.08;
+    curY += (targetY - curY) * 0.08;
+    stack.style.setProperty('--mx', curX.toFixed(3));
+    stack.style.setProperty('--my', curY.toFixed(3));
+    if (Math.abs(curX - targetX) > 0.001 || Math.abs(curY - targetY) > 0.001) {
+      raf = requestAnimationFrame(loop);
+    } else { raf = null; }
+  }
+  window.addEventListener('mousemove', onMove);
+
+  // ===== Scroll reveal (IntersectionObserver) =====
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in-view');
+        io.unobserve(e.target);
+      }
+    });
+  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
+  document.querySelectorAll('.reveal, .stagger, .char-reveal, .process').forEach(el => io.observe(el));
+
+  // ===== Counter rollup =====
+  const counterEl = document.getElementById('counter-num');
+  if (counterEl) {
+    const counterIO = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          let cur = 0;
+          const target = 60;
+          const start = performance.now();
+          const dur = 1400;
+          function step(t){
+            const p = Math.min(1, (t - start) / dur);
+            const eased = 1 - Math.pow(1 - p, 3);
+            cur = Math.round(target * eased);
+            counterEl.innerHTML = cur + '<em>+</em>';
+            if (p < 1) requestAnimationFrame(step);
+          }
+          requestAnimationFrame(step);
+          counterIO.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    counterIO.observe(counterEl);
+  }
+
+  // ===== Mobile menu =====
+  const burger = document.getElementById('nav-burger');
+  const mm = document.getElementById('mobile-menu');
+  function setMenu(open){
+    document.body.classList.toggle('menu-open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    mm.setAttribute('aria-hidden', open ? 'false' : 'true');
+  }
+  burger?.addEventListener('click', () => setMenu(!document.body.classList.contains('menu-open')));
+  mm?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  window.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+
+  // Mirror time into mobile menu
+  const mmTime = document.getElementById('mm-time');
+  const _origTick = tick;
+  function tickAll(){
+    _origTick();
+    if (mmTime) mmTime.textContent = new Date().toLocaleTimeString('en-GB', { timeZone: 'Europe/Tirane', hour: '2-digit', minute: '2-digit' });
+  }
+  tickAll(); setInterval(tickAll, 30000);
+
+  // ===== Active nav link based on section in view =====
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const sectionMap = new Map();
+  navLinks.forEach(a => {
+    const id = a.getAttribute('href');
+    if (id && id.startsWith('#')) {
+      const sec = document.querySelector(id);
+      if (sec) sectionMap.set(sec, a);
+    }
+  });
+  const activeIO = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      const link = sectionMap.get(e.target);
+      if (!link) return;
+      if (e.isIntersecting) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-30% 0px -50% 0px' });
+  sectionMap.forEach((_, sec) => activeIO.observe(sec));
+</script>
+</body>
+</html>
