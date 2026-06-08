@@ -1,38 +1,33 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://veloxstudio.al/</loc>
+    <loc>https://eneaziu622-prog.github.io/Velox-site/</loc>
     <priority>1.0</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://eneaziu622-prog.github.io/Velox-site/web-design.html</loc>
+    <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://veloxstudio.al/VELOX Hero.html</loc>
+    <loc>https://eneaziu622-prog.github.io/Velox-site/branding.html</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://eneaziu622-prog.github.io/Velox-site/ui-ux.html</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://eneaziu622-prog.github.io/Velox-site/cmime.html</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://veloxstudio.al/cmime.html</loc>
-    <priority>0.9</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://veloxstudio.al/faq.html</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://veloxstudio.al/web-design.html</loc>
-    <priority>0.9</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://veloxstudio.al/branding.html</loc>
-    <priority>0.9</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://veloxstudio.al/ui-ux.html</loc>
-    <priority>0.9</priority>
+    <loc>https://eneaziu622-prog.github.io/Velox-site/faq.html</loc>
+    <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
 </urlset>
