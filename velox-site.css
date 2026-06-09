@@ -870,6 +870,7 @@ section { position: relative; z-index: 1; }
 .service-card.dark   { background: var(--navy); color: var(--inv); }
 .service-card.blue   { background: var(--bg-blue); }
 .service-card.cream  { background: var(--bg-cream); }
+.service-card.peach  { background: var(--peach); }
 .service-card:hover { transform: translateY(-6px); }
 
 .service-top { display: flex; justify-content: space-between; align-items: start; }
