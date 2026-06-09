@@ -108,14 +108,6 @@
     },
     {
       "@type": "Question",
-      "name": "A keni garanci?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Po. Çdo projekt vjen me garanci kthimi parash 30 ditë. Nëse nuk jeni të kënaqur — ju kthejmë paratë plotësisht, pa pyetje."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "A mund të menaxhoj vetë faqen pas dorëzimit?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -156,15 +148,29 @@
 /* ── FAQ accordion ── */
 .faq-section { padding-top: 0; padding-bottom: 80px; }
 .faq-head { max-width: 600px; }
-.faq-list { margin-top: 40px; border-top: 1px solid var(--line); }
-.faq-item { border-bottom: 1px solid var(--line); }
+.faq-list {
+  margin-top: 40px;
+  border-top: 1px solid var(--line);
+  counter-reset: faq-counter;
+}
+.faq-item {
+  counter-increment: faq-counter;
+  border-bottom: 1px solid var(--line);
+  border-radius: 10px;
+  transition: background .28s var(--ease-out), box-shadow .28s var(--ease-out);
+}
+.faq-item.open {
+  background: var(--bg-warm);
+  border-bottom-color: transparent;
+  box-shadow: 0 0 0 1px var(--line);
+  margin: 4px 0;
+}
 .faq-q {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 22px 0;
+  gap: 14px;
+  padding: 20px 16px;
   background: none;
   border: none;
   cursor: pointer;
@@ -175,13 +181,21 @@
   font-family: var(--sans);
   transition: color .18s;
 }
-.faq-q:hover { color: var(--navy); }
+.faq-q::before {
+  content: counter(faq-counter, decimal-leading-zero);
+  font-family: var(--mono); font-size: 11px; font-weight: 500;
+  color: var(--ink-3); min-width: 28px; flex-shrink: 0;
+  transition: color .25s var(--ease-out);
+}
+.faq-q > span:first-child { flex: 1; }
+.faq-item.open .faq-q { color: var(--navy); }
+.faq-item.open .faq-q::before { color: var(--peach); }
 .faq-icon {
   width: 26px; height: 26px; min-width: 26px;
   border-radius: 50%;
   border: 1px solid var(--line);
   display: flex; align-items: center; justify-content: center;
-  transition: transform .3s var(--ease-out), background .2s, border-color .2s, color .2s;
+  transition: transform .35s var(--ease-out), background .25s, border-color .2s, color .2s;
   color: var(--ink-3);
   flex-shrink: 0;
 }
@@ -194,11 +208,11 @@
 .faq-a {
   max-height: 0;
   overflow: hidden;
-  transition: max-height .42s var(--ease-out);
+  transition: max-height .45s var(--ease-out);
 }
 .faq-item.open .faq-a { max-height: 400px; }
 .faq-a-inner {
-  padding-bottom: 24px;
+  padding: 0 16px 24px 58px;
   font-size: 14.5px;
   color: var(--ink-2);
   line-height: 1.75;
@@ -442,26 +456,7 @@
           </div>
         </div>
 
-        <!-- Q5 -->
-        <div class="faq-item">
-          <button class="faq-q" type="button">
-            <span>A keni garanci?</span>
-            <span class="faq-icon" aria-hidden="true">
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                <path d="M6 2V10M2 6H10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-              </svg>
-            </span>
-          </button>
-          <div class="faq-a">
-            <div class="faq-a-inner">
-              Po. Çdo projekt vjen me <strong>garanci kthimi parash 30 ditë</strong>.
-              Nëse nuk jeni të kënaqur me rezultatin — ju kthejmë
-              paratë plotësisht, <strong>pa pyetje</strong>.
-            </div>
-          </div>
-        </div>
-
-        <!-- Q6 -->
+        <!-- Q5 (was Q6) -->
         <div class="faq-item">
           <button class="faq-q" type="button">
             <span>Mund ta paguaj me këste?</span>
@@ -513,7 +508,7 @@
             <div class="faq-a-inner">
               Çdo projekt ka <strong>2–3 raunde revizioni</strong> të përfshira gjatë procesit.
               Pas dorëzimit final, ndryshimet faturihen me <strong>40€/orë</strong>.
-              Klientët me paketë Business kanë mbështetje 30 ditë falas pas lansimit.
+              Klientët me paketë Business kanë mbështetje prioritare pas lansimit.
             </div>
           </div>
         </div>
@@ -698,10 +693,17 @@
   document.querySelectorAll('.faq-item').forEach(item => {
     const btn = item.querySelector('.faq-q');
     if (!btn) return;
+    btn.setAttribute('aria-expanded', 'false');
     btn.addEventListener('click', () => {
       const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-q')?.setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
     });
   });
 
