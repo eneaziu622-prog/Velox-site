@@ -1788,6 +1788,10 @@ body.sm-lock { overflow: hidden; }
 .stagger.in-view > *:nth-child(4) { transition-delay: .3s; }
 .stagger.in-view > *:nth-child(5) { transition-delay: .4s; }
 .stagger.in-view > *:nth-child(6) { transition-delay: .5s; }
+.stagger.in-view > *:nth-child(7) { transition-delay: .6s; }
+.stagger.in-view > *:nth-child(8) { transition-delay: .7s; }
+.stagger.in-view > *:nth-child(9) { transition-delay: .8s; }
+.stagger.in-view > *:nth-child(10) { transition-delay: .9s; }
 
 /* Char-by-char text reveal (used on big headings) */
 .char-reveal { display: inline-block; }
