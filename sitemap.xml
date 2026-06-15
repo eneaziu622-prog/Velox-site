@@ -1,37 +1,68 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://eneaziu622-prog.github.io/Velox-site/</loc>
+    <lastmod>2026-06-15</lastmod>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://eneaziu622-prog.github.io/Velox-site/web-design.html</loc>
+    <lastmod>2026-06-15</lastmod>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://eneaziu622-prog.github.io/Velox-site/branding.html</loc>
+    <lastmod>2026-06-15</lastmod>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://eneaziu622-prog.github.io/Velox-site/ui-ux.html</loc>
+    <lastmod>2026-06-15</lastmod>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://eneaziu622-prog.github.io/Velox-site/cmime.html</loc>
+    <lastmod>2026-06-15</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://eneaziu622-prog.github.io/Velox-site/faq.html</loc>
+    <lastmod>2026-06-15</lastmod>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://eneaziu622-prog.github.io/Velox-site/web-design-tirana.html</loc>
+    <lastmod>2026-06-15</lastmod>
+    <priority>0.85</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://eneaziu622-prog.github.io/Velox-site/seo.html</loc>
+    <lastmod>2026-06-15</lastmod>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://eneaziu622-prog.github.io/Velox-site/meta-ads.html</loc>
+    <lastmod>2026-06-15</lastmod>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://eneaziu622-prog.github.io/Velox-site/web-design-korce.html</loc>
+    <lastmod>2026-06-15</lastmod>
+    <priority>0.85</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://eneaziu622-prog.github.io/Velox-site/web-design-elbasan.html</loc>
+    <lastmod>2026-06-15</lastmod>
     <priority>0.85</priority>
     <changefreq>monthly</changefreq>
   </url>
