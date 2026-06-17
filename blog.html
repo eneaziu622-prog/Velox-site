@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="google-site-verification" content="google22feaed34476a4f1" />
+<title>Blog — Web Design, SEO & Marketing | VELOX Studio</title>
+<meta name="description" content="Udhëzues praktikë mbi web design, SEO dhe marketing dixhital për bizneset shqiptare. Mëso si të rritësh biznesin tënd online.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://eneaziu622-prog.github.io/Velox-site/blog.html">
+<link rel="stylesheet" href="velox-site.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VELOX Studio">
+<meta property="og:locale" content="sq_AL">
+<meta property="og:title" content="Blog — Web Design, SEO & Marketing | VELOX Studio">
+<meta property="og:description" content="Udhëzues praktikë mbi web design, SEO dhe marketing dixhital për bizneset shqiptare. Mëso si të rritësh biznesin tënd online.">
+<meta property="og:url" content="https://eneaziu622-prog.github.io/Velox-site/blog.html">
+<meta property="og:image" content="https://eneaziu622-prog.github.io/Velox-site/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Blog — Web Design, SEO & Marketing | VELOX Studio">
+<meta name="twitter:description" content="Udhëzues praktikë mbi web design, SEO dhe marketing dixhital për bizneset shqiptare. Mëso si të rritësh biznesin tënd online.">
+<meta name="twitter:image" content="https://eneaziu622-prog.github.io/Velox-site/og-image.jpg">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Blog","name":"Blog VELOX Studio","description":"Udhëzues mbi web design, SEO dhe marketing dixhital për bizneset shqiptare.","url":"https://eneaziu622-prog.github.io/Velox-site/blog.html","publisher":{"@type":"Organization","name":"VELOX Studio"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Kreu","item":"https://eneaziu622-prog.github.io/Velox-site/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://eneaziu622-prog.github.io/Velox-site/blog.html"}]}
+</script>
+<style>
+.nav-dropdown { position: relative; display: inline-flex; align-items: center; }
+.nav-dropdown-toggle { display: inline-flex; align-items: center; gap: 5px; padding: 8px 14px 8px 18px; border-radius: 999px; font-size: 14px; font-weight: 400; font-family: var(--sans); color: var(--ink-2); text-decoration: none; transition: color .2s, background .2s; cursor: pointer; border: none; background: none; white-space: nowrap; }
+.nav-dropdown-toggle:hover, .nav-dropdown.open .nav-dropdown-toggle { color: var(--ink); background: rgba(13,26,58,0.05); }
+.nav-dropdown-toggle .chev { transition: transform .22s var(--ease-out); flex-shrink: 0; color: var(--ink-3); }
+.nav-dropdown.open .nav-dropdown-toggle .chev { transform: rotate(180deg); }
+.nav-dropdown-menu { position: absolute; top: calc(100% + 10px); left: 50%; transform: translateX(-50%) translateY(-4px); background: rgba(244,247,251,0.97); backdrop-filter: saturate(180%) blur(16px); -webkit-backdrop-filter: saturate(180%) blur(16px); border: 1px solid var(--line); border-radius: 16px; box-shadow: 0 20px 40px -12px rgba(13,26,58,0.18), 0 2px 8px rgba(13,26,58,0.06); padding: 6px; min-width: 210px; opacity: 0; pointer-events: none; transition: opacity .2s var(--ease-out), transform .2s var(--ease-out); z-index: 200; }
+.nav-dropdown:hover .nav-dropdown-menu, .nav-dropdown.open .nav-dropdown-menu { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+.nav-dropdown-item { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 14px; border-radius: 10px; font-size: 13.5px; font-weight: 500; color: var(--ink); text-decoration: none; transition: background .15s; }
+.nav-dropdown-item:hover { background: rgba(13,26,58,.05); }
+
+/* ── Blog hub ── */
+.blog-header { padding-top: 140px; padding-bottom: 64px; border-bottom: 1px solid var(--line); }
+.blog-header-inner { max-width: 720px; }
+.blog-lede { font-size: 18px; line-height: 1.6; color: var(--ink-2); max-width: 600px; margin-top: 24px; }
+.blog-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; padding: 64px 0 88px; }
+.blog-card { display: flex; flex-direction: column; padding: 32px 30px 28px; border-radius: 20px; border: 1px solid var(--line); background: var(--bg); text-decoration: none; color: var(--ink); transition: transform .3s var(--ease-out), box-shadow .3s var(--ease-out), background .2s; }
+.blog-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); background: #fff; }
+.blog-card.feat { grid-column: 1 / -1; background: var(--navy); color: var(--inv); border-color: transparent; }
+.blog-tag { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--peach-2); }
+.blog-card.feat .blog-tag { color: var(--peach); }
+.blog-card-h { font-family: var(--serif); font-size: 24px; font-weight: 500; line-height: 1.18; letter-spacing: -0.01em; margin: 14px 0 10px; font-variation-settings: "SOFT" 100, "opsz" 144; }
+.blog-card.feat .blog-card-h { font-size: 32px; }
+.blog-card-p { font-size: 14.5px; color: var(--ink-2); line-height: 1.6; flex: 1; }
+.blog-card.feat .blog-card-p { color: rgba(244,247,251,.76); }
+.blog-card-meta { display: flex; gap: 14px; margin-top: 20px; font-family: var(--mono); font-size: 11px; letter-spacing: .04em; color: var(--ink-3); }
+.blog-card.feat .blog-card-meta { color: rgba(244,247,251,.5); }
+.blog-card-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; font-size: 13.5px; font-weight: 500; color: var(--navy); transition: gap .2s; }
+.blog-card.feat .blog-card-link { color: var(--peach); }
+.blog-card:hover .blog-card-link { gap: 10px; }
+
+/* ── Article ── */
+.article-header { padding-top: 130px; padding-bottom: 48px; border-bottom: 1px solid var(--line); }
+.article-header-inner { max-width: 760px; }
+.article-h1 { font-family: var(--serif); font-size: clamp(34px, 4.6vw, 58px); font-weight: 600; line-height: 1.1; letter-spacing: -0.02em; color: var(--ink); margin-top: 18px; font-variation-settings: "SOFT" 100, "opsz" 144; }
+.article-h1 em { color: var(--peach-2); font-style: italic; }
+.article-meta { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 26px; font-family: var(--mono); font-size: 12px; letter-spacing: .04em; color: var(--ink-3); }
+.article-body { max-width: 720px; margin: 0 auto; padding: 56px 0 24px; }
+.article-body > p, .article-body > ul, .article-body > ol { font-size: 17px; line-height: 1.75; color: var(--ink-2); margin: 0 0 22px; }
+.article-body h2 { font-family: var(--serif); font-size: 28px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); margin: 44px 0 16px; line-height: 1.2; font-variation-settings: "SOFT" 100, "opsz" 144; }
+.article-body h3 { font-family: var(--sans); font-size: 19px; font-weight: 600; color: var(--ink); margin: 30px 0 10px; }
+.article-body ul, .article-body ol { padding-left: 22px; }
+.article-body li { margin-bottom: 10px; }
+.article-body strong { color: var(--ink); font-weight: 600; }
+.article-body a { color: var(--navy); font-weight: 500; text-decoration: underline; text-underline-offset: 3px; }
+.article-table { width: 100%; border-collapse: collapse; margin: 8px 0 26px; font-size: 15px; }
+.article-table th, .article-table td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--line); }
+.article-table th { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); font-weight: 500; }
+.article-table td { color: var(--ink-2); }
+.article-callout { background: var(--bg-warm); border-radius: 16px; padding: 26px 28px; margin: 8px 0 26px; font-size: 15.5px; line-height: 1.65; color: var(--ink-2); border: 1px solid var(--line); }
+.article-cta { max-width: 720px; margin: 24px auto 0; padding: 40px; border-radius: 22px; background: var(--navy); color: var(--inv); text-align: center; }
+.article-cta h2 { font-family: var(--serif); font-size: 28px; font-weight: 600; color: var(--inv); margin: 0 0 10px; }
+.article-cta p { color: rgba(244,247,251,.76); margin: 0 0 22px; font-size: 15px; }
+.article-share { max-width: 720px; margin: 40px auto 0; padding-top: 28px; border-top: 1px solid var(--line); display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+.article-share span { font-family: var(--mono); font-size: 12px; color: var(--ink-3); letter-spacing: .04em; }
+
+@media (max-width: 900px) { .blog-grid { grid-template-columns: 1fr; } }
+@media (max-width: 600px) { .article-body > p, .article-body > ul, .article-body > ol { font-size: 16px; } .article-cta { padding: 30px 24px; } }
+</style>
+</head>
+<body>
+  <div class="bg-layer" aria-hidden="true"><div class="bg-grid"></div><div class="bg-glow"></div><div class="bg-glow b"></div></div>
+
+  <nav class="nav" id="nav">
+    <a href="index.html" class="logo" aria-label="VELOX">
+      <img src="logos/velox-stamp-blue.png" alt="VELOX Studio logo — web design profesional Pogradec" class="logo-img" />
+    </a>
+    <div class="nav-links" role="navigation">
+      <a href="index.html#work">Puna</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+          Shërbimet
+          <svg class="chev" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="nav-dropdown-menu" role="menu">
+          <a href="web-design.html" class="nav-dropdown-item" role="menuitem">Web Design</a>
+          <a href="branding.html" class="nav-dropdown-item" role="menuitem">Brend &amp; Identitet</a>
+          <a href="ui-ux.html" class="nav-dropdown-item" role="menuitem">UI/UX Design</a>
+          <a href="seo.html" class="nav-dropdown-item" role="menuitem">SEO &amp; Performancë</a>
+          <a href="meta-ads.html" class="nav-dropdown-item" role="menuitem">Meta Ads</a>
+        </div>
+      </div>
+      <a href="cmime.html">Çmimet</a>
+      <a href="blog.html" style="color:var(--navy);font-weight:500">Blog</a>
+      <a href="faq.html">FAQ</a>
+      <a href="index.html#contact">Kontakt</a>
+    </div>
+    <div class="nav-right">
+      <span class="nav-time" id="local-time">Pogradec · 00:00</span>
+      <a href="https://wa.me/355692081322" class="nav-cta">Të flasim
+        <span class="nav-cta-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10 L10 2 M4 2 H10 V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <button class="nav-burger" id="nav-burger" aria-label="Hap menunë" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-inner">
+      <a href="index.html#work" class="mm-link"><span class="mm-num">01</span> Puna <span class="mm-arrow">→</span></a>
+      <a href="cmime.html" class="mm-link"><span class="mm-num">02</span> Çmimet <span class="mm-arrow">→</span></a>
+      <a href="blog.html" class="mm-link"><span class="mm-num">03</span> Blog <span class="mm-arrow">→</span></a>
+      <a href="faq.html" class="mm-link"><span class="mm-num">04</span> FAQ <span class="mm-arrow">→</span></a>
+      <a href="index.html#process" class="mm-link"><span class="mm-num">05</span> Procesi <span class="mm-arrow">→</span></a>
+      <a href="index.html#contact" class="mm-link"><span class="mm-num">06</span> Kontakt <span class="mm-arrow">→</span></a>
+      <div class="mm-foot">
+        <a href="https://wa.me/355692081322" class="btn btn-primary mm-cta">Bisedo në WhatsApp <span class="arrow">→</span></a>
+        <div class="mm-meta"><span>Pogradec, Shqipëri</span><span id="mm-time">00:00</span></div>
+      </div>
+    </div>
+  </div>
+  <main>
+    <section class="shell blog-header">
+      <div class="blog-header-inner reveal">
+        <div class="section-tag">Blog</div>
+        <h1 class="section-h" style="margin-top:18px; font-size:clamp(40px,5vw,68px)">Udhëzues për të rritur <em>biznesin tënd online</em></h1>
+        <p class="blog-lede">Këshilla praktike mbi web design, SEO dhe marketing dixhital — të shkruara për bizneset shqiptare. Pa zhargon, vetëm gjëra që funksionojnë.</p>
+      </div>
+    </section>
+    <section class="shell">
+      <div class="blog-grid stagger">
+
+        <a href="blog-sa-kushton-nje-faqe-interneti.html" class="blog-card feat">
+          <span class="blog-tag">Udhëzues · Çmime</span>
+          <h2 class="blog-card-h">Sa kushton një faqe interneti në Shqipëri? (2026)</h2>
+          <p class="blog-card-p">Sa kushton një faqe interneti në Shqipëri në 2026? Çmimet sipas tipit — landing page, faqe biznesi, e-commerce — dhe çfarë ndikon vërtet në koston.</p>
+          <div class="blog-card-meta"><span>6 min lexim</span><span>17 Qershor 2026</span></div>
+          <span class="blog-card-link">Lexo artikullin →</span>
+        </a>
+
+        <a href="blog-webflow-apo-wordpress.html" class="blog-card">
+          <span class="blog-tag">Krahasim · Teknologji</span>
+          <h2 class="blog-card-h">Webflow apo WordPress për biznesin tënd?</h2>
+          <p class="blog-card-p">Webflow apo WordPress për faqen e biznesit tënd? Krahasim i ndershëm — kosto, shpejtësi, mirëmbajtje, SEO dhe kur të zgjedhësh secilën.</p>
+          <div class="blog-card-meta"><span>5 min lexim</span><span>17 Qershor 2026</span></div>
+          <span class="blog-card-link">Lexo artikullin →</span>
+        </a>
+
+        <a href="blog-pse-biznesi-ka-nevoje-faqe-interneti.html" class="blog-card">
+          <span class="blog-tag">Strategji · Biznes</span>
+          <h2 class="blog-card-h">5 arsye pse biznesi yt ka nevojë për një faqe</h2>
+          <p class="blog-card-p">A ka vërtet nevojë biznesi yt për faqe interneti kur ke Facebook dhe Instagram? Ja 5 arsye konkrete pse përgjigjja është po — në 2026.</p>
+          <div class="blog-card-meta"><span>4 min lexim</span><span>17 Qershor 2026</span></div>
+          <span class="blog-card-link">Lexo artikullin →</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-shell">
+      <div class="reveal">
+        <h2 class="footer-big">Më shumë klientë. <em>Më pak fjalë.</em></h2>
+        <div class="footer-ctas">
+          <a href="https://wa.me/355692081322" class="footer-cta">WhatsApp <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11 L11 3 M5 3 H11 V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="mailto:Eneaziu622@gmail.com" class="footer-cta ghost">Email <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11 L11 3 M5 3 H11 V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h6>Studio</h6>
+          <div class="footer-studio">Pogradec, <em>Shqipëri.</em></div>
+          <p style="margin-top:14px; color:rgba(244,247,251,0.7); font-size:14px">Rruga e Kavajës 1001</p>
+          <p style="color:rgba(244,247,251,0.5); font-size:13px; font-family:var(--mono); letter-spacing:.06em; text-transform:uppercase" id="footer-time">Ora lokale —</p>
+        </div>
+        <div class="footer-col">
+          <h6>Navigo</h6>
+          <a href="index.html">Kreu</a>
+          <a href="index.html#services">Shërbimet</a>
+          <a href="cmime.html">Çmimet</a>
+          <a href="blog.html">Blog</a>
+          <a href="faq.html">FAQ</a>
+          <a href="index.html#contact">Kontakt</a>
+        </div>
+        <div class="footer-col">
+          <h6>Shërbimet</h6>
+          <a href="web-design.html">Web Design</a>
+          <a href="branding.html">Brend &amp; identitet</a>
+          <a href="ui-ux.html">UI produkti</a>
+          <a href="seo.html">SEO &amp; Performancë</a>
+          <a href="meta-ads.html">Meta Ads</a>
+        </div>
+        <div class="footer-col">
+          <h6>Na ndiq</h6>
+          <a href="https://www.instagram.com/velox.design.al/" target="_blank" rel="noopener">Instagram ↗</a>
+          <span style="color:rgba(244,247,251,0.35); font-size:14px">LinkedIn ↗</span>
+          <p style="margin-top:14px; color:rgba(244,247,251,0.7); font-size:14px">@velox<em style="color:var(--peach); font-family:var(--serif); font-style:italic">.al</em></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 VELOX Studio</span>
+        <div class="footer-bottom-r"><span>Bërë në Shqipëri · me kujdes</span><span>Të gjitha të drejtat e rezervuara</span></div>
+      </div>
+    </div>
+    <img src="logos/velox-stamp-white.png" alt="" aria-hidden="true" class="footer-watermark" />
+  </footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 12);
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  function fmt(n){return n.toLocaleTimeString('en-GB',{timeZone:'Europe/Tirane',hour:'2-digit',minute:'2-digit'});}
+  function tick(){const t=fmt(new Date());const el=document.getElementById('local-time');const fel=document.getElementById('footer-time');const mt=document.getElementById('mm-time');if(el)el.textContent='Pogradec · '+t;if(fel)fel.textContent='Ora lokale '+t;if(mt)mt.textContent=t;}
+  tick(); setInterval(tick, 30000);
+  const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-view');io.unobserve(e.target);}});},{rootMargin:'0px 0px -10% 0px',threshold:0.05});
+  document.querySelectorAll('.reveal, .stagger, .process').forEach(el=>io.observe(el));
+  const burger=document.getElementById('nav-burger'), mm=document.getElementById('mobile-menu');
+  function setMenu(o){document.body.classList.toggle('menu-open',o);burger.setAttribute('aria-expanded',o?'true':'false');mm.setAttribute('aria-hidden',o?'false':'true');}
+  burger?.addEventListener('click',()=>setMenu(!document.body.classList.contains('menu-open')));
+  mm?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+  document.querySelectorAll('.nav-dropdown').forEach(dd=>{const t=dd.querySelector('.nav-dropdown-toggle');if(!t)return;t.addEventListener('click',(e)=>{e.stopPropagation();const o=dd.classList.contains('open');document.querySelectorAll('.nav-dropdown.open').forEach(d=>{d.classList.remove('open');d.querySelector('.nav-dropdown-toggle')?.setAttribute('aria-expanded','false');});if(!o){dd.classList.add('open');t.setAttribute('aria-expanded','true');}});});
+  document.addEventListener('click',()=>{document.querySelectorAll('.nav-dropdown.open').forEach(dd=>{dd.classList.remove('open');dd.querySelector('.nav-dropdown-toggle')?.setAttribute('aria-expanded','false');});});
+  document.addEventListener('keydown',(e)=>{if(e.key==='Escape'){setMenu(false);document.querySelectorAll('.nav-dropdown.open').forEach(dd=>dd.classList.remove('open'));}});
+</script>
+</body>
+</html>
