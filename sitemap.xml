@@ -66,4 +66,28 @@
     <priority>0.85</priority>
     <changefreq>monthly</changefreq>
   </url>
+  <url>
+    <loc>https://eneaziu622-prog.github.io/Velox-site/blog.html</loc>
+    <lastmod>2026-06-17</lastmod>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://eneaziu622-prog.github.io/Velox-site/blog-sa-kushton-nje-faqe-interneti.html</loc>
+    <lastmod>2026-06-17</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://eneaziu622-prog.github.io/Velox-site/blog-webflow-apo-wordpress.html</loc>
+    <lastmod>2026-06-17</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://eneaziu622-prog.github.io/Velox-site/blog-pse-biznesi-ka-nevoje-faqe-interneti.html</loc>
+    <lastmod>2026-06-17</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
 </urlset>
