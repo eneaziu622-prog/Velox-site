@@ -159,6 +159,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..800,100;1,9..144,400..800,100&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="velox-site.css">
+<script src="velox-fx.js" defer></script>
 <style>
 /* ── Pricing section — main page ───────────────────────────── */
 .pricing-preview { padding-top: 80px; padding-bottom: 80px; }
@@ -235,11 +236,11 @@
   transition: opacity .18s, transform .14s; letter-spacing: .01em; margin-top: auto;
 }
 .price-cta-btn:hover { opacity: .86; transform: translateY(-1px); }
-.price-cta-btn.solid   { background: #00D45E; color: #000000; }
-.price-cta-btn.accent  { background: #00D45E; color: #000000; font-weight: 600; }
-.price-cta-btn.outline { background: rgba(255,255,255,.45); border: 1px solid var(--line); color: var(--ink); }
-.price-cta-btn.solid:hover,
-.price-cta-btn.accent:hover { background: #00B350; opacity: 1; }
+.price-cta-btn.solid   { background: var(--blue); color: var(--inv); box-shadow: 0 8px 20px -10px rgba(42,70,155,.5); }
+.price-cta-btn.accent  { background: var(--peach); color: var(--navy); font-weight: 600; box-shadow: 0 8px 20px -10px rgba(233,181,138,.55); }
+.price-cta-btn.outline { background: rgba(255,253,247,.5); border: 1px solid var(--line); color: var(--ink); }
+.price-cta-btn.solid:hover  { background: var(--blue-2); opacity: 1; }
+.price-cta-btn.accent:hover { background: var(--peach-2); opacity: 1; }
 
 /* ── Nav dropdown ── */
 .nav-dropdown { position: relative; display: inline-flex; align-items: center; }
@@ -257,7 +258,7 @@
 .nav-dropdown-menu {
   position: absolute; top: calc(100% + 10px);
   left: 50%; transform: translateX(-50%) translateY(-4px);
-  background: rgba(244,247,251,0.97);
+  background: rgba(250,246,238,0.97);
   backdrop-filter: saturate(180%) blur(16px); -webkit-backdrop-filter: saturate(180%) blur(16px);
   border: 1px solid var(--line); border-radius: 16px;
   box-shadow: 0 20px 40px -12px rgba(13,26,58,0.18), 0 2px 8px rgba(13,26,58,0.06);
